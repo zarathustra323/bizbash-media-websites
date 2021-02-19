@@ -1,0 +1,14 @@
+{
+  "<global-company-logo-element>": {
+    "template": "./company-logo.marko",
+    "@content": "object"
+  },
+  "<global-image-slider-element>": {
+    "template": "./image-slider.marko",
+    "@images" : "array"
+  },
+  "<global-gam-content-targeting-element>": {
+    "template": "./gam-content-targeting.marko",
+    "@obj": "object"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "<global-content-company-page-wrapper>": {
+    "template": "./company.marko",
+    "@id": "string",
+    "@type": "string"
+  }
+}
