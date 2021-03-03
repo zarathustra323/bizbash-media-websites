@@ -29,11 +29,6 @@ $theme-site-header-breakpoints: map-merge(
 
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
-@import "./components/inquiry-form";
-@import "./components/primary-image";
-@import "./components/carousel";
-@import "./components/contact-us-form"; // @todo this should be remove once contact us is in core
-@import "./components/company-page";
 
 .leaders {
   @include border-radius($theme-card-border-radius);
