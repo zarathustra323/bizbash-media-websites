@@ -1,17 +1,184 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700|Source+Serif+Pro:400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,700,700i|Open+Sans:400,400i,700,700i|Roboto+Condensed:700,400|Oswald:500,700&display=swap");
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/scss/functions";
 
-$theme-font-family-sans-serif: "IBM Plex Sans", sans-serif;
-$theme-font-family-serif: "Source Serif Pro", serif;
-$theme-font-family-page-title: $theme-font-family-sans-serif;
+// Bizbash specific vars
+$bizbash-letter-spacing:  .1px;
+$theme-site-footer-logo-height: 80px;
 
-$theme-site-navbar-secondary-bg-color: #000;
-$theme-site-navbar-primary-bg-color: #000;
-$theme-card-header-background-color: #000;
+// Fonts
+$font-source-sans-pro:    "Source Sans Pro", "Arial", sans-serif;
+$font-open-sans:          "Open Sans", "Arial", sans-serif;
+$font-oswald:             "Oswald", "Arial", sans-serif;
+$font-roboto-condensed:   "Roboto Condensed", sans-serif;
+
+$theme-font-family-sans-serif: $font-open-sans;
+$theme-font-family-page-title: $font-source-sans-pro;
+
+// Colors
+$primary:   #0072bb;
+$black:     #000;
+$white:     #fff;
+$gray-600:  #4d4d4d;
+
+// General Settings
+$body-bg:     #fff;
+$body-color:  #333;
+$list-group-border-width: 0;
+$enable-shadows: false;
+$enable-rounded: false;
+$breadcrumb-divider-color: $black;
+
+// Headings
+$theme-heading-font-family: $font-source-sans-pro;
+
+// Items
+$theme-item-footer-font-family:         $font-oswald;
+$theme-item-footer-font-size:           11px;
+$theme-item-footer-font-weight:         500;
+$theme-item-footer-text-transform:      uppercase;
+
+$theme-item-title-font-family:          $theme-heading-font-family;
+$theme-item-title-font-size-sm:         15.575px;
+$theme-item-title-font-size:            16.675px;
+$theme-item-title-font-weight:          300;
+$theme-item-title-line-height-sm:       get-line-height($theme-item-title-font-size-sm, 21.345px) !default;
+$theme-item-title-line-height:          get-line-height($theme-item-title-font-size, 23.345px) !default;
+$theme-item-title-max-lines:            5;
+
+$theme-item-title-large-font-size-sm:   28px;
+$theme-item-title-large-font-size:      32px;
+$theme-item-title-large-font-weight:    700;
+$theme-item-title-large-line-height-sm: get-line-height($theme-item-title-large-font-size-sm, 34px) !default;
+$theme-item-title-large-line-height:    get-line-height($theme-item-title-large-font-size, 38px) !default;
+$theme-item-title-large-max-lines:      4;
+
+$theme-item-description-font-family:    $font-open-sans;
+$theme-item-description-font-size-sm:   13px;
+$theme-item-description-font-size:      13px;
+$theme-item-description-line-height-sm: get-line-height($theme-item-description-font-size-sm, 24px) !default;
+$theme-item-description-line-height:    get-line-height($theme-item-description-font-size, 24px) !default;
+$theme-item-description-margin:         10px;
+
+// Pages
+$theme-page-title-font-size:    32px;
+$theme-page-title-font-weight:  700;
+
+$theme-page-deck-color:         #565656;
+$theme-page-deck-font-size:     18px;
+
+$theme-page-body-font-family:   $font-open-sans;
+$theme-page-body-font-size:     16px;
+$theme-page-body-font-size-sm:  16px;
+
+$theme-page-body-images-title-font-size:    17px;
+$theme-page-body-images-title-font-weight:  700;
+
+$theme-page-body-media-gallery-image-name-font-family:  $font-oswald;
+$theme-page-body-media-gallery-image-name-font-weight:  700;
+
+// Content Attribution
+$theme-content-attribution-color:                   $gray-600;
+$theme-content-attribution-font-family:             $font-oswald;
+$theme-content-attribution-font-size:               12px;
+$theme-content-attribution-font-weight:             700;
+$theme-content-attribution-text-transform:          uppercase;
+$theme-content-attribution-prefix-spacer-content:   "";
+$theme-content-attribution-prefix-margin-after:     0;
+
+// Content Published Date
+$theme-content-published-date-color:            $theme-content-attribution-color;
+$theme-content-published-date-font-family:      $theme-content-attribution-font-family;
+$theme-content-published-date-font-size:        $theme-content-attribution-font-size;
+$theme-content-published-date-font-weight:      $theme-content-attribution-font-weight;
+$theme-content-published-date-text-transform:   $theme-content-attribution-text-transform;
+
+// Contact Details
+$theme-contact-details-font-size:         12px;
+$theme-contact-details-font-weight:       700;
+$theme-contact-details-label-font-weight: 700;
+
+// Breadcrumbs
+$theme-breadcrumbs-font-family:   $font-roboto-condensed;
+$theme-breadcrumbs-font-size:     12px;
+$theme-breadcrumbs-font-size-sm:  12px;
+$theme-breadcrumbs-font-weight:   600;
+
+// Cards
+$theme-card-header-color:             $primary;
+$theme-card-header-background-color:  #fff;
+$theme-card-header-border:            none;
+$theme-card-header-font-family:       $font-oswald;
+$theme-card-header-font-size:         26.825px;
+$theme-card-header-font-weight:       700;
+$theme-card-header-letter-spacing:    $bizbash-letter-spacing;
+
+
+// Media
+$theme-media-caption-color:       #464646;
+$theme-media-caption-font-weight: 400;
+$theme-media-credit-color:        #777;
+$theme-media-credit-font-size:    12px;
+$theme-media-credit-font-style:   initial;
+$theme-media-footer-font-size:    14px;
+$theme-media-footer-padding-x:    0;
+$theme-media-footer-padding-y:    .5rem;
+
+// Load More
+$theme-load-more-header-color:        $theme-card-header-color;
+$theme-load-more-header-font-family:  $theme-card-header-font-family;
+$theme-load-more-header-font-size:    $theme-card-header-font-size;
+$theme-load-more-header-font-weight:  $theme-card-header-font-weight;
+
+// Navbar / Header
+$theme-site-header-breakpoints: (
+  hide-primary: 896px,
+  hide-secondary: 1065px,
+  small-logo: 860px,
+  small-text-primary: 1020px,
+  small-text-secondary: 860px
+);
+
+$theme-site-navbar-primary-bg-color:        $black;
+$theme-site-navbar-primary-font-family:     $font-source-sans-pro;
+$theme-site-navbar-primary-font-size:       18.5px;
+$theme-site-navbar-primary-font-size-sm:    16px;
+$theme-site-navbar-primary-font-weight:     700;
+$theme-site-navbar-primary-line-height:     1;
+
+$theme-site-navbar-primary-link-active-color:       $primary;
+$theme-site-navbar-primary-link-active-decoration:  none;
+$theme-site-navbar-primary-link-color:              #fff;
+$theme-site-navbar-primary-link-hover-color:        #fff;
+
+$theme-site-navbar-secondary-bg-color:      $black;
+$theme-site-navbar-secondary-font-size:     12px;
+$theme-site-navbar-secondary-font-size-sm:  12px;
+$theme-site-navbar-secondary-font-family:   $font-roboto-condensed;
+$theme-site-navbar-secondary-font-weight:   700;
+$theme-site-navbar-secondary-line-height:   1;
+
+$theme-site-navbar-secondary-link-color:              $primary;
+$theme-site-navbar-secondary-link-active-decoration:  none;
+$theme-site-navbar-secondary-hover-color:             $primary;
+
+$theme-site-navbar-tertiary-link-active-color:  $white;
+$theme-site-navbar-tertiary-link-color:         $white;
+$theme-site-navbar-tertiary-link-hover-color:   $white;
+
+$theme-site-navbar-menu-hover-background-color: lighten($primary, 60%);
+
+$theme-site-navbar-logo-height-sm: 45px;
+
+// Carousel
+$theme-carousel-caption-padding: 1rem;
+$theme-carousel-caption-text-shadow: rgba(0, 0, 0, .6) 0 1px 2px;
+$theme-carousel-caption-background: rgba(0, 0, 0, .75);
+
 
 $enable-rounded: false;
 
-$theme-site-navbar-logo-height: 30px;
-$theme-site-navbar-logo-height-sm: 25px;
+$theme-site-navbar-logo-height: 45px;
+$theme-site-navbar-logo-height-sm: 45px;
 
 $theme-site-header-breakpoints: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -99,5 +266,29 @@ $theme-site-header-breakpoints: map-merge(
   }
   &:not(:first-child) {
     margin-top: 1.5rem;
+  }
+}
+
+.page-contents {
+  .primary-image {
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    margin-bottom: $theme-primary-media-margin-bottom;
+    &__image-caption {
+      @include theme-media-caption();
+    }
+
+    &__image-credit {
+      @include theme-media-credit();
+    }
+
+    &__image-wrapper {
+      @include border-radius($theme-primary-media-border-radius);
+      @include box-shadow($theme-primary-media-box-shadow);
+      img {
+        @include border-radius($theme-primary-media-border-radius);
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
