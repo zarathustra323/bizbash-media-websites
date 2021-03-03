@@ -26,6 +26,10 @@
       "type": "number",
       "default-value": 300
     },
+    "@image-ar": {
+      "type": "string",
+      "default-value": "6:5"
+    },
     "@display-image": {
       "type": "boolean",
       "default-value": true
