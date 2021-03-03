@@ -15,13 +15,8 @@ $ const isOldContent = content.published < new Date(2019, 9, 30) || content.publ
   $ if (type === "contact") forceDisplay = "left";
   $ if (type === "video") forceDisplay = "none";
   $ const images = getAsArray(content, "images.edges").map(({ node }) => node);
-  <if(images.length > 1 && isOldContent)>
-    <global-image-slider-element images=images />
-  </if>
-  <else>
-    <global-primary-image-block
-      obj=content.primaryImage
-      force-display=forceDisplay
-    />
-  </else>
+  <global-primary-image-block
+    obj=content.primaryImage
+    force-display=forceDisplay
+  />
 </else-if>
