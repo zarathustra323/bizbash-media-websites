@@ -10,10 +10,11 @@ $ const { linkAttrs } = input;
 
 <marko-web-node
   type=`${content.type}-content`
-  image-position="top"
+  image-position="flush"
   card=true
   full-height=true
   attrs=input.attrs
+  modifiers=["image-overlay"]
 >
   <if(displayImage)>
     <@image
@@ -21,30 +22,24 @@ $ const { linkAttrs } = input;
       alt=primaryImage.alt
       is-logo=primaryImage.isLogo
       fluid=true
-      ar="21:9"
+      ar=input.imageAr
       width=(input.imageWidth || 300)
       link={ href: get(content, "siteContext.path"), attrs: linkAttrs }
-    />
+    >
+      <@body>
+        <@title tag="h5" modifiers=input.titleModifiers>
+          <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
+        </@title>
+        <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
+          <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+        </@text>
+        <@footer>
+          <@left>
+            <marko-web-website-section-name block-name="node" tag="span" modifiers=["webiste-section-name"] obj=primarySection link=true />
+            <marko-web-content-published block-name="node" tag="span" modifiers=["content-published"] obj=content />
+          </@left>
+        </@footer>
+      </@body>
+    </@image>
   </if>
-  <@body>
-    <@header>
-      <@left>
-        <marko-web-website-section-name obj=primarySection link=true />
-      </@left>
-    </@header>
-    <@title tag="h5" modifiers=input.titleModifiers>
-      <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
-    </@title>
-    <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
-      <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
-    </@text>
-    <@footer>
-      <@left>
-        <attribution content=content />
-      </@left>
-      <@right|{ blockName }|>
-        <dates block-name=blockName content=content />
-      </@right>
-    </@footer>
-  </@body>
 </marko-web-node>
