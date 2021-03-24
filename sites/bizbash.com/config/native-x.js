@@ -7,7 +7,7 @@ config
     { name: 'primary', id: '5d4af41d2ab3e700014e2dd6' },
     { name: 'load-more', id: '5d4af41d2ab3e700014e2dd6' },
   ])
-  .setAliasPlacements('catering', [
+  .setAliasPlacements('catering-design', [
     { name: 'primary', id: '5d4b04513bb2db00018cfa1a' },
   ])
   .setAliasPlacements('style-decor', [

@@ -71,16 +71,16 @@ $ const { id, alias, name, pageNode } = data;
       <div class="col-lg-4 mb-block">
         <marko-web-query|{ nodes }|
           name="website-scheduled-content"
-          params={ sectionAlias: "style-decor", limit: 5, queryFragment }
+          params={ sectionAlias: "catering-design", limit: 5, queryFragment }
         >
           <global-content-list-flow nodes=nodes>
             <@header>
-              <marko-web-link href="/style-decor">Style & Decor</marko-web-link>
+              <marko-web-link href="/catering-design">Catering & Design</marko-web-link>
             </@header>
             <@native-x
               index=4
               name="primary"
-              aliases=["style-decor"]
+              aliases=["catering-design"]
             />
           </global-content-list-flow>
         </marko-web-query>
@@ -91,16 +91,16 @@ $ const { id, alias, name, pageNode } = data;
       <div class="col-lg-4 mb-block">
         <marko-web-query|{ nodes }|
           name="website-scheduled-content"
-          params={ sectionAlias: "catering", limit: 5, queryFragment }
+          params={ sectionAlias: "event-tech-virtual", limit: 5, queryFragment }
         >
           <global-content-list-flow nodes=nodes>
             <@header>
-              <marko-web-link href="/catering">Catering</marko-web-link>
+              <marko-web-link href="/event-tech-virtual">Event Tech & Virtual</marko-web-link>
             </@header>
             <@native-x
               index=4
               name="primary"
-              aliases=["catering"]
+              aliases=["event-tech-virtual"]
             />
           </global-content-list-flow>
         </marko-web-query>
@@ -111,11 +111,11 @@ $ const { id, alias, name, pageNode } = data;
       <div class="col-lg-4 mb-block">
         <marko-web-query|{ nodes }|
           name="website-scheduled-content"
-          params={ sectionAlias: "local-venues-destinations", limit: 5, queryFragment }
+          params={ sectionAlias: "venues-destinations", limit: 5, queryFragment }
         >
           <global-content-list-flow nodes=nodes>
             <@header>
-              <marko-web-link href="/local-venues-destinations">Venues & Destinations</marko-web-link>
+              <marko-web-link href="/venues-destinations">Venues & Destinations</marko-web-link>
             </@header>
             <@native-x
               index=4
