@@ -9,7 +9,7 @@ _production-job: &production-job
   install: skip
   env:
     - "ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm"
-    
+
 _staging-job: &staging-job
   stage: staging
   name: SERVICE_NAME
@@ -27,7 +27,7 @@ stages:
     if: tag =~ /^v\d+\.\d+\.\d+$/
   - name: production-finished
     if: tag =~ /^v\d+\.\d+\.\d+$/
-    
+
   - name: staging-started
     if: tag is present
   - name: staging
@@ -69,6 +69,6 @@ jobs:
       name: Deployment Finished
       script: npx @parameter1/base-cms-website-deployment-tool notify-finished
     - <<: *staging-job
-      stage: production-finished
+      stage: staging-finished
       name: Deployment Finished
       script: npx @parameter1/base-cms-website-deployment-tool notify-finished
