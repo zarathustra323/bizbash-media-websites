@@ -9,6 +9,14 @@ _production-job: &production-job
   install: skip
   env:
     - "ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm"
+    
+_staging-job: &staging-job
+  stage: staging
+  name: SERVICE_NAME
+  script: scripts/deploy.js SERVICE_NAME
+  install: skip
+  env:
+    - "ENVIRONMENT=staging RANCHER_CLUSTERID=c-njflm"
 
 stages:
   - name: test
@@ -19,6 +27,13 @@ stages:
     if: tag =~ /^v\d+\.\d+\.\d+$/
   - name: production-finished
     if: tag =~ /^v\d+\.\d+\.\d+$/
+    
+  - name: staging-started
+    if: tag is present
+  - name: staging
+    if: tag is present
+  - name: staging-finished
+    if: tag is present
 
 jobs:
   include:
@@ -29,6 +44,10 @@ jobs:
       stage: production-started
       name: Deployment Started
       script: npx @parameter1/base-cms-website-deployment-tool notify-started
+    - <<: *staging-job
+      stage: staging-started
+      name: Deployment Started
+      script: npx @parameter1/base-cms-website-deployment-tool notify-started
 
     #############################
     ### vvv ADD SITES HERE vvv ##
@@ -37,12 +56,19 @@ jobs:
     - <<: *production-job
       name: bizbash.com
       script: npx @parameter1/base-cms-website-deployment-tool deploy bizbash.com websites
+    - <<: *staging-job
+      name: bizbash.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy bizbash.com staging-websites-tauron
 
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
 
     - <<: *production-job
+      stage: production-finished
+      name: Deployment Finished
+      script: npx @parameter1/base-cms-website-deployment-tool notify-finished
+    - <<: *staging-job
       stage: production-finished
       name: Deployment Finished
       script: npx @parameter1/base-cms-website-deployment-tool notify-finished
