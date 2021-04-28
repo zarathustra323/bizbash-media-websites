@@ -7,16 +7,15 @@ $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 
 $ const { linkAttrs } = input;
-
-<marko-web-node
-  type=`${content.type}-content`
-  image-position="flush"
-  card=true
-  full-height=true
-  attrs=input.attrs
-  modifiers=["image-overlay"]
->
-  <if(displayImage)>
+<if(displayImage)>
+  <marko-web-node
+    type=`${content.type}-content`
+    image-position="flush"
+    card=true
+    full-height=true
+    attrs=input.attrs
+    modifiers=["image-overlay"]
+  >
     <@image
       src=primaryImage.src
       alt=primaryImage.alt
@@ -41,5 +40,27 @@ $ const { linkAttrs } = input;
         </@footer>
       </@body>
     </@image>
-  </if>
-</marko-web-node>
+  </marko-web-node>
+</if>
+<else>
+  <marko-web-node
+    type=`${content.type}-content`
+    card=true
+    attrs=input.attrs
+  >
+    <@body>
+      <@title tag="h5" modifiers=input.titleModifiers>
+        <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
+      </@title>
+      <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
+        <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+      </@text>
+      <@footer>
+        <@left>
+          <marko-web-website-section-name block-name="node" tag="span" modifiers=["webiste-section-name"] obj=primarySection link=true />
+          <marko-web-content-published block-name="node" tag="span" modifiers=["content-published"] obj=content />
+        </@left>
+      </@footer>
+    </@body>
+  </marko-web-node>
+</else>

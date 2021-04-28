@@ -64,7 +64,15 @@
     "@aliases": "array",
     "@ad-index": "number",
     "@ad-name": "string",
-    "@ad-position": "string"
+    "@ad-position": "string",
+    "@display-image": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@with-teaser": {
+      "type": "boolean",
+      "default-value": false
+    }
   },
   "<global-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",

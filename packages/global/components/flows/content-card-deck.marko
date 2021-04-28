@@ -2,7 +2,7 @@ import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const { site, GAM } = out.global;
 $ const nxConfig = site.get('nativeX');
-$ const { aliases, adIndex, adName } = input;
+$ const { aliases, adIndex, adName, displayImage, withTeaser } = input;
 $ const nodes = getAsArray(input, "nodes");
 $ const nativeX = getAsObject(input, "nativeX");
 $ const adPosition = input.adPosition || "after";
@@ -17,7 +17,8 @@ $ const adPosition = input.adPosition || "after";
         config=nxConfig
       >
         <global-content-card-node
-          with-teaser=false
+          with-teaser=withTeaser
+          display-image=displayImage
           image-width=340
           node=nxNode
           attrs=containerAttrs
