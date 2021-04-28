@@ -31,7 +31,7 @@ module.exports = {
     containerId: process.env.GTM_CONTAINER_ID || 'GTM-5TWCFJ',
   },
   wufoo: {
-    userName: 'pmmimediagroup',
+    userName: 'NOT_SET',
   },
   magazines: {
     description: 'We cover the event industry like no other including: planning, production, new openings, events and trends in marketing, design and style. BizBash also offers resources for event professionals like our venues and suppliers directory, trade shows, and magazines.',
