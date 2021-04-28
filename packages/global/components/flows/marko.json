@@ -20,6 +20,18 @@
     "@inner-justified": {
       "type": "boolean",
       "default-value": true
+    },
+    "@image-width": {
+      "type": "number",
+      "default-value": 126
+    },
+    "@image-ar": {
+      "type": "string",
+      "default-value": "3:2"
+    },
+    "@image-position": {
+      "type": "string",
+      "default-value": "left"
     }
   },
   "<global-content-hero-flow>": {

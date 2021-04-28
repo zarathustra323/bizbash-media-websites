@@ -7,6 +7,7 @@ $ const nativeX = getAsObject(input, "nativeX");
 $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : false;
 $ const innerJustified = input.innerJustified != null ? input.innerJustified : true;
+$ const { imageAr: ar, imagePosition, imageWidth } = input;
 
 <marko-web-node-list inner-justified=innerJustified class=input.class>
   <if(input.header)>
@@ -26,6 +27,9 @@ $ const innerJustified = input.innerJustified != null ? input.innerJustified : t
           with-teaser=withTeaser
           attrs=containerAttrs
           link-attrs=linkAttrs
+          image-position=imagePosition
+          image-width=imageWidth
+          image-ar=ar
         />
       </marko-web-native-x-render>
     </@slot>

@@ -16,7 +16,19 @@
       "default-value": false
     },
     "@attrs": "object",
-    "@link-attrs": "object"
+    "@link-attrs": "object",
+    "@image-width": {
+      "type": "number",
+      "default-value": 126
+    },
+    "@image-ar": {
+      "type": "string",
+      "default-value": "3:2"
+    },
+    "@image-position": {
+      "type": "string",
+      "default-value": "left"
+    }
   },
   "<global-content-card-node>": {
     "template": "./content-card.marko",
