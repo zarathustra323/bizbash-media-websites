@@ -294,3 +294,13 @@ $theme-site-header-breakpoints: map-merge(
     }
   }
 }
+
+.site-menu {
+  width: 350px;
+  &__item {
+    border-bottom: none;
+  }
+  &__header {
+    border-bottom-width: 1px;
+  }
+}
