@@ -12,8 +12,6 @@ fragment WebsiteContentListFragment on Content {
   siteContext {
     path
   }
-  published
-  publishedDate(input: { format: "MMM Do, YYYY" })
   company {
     id
     type
