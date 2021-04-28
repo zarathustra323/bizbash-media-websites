@@ -1,0 +1,45 @@
+import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+<!-- import topics from '@bizbash-media/package-global/components/directory-search/supplier-topics'; -->
+
+$ const { GAM, site } = out.global;
+$ const { id, alias, name, pageNode } = data;
+$ const section = getAsObject(data, 'section');
+$ const aliases = hierarchyAliases(section);
+$ const adSlots = {
+  'gpt-ad-lb1': GAM.getAdUnit(site, { name: 'lb1', aliases }),
+  'gpt-ad-lb2': GAM.getAdUnit(site, { name: 'lb2', aliases }),
+};
+
+<!-- @deprecated init-native-x -->
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+       <marko-web-gam-slots slots=adSlots />
+    </marko-web-resolve-page>
+  </@head>
+
+  <@above-container>
+    <marko-web-gam-display-ad id="gpt-ad-leaderboard" modifiers=["above-container"] />
+  </@above-container>
+  <@page>
+    <div class="page-wrapper">
+      <div class="row">
+        <div class="col">
+          <div class="page-wrapper__header">
+            <h1 class="page-wrapper__title">${section.name}</h1>
+            <if(section.description)>
+              <p class="page-wrapper__description">$!{section.description}</p>
+            </if>
+          </div>
+          <div class="page-wrapper__body">
+            <!-- <bizbash-directory-search content-type="Supplier" topics=topics /> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </@page>
+</marko-web-website-section-page-layout>

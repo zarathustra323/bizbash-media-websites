@@ -1,0 +1,98 @@
+import { getAsObject } from "@parameter1/base-cms-object-path";
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+import queryFragment from '@bizbash-media/package-global/graphql/fragments/content-list';
+
+$ const blocks = [
+  { alias: "venues-destinations/alberta-calgary-edmonton", name: "Alberta: Calgary, Edmonton" },
+  { alias: "venues-destinations/atlanta", name: "Atlanta" },
+  { alias: "venues-destinations/boston", name: "Boston" },
+  { alias: "venues-destinations/chicago", name: "Chicago" },
+  { alias: "venues-destinations/denver", name: "Denver" },
+  { alias: "venues-destinations/las-vegas", name: "Las Vegas" },
+  { alias: "venues-destinations/los-angeles-southern-california", name: "Los Angeles / Southern California" },
+  { alias: "venues-destinations/miami-south-florida", name: "Miami / South Florida" },
+  { alias: "venues-destinations/montreal", name: "Montreal" },
+  { alias: "venues-destinations/nashville", name: "Nashville" },
+  { alias: "venues-destinations/new-york", name: "New York" },
+  { alias: "venues-destinations/north-america", name: "North America" },
+  { alias: "venues-destinations/orlando-central-florida", name: "Orlando / Central Florida" },
+  { alias: "venues-destinations/philadelphia", name: "Philadelphia" },
+  { alias: "venues-destinations/phoenix-scottsdale", name: "Phoenix / Scottsdale" },
+  { alias: "venues-destinations/san-francisco-northern-california", name: "San Francisco/Northern California" },
+  { alias: "venues-destinations/seattle", name: "Seattle" },
+  { alias: "venues-destinations/texas", name: "Texas" },
+  { alias: "venues-destinations/toronto", name: "Toronto" },
+  { alias: "venues-destinations/vancouver", name: "Vancouver" },
+  { alias: "venues-destinations/washington-dc", name: "Washington DC" },
+  // { alias: "venues-destinations/global", name: "Global" },
+];
+
+$ const { GAM, nativeX: nxConfig, site } = out.global;
+$ const { id, alias, name, pageNode } = data;
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      $ const adSlots = {
+        'gpt-ad-lb1': GAM.getAdUnit(site, { name: 'lb1', aliases }),
+        'gpt-ad-lb2': GAM.getAdUnit(site, { name: 'lb2', aliases }),
+        'gpt-ad-rail1': GAM.getAdUnit(site, { name: 'rail1', aliases, size: [300, 600] }),
+      };
+      <marko-web-gam-slots slots=adSlots />
+    </marko-web-resolve-page>
+  </@head>
+  <@above-container>
+    <marko-web-gam-display-ad id="gpt-ad-leaderboard" modifiers=["above-container"] />
+    <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
+  </@above-container>
+  <@page>
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
+        <@section>
+          <global-breadcrumbs-website-section section=section />
+          <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+          <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
+        </@section>
+        <@section>
+          <div class="row">
+            <for|item| of=blocks>
+              $ const itemHref = `/${item.alias}`;
+              <div class="col-lg-4 mb-block">
+                <marko-web-query|{ nodes }|
+                  name="website-scheduled-content"
+                  params={ sectionAlias: item.alias, limit: 4, queryFragment }
+                >
+                  <global-content-list-flow nodes=nodes>
+                    <@header>
+                      <marko-web-link href=`/${item.alias}`>${item.name}</marko-web-link>
+                    </@header>
+                  </global-content-list-flow>
+                </marko-web-query>
+              </div>
+            </for>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+
+  <@below-page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-load-more
+        component-name="content-load-more-flow"
+        component-input={ aliases }
+        fragment-name="content-list"
+        query-name="website-scheduled-content"
+        query-params={ sectionId: id, limit: 12, skip: 10, requiresImage: true }
+        max-pages=0
+        page-input={ for: "website-section", id }
+      />
+    </marko-web-resolve-page>
+  </@below-page>
+</marko-web-website-section-page-layout>
