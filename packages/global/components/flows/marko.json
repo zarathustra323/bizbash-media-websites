@@ -45,11 +45,6 @@
   },
   "<global-content-load-more-flow>": {
     "template": "./content-load-more.marko",
-    "<native-x>": {
-      "@index": "number",
-      "@name": "string",
-      "@aliases": "array"
-    },
     "@nodes": "array",
     "@aliases": "array"
   },
@@ -59,6 +54,10 @@
       "@index": "number",
       "@name": "string",
       "@aliases": "array"
+    },
+    "@col": {
+      "type": "number",
+      "default-value": 3
     },
     "@nodes": "array",
     "@aliases": "array",
