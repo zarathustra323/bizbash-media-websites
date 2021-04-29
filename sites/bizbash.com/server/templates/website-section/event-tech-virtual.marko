@@ -33,38 +33,36 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <div class="row">
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "event-tech-virtual/event-tech-tools", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/event-tech-virtual/event-tech-tools">Event Tech & Tools</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 ad-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "event-tech-virtual/strategy", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/event-tech-virtual/strategy">Strategy</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-          </div>
-        </@section>
       </marko-web-page-wrapper>
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "event-tech-virtual/event-tech-tools", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/event-tech-virtual/event-tech-tools">Event Tech & Tools</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 ad-rail">
+          <marko-web-gam-display-ad id="gpt-ad-rail1" />
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "event-tech-virtual/strategy", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/event-tech-virtual/strategy">Strategy</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+      </div>
     </marko-web-resolve-page>
   </@page>
   <@below-page>
@@ -75,7 +73,7 @@ $ const { id, alias, name, pageNode } = data;
         component-input={ aliases }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, requiresImage: true }
+        query-params={ sectionId: id, limit: 14, requiresImage: true }
         max-pages=0
         page-input={ for: "website-section", id }
       />

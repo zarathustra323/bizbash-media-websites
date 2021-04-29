@@ -31,23 +31,19 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionId: id, limit: 5, requiresImage: true, queryFragment }
-          >
-            <global-content-hero-flow nodes=nodes />
-          </marko-web-query>
-        </@section>
-        <@section>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionId: id, limit: 12, skip: 5, requiresImage: true, queryFragment }
-          >
-            <global-content-card-deck-flow nodes=nodes />
-          </marko-web-query>
-        </@section>
       </marko-web-page-wrapper>
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionId: id, limit: 5, requiresImage: true, queryFragment }
+      >
+        <global-content-hero-flow nodes=nodes />
+      </marko-web-query>
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionId: id, limit: 12, skip: 5, requiresImage: true, queryFragment }
+      >
+        <global-content-card-deck-flow nodes=nodes />
+      </marko-web-query>
     </marko-web-resolve-page>
   </@page>
 
@@ -59,7 +55,7 @@ $ const { id, alias, name, pageNode } = data;
         component-input={ aliases }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 17, requiresImage: true }
+        query-params={ sectionId: id, limit: 14, skip: 17, requiresImage: true }
         max-pages=0
         page-input={ for: "website-section", id }
       />

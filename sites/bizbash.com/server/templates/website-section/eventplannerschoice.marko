@@ -31,22 +31,20 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionId: id, limit: 12, requiresImage: true, queryFragment }
-          >
-            <global-content-list-flow
-              inner-justified=true
-              nodes=nodes
-              with-teaser=true
-              image-ar="16:9"
-              image-width=340
-              image-position='left'
-            />
-          </marko-web-query>
-        </@section>
       </marko-web-page-wrapper>
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionId: id, limit: 12, requiresImage: true, queryFragment }
+      >
+        <global-content-list-flow
+          inner-justified=true
+          nodes=nodes
+          with-teaser=true
+          image-ar="16:9"
+          image-width=340
+          image-position='left'
+        />
+      </marko-web-query>
     </marko-web-resolve-page>
   </@page>
 
