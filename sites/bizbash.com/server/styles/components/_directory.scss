@@ -143,3 +143,42 @@
     text-transform: uppercase;
   }
 }
+
+.directory-results {
+  .node-list {
+    $self: &;
+    &__node {
+      padding: 0;
+      @include marko-web-node-list-border($property: border-bottom);
+    }
+    &--pinned {
+      .node-list {
+        &__node {
+          border-bottom-width: 3px;
+        }
+      }
+      .node__image-wrapper {
+        margin-bottom: map-get($spacers, 3);
+      }
+      .node--card {
+        padding-top: map-get($spacers, 3);
+        padding-bottom: map-get($spacers, 3);
+      }
+      .node__body {
+        padding-left: 0;
+      }
+    }
+    .node {
+      &__title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &__text {
+        font-family: $font-roboto-condensed;
+        font-size: 14px;
+        line-height: 1.25rem;
+        color: rgba(51, 51, 51, 0.5);
+      }
+    }
+  }
+}

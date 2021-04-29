@@ -21,23 +21,26 @@ $ const topicId = Number(input.topicId);
       if (marketIds.includes(marketId, 'id')) arr.push(node);
       return arr;
     }, []);
-    <marko-web-node-list>
+    <marko-web-node-list modifiers=['pinned']>
       <@nodes nodes=pinned>
         <@slot|{ node }|>
           $ const primaryImage = getAsObject(node, "primaryImage");
           <marko-web-node
             type=`${node.type}-content`
             card=true
+            image-flush=true
             attrs=input.attrs
           >
-            <h3 class="content__presented-by">
-              Presented by $!{node.shortName}
-            </h3>
+            <@header>
+              <h3 class="content__presented-by">
+                Presented by $!{node.shortName}
+              </h3>
+            </@header>
             <@image
               src=primaryImage.src
               alt=primaryImage.alt
               is-logo=primaryImage.isLogo
-              fluid=false
+              fluid=true
               ar="16:9"
               width=640
               link={ href: get(node, "siteContext.path") }
