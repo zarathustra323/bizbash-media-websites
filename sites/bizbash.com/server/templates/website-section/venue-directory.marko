@@ -1,6 +1,6 @@
 import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
-<!-- import topics from '@bizbash-media/package-global/components/directory-search/venue-topics'; -->
+import topics from '@bizbash-media/package-global/components/directory-search/venue-topics';
 
 $ const { GAM, site } = out.global;
 $ const { id, alias, name, pageNode } = data;
@@ -36,7 +36,7 @@ $ const adSlots = {
             </if>
           </div>
           <div class="page-wrapper__body">
-            <!-- <bizbash-directory-search content-type="Venue" topics=topics /> -->
+            <global-directory-search content-type="Venue" topics=topics />
           </div>
         </div>
       </div>
