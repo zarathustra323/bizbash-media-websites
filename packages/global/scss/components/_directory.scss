@@ -157,15 +157,17 @@
           border-bottom-width: 3px;
         }
       }
-      .node__image-wrapper {
+      .node {
+        &__image-wrapper {
         margin-bottom: map-get($spacers, 3);
-      }
-      .node--card {
-        padding-top: map-get($spacers, 3);
-        padding-bottom: map-get($spacers, 3);
-      }
-      .node__body {
-        padding-left: 0;
+        }
+        &--card {
+          padding-top: map-get($spacers, 3);
+          padding-bottom: map-get($spacers, 3);
+        }
+        &__body {
+          padding-left: 0;
+        }
       }
     }
     .node {
