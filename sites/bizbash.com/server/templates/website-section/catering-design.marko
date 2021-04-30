@@ -33,114 +33,112 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <div class="row">
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/beverages", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/beverages">Beverages</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/food-trends", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/food-trends">Food Trends</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/event-design-decor", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/event-design-decor">Event Design & Decor</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/florals", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/florals">Florals</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/gifts-swag", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/gifts-swag">Gifts & Swag</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 ad-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/rentals", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/rentals">Rentals</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/tabletop", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/tabletop">Tabletop</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-            <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params={ sectionAlias: "catering-design/printing-graphics", limit: 5, queryFragment }
-              >
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href="/catering-design/printing-graphics">Printing & Graphics</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
-              </marko-web-query>
-            </div>
-          </div>
-        </@section>
       </marko-web-page-wrapper>
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/beverages", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/beverages">Beverages</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/food-trends", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/food-trends">Food Trends</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/event-design-decor", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/event-design-decor">Event Design & Decor</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/florals", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/florals">Florals</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/gifts-swag", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/gifts-swag">Gifts & Swag</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 ad-rail">
+          <marko-web-gam-display-ad id="gpt-ad-rail1" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/rentals", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/rentals">Rentals</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/tabletop", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/tabletop">Tabletop</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "catering-design/printing-graphics", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/catering-design/printing-graphics">Printing & Graphics</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+      </div>
     </marko-web-resolve-page>
   </@page>
   <@below-page>
@@ -151,7 +149,7 @@ $ const { id, alias, name, pageNode } = data;
         component-input={ aliases }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 10, requiresImage: true }
+        query-params={ sectionId: id, limit: 14, skip: 10, requiresImage: true }
         max-pages=0
         page-input={ for: "website-section", id }
       />

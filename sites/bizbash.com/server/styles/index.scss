@@ -1,13 +1,14 @@
-
 @import "../../node_modules/@bizbash-media/package-global/scss/index";
 @import "../../node_modules/bootstrap/scss/tables";
+
+$grid-gutter-width: 48px;
 
 body {
   letter-spacing: $bizbash-letter-spacing;
 }
 .document-container {
-  padding-right: map-get($spacers, block);
-  padding-left: map-get($spacers, block);
+  padding-right: map-get($spacers, 3);
+  padding-left: map-get($spacers, 3);
 }
 .page {
   padding-right: 0;

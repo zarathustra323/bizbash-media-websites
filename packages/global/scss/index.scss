@@ -5,8 +5,6 @@
 $bizbash-letter-spacing:  .1px;
 $theme-site-footer-logo-height: 80px;
 
-$grid-gutter-width: 48px;
-
 // Fonts
 $font-source-sans-pro:    "Source Sans Pro", "Arial", sans-serif;
 $font-open-sans:          "Open Sans", "Arial", sans-serif;
@@ -198,6 +196,7 @@ $theme-site-header-breakpoints: map-merge(
 
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
+@import "components/directory";
 
 .leaders {
   @include border-radius($theme-card-border-radius);
@@ -292,5 +291,15 @@ $theme-site-header-breakpoints: map-merge(
         height: auto;
       }
     }
+  }
+}
+
+.site-menu {
+  width: 350px;
+  &__item {
+    border-bottom: none;
+  }
+  &__header {
+    border-bottom-width: 1px;
   }
 }

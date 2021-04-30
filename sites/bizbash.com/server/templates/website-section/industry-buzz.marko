@@ -31,15 +31,13 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionId: id, limit: 24, queryFragment }
-          >
-            <global-content-card-deck-flow nodes=nodes display-image=false />
-          </marko-web-query>
-        </@section>
       </marko-web-page-wrapper>
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionId: id, limit: 24, queryFragment }
+      >
+        <global-content-card-deck-flow nodes=nodes display-image=false />
+      </marko-web-query>
     </marko-web-resolve-page>
   </@page>
 

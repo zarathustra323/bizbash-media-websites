@@ -58,26 +58,24 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
-        <@section>
-          <div class="row">
-            <for|item| of=blocks>
-              $ const itemHref = `/${item.alias}`;
-              <div class="col-lg-4 mb-block">
-                <marko-web-query|{ nodes }|
-                  name="website-scheduled-content"
-                  params={ sectionAlias: item.alias, limit: 4, queryFragment }
-                >
-                  <global-content-list-flow nodes=nodes>
-                    <@header>
-                      <marko-web-link href=`/${item.alias}`>${item.name}</marko-web-link>
-                    </@header>
-                  </global-content-list-flow>
-                </marko-web-query>
-              </div>
-            </for>
-          </div>
-        </@section>
       </marko-web-page-wrapper>
+      <div class="row">
+        <for|item| of=blocks>
+          $ const itemHref = `/${item.alias}`;
+          <div class="col-lg-4 mb-block">
+            <marko-web-query|{ nodes }|
+              name="website-scheduled-content"
+              params={ sectionAlias: item.alias, limit: 4, queryFragment }
+            >
+              <global-content-list-flow nodes=nodes>
+                <@header>
+                  <marko-web-link href=`/${item.alias}`>${item.name}</marko-web-link>
+                </@header>
+              </global-content-list-flow>
+            </marko-web-query>
+          </div>
+        </for>
+      </div>
     </marko-web-resolve-page>
   </@page>
 
@@ -89,7 +87,7 @@ $ const { id, alias, name, pageNode } = data;
         component-input={ aliases }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 10, requiresImage: true }
+        query-params={ sectionId: id, limit: 14, skip: 10, requiresImage: true }
         max-pages=0
         page-input={ for: "website-section", id }
       />
