@@ -90,6 +90,25 @@ fragment ContentPageFragment on Content {
   ... on ContentArticle {
     sidebars
   }
+  ... on ContentVenue {
+    enableRmi
+    spaces(input:{ pagination: { limit: 25 } }) {
+      edges {
+        node {
+          id
+          name
+          area
+          capacityMin
+          capacityMaxSeated
+          capacityMaxStanding
+          floorPlan {
+            id
+            src
+          }
+        }
+      }
+    }
+  }
   ... on ContentWebinar {
     linkUrl
     startDate
