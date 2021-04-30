@@ -10,5 +10,9 @@
   "<global-gam-content-targeting-element>": {
     "template": "./gam-content-targeting.marko",
     "@obj": "object"
+  },
+  "<global-venue-capacity>": {
+    "template": "./venue-capacity.marko",
+    "@spaces": "array"
   }
 }
