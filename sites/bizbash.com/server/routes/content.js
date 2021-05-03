@@ -6,7 +6,7 @@ const company = require('@bizbash-media/package-global/templates/content/company
 const content = require('@bizbash-media/package-global/templates/content');
 const contact = require('@bizbash-media/package-global/templates/content/contact');
 const podcast = require('@bizbash-media/package-global/templates/content/podcast');
-const venue = require('@bizbash-media/package-global/templates/content/venue');
+const venueSupplier = require('@bizbash-media/package-global/templates/content/venue-supplier');
 const webinar = require('@bizbash-media/package-global/templates/content/webinar');
 const document = require('@bizbash-media/package-global/templates/content/document');
 
@@ -28,7 +28,11 @@ module.exports = (app) => {
     queryFragment,
   }));
   app.get('/*?venue/:id(\\d{8})*', withContent({
-    template: venue,
+    template: venueSupplier,
+    queryFragment,
+  }));
+  app.get('/*?supplier/:id(\\d{8})*', withContent({
+    template: venueSupplier,
     queryFragment,
   }));
   app.get('/*?document/:id(\\d{8})*', withContent({

@@ -31,7 +31,6 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
         $ const section = resolved.getAsObject("primarySection");
         $ const aliases = hierarchyAliases(content.primarySection);
         <marko-web-page-wrapper>
-          $ console.log(content);
           <@section>
             <div class="row">
               <div class="col">
@@ -46,8 +45,8 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
             </div>
 
             <div class="row">
-              $ const containerClass = content.enableRmi ? 'col-lg-8' : 'col';
-              <div class=containerClass>
+              <div class="col-lg-8">
+                <default-theme-content-contact-details obj=content />
                 <marko-web-content-body obj=content />
                 <div class="page-wrapper__body">
                   $ const spaces = getAsArray(content, 'spaces.edges').map(({ node }) => node);
@@ -55,33 +54,14 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 </div>
               </div>
 
-              <if(content.enableRmi)>
-                <aside class="col-lg-4 page-rail">
-                  <global-inquiry-block content=content />
-                  <marko-web-gam-display-ad id="gpt-ad-rail1" />
-                </aside>
-              </if>
+              <aside class="col-lg-4 page-rail">
+                <global-inquiry-form content=content />
+              </aside>
             </div>
           </@section>
         </marko-web-page-wrapper>
       </marko-web-resolve-page>
     </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ resolved, data: content }| node=pageNode>
-      $ const section = resolved.getAsObject("primarySection");
-      $ const aliases = hierarchyAliases(section);
-      <global-content-load-more-block
-        id=id
-        type=type
-        name=content.name
-        aliases=aliases
-        section-id=section.id
-        section-name=section.name
-        section-skip=20
-      >
-      </global-content-load-more-block>
-    </marko-web-resolve-page>
-  </@below-page>
   <@foot>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
