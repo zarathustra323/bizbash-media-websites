@@ -14,5 +14,9 @@
   "<global-venue-capacity>": {
     "template": "./venue-capacity.marko",
     "@spaces": "array"
+  },
+  "<global-inquiry-form>": {
+    "template": "./inquiry-form.marko",
+    "@content": "object"
   }
 }
