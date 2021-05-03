@@ -1,7 +1,8 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
-import contentListFragment from "../../graphql/fragments/content-list";
+import issueFragment from "../../graphql/fragments/magazine-issue-archive";
 
 $ const { GAM, site } = out.global;
+$ const { id, pageNode } = data;
 
 <marko-web-magazine-issue-page-layout id=id>
   <@head>
@@ -21,39 +22,79 @@ $ const { GAM, site } = out.global;
                 <@item><marko-web-magazine-publication-name tag=null obj=issue.publication link=true /></@item>
                 <@item><marko-web-magazine-issue-name tag=null obj=issue /></@item>
               </default-theme-breadcrumbs-with-home>
-              <h1 class="page-wrapper__title">${issue.name}</h1>
-              <if(issue.description)>
-                <p class="page-wrapper__deck">${issue.description}</p>
-              </if>
+              <h1 class="page-wrapper__title">
+                <marko-web-link href='/magazine'>
+                  BizBash Magazine
+                </marko-web-link>
+              </h1>
+              <div class="magazine-publication-card-block">
+                <div class="magazine-publication-card-block__body">
+                  <div class="row">
+                    <div class="col-lg-8 pl-0">
+                      <marko-web-node image-position="left" modifiers=["flush"] flush=false>
+                        <@image
+                          src=issue.coverImage.src
+                          alt=(issue.coverImage.alt || issue.name)
+                          fluid=false
+                          ar="3:4"
+                          width=300
+                          link={ href: issue.canonicalPath, title: issue.name }
+                        />
+                        <@body>
+                          <@title tag="h5">
+                            <marko-web-magazine-issue-name tag=null obj=issue />
+                          </@title>
+                          <@text modifiers=["teaser"]>
+                            <marko-web-magazine-issue-description tag=null obj=issue />
+                          </@text>
+                          <@footer>
+                            <@left>
+                              <default-theme-magazine-publication-buttons publication=issue.publication issue=issue />
+                            </@left>
+                          </@footer>
+                        </@body>
+                      </marko-web-node>
+                    </div>
+                    <marko-web-query|{ nodes: issues }| name="magazine-active-issues"
+                      params={
+                        publicationId: issue.publication.id,
+                        excludeIssueIds: [issue.id],
+                        queryFragment: issueFragment,
+                        limit: 9,
+                        requiresCoverImage: true
+                      }
+                    >
+                      <div class="col-lg-4">
+                        <div class="row">
+                          <for|issue| of=issues>
+                            <div class="col-4 issue-archive-cover">
+                              <marko-web-node
+                                image-position="top"
+                                card=true
+                                flush=true
+                                full-height=true
+                              >
+                                <@image
+                                  src=issue.coverImage.src
+                                  alt=(issue.coverImage.alt || issue.name)
+                                  fluid=true
+                                  ar="3:4"
+                                  width=190
+                                  link={ href: issue.canonicalPath, title: issue.name }
+                                />
+                              </marko-web-node>
+                            </div>
+                          </for>
+                        </div>
+                      </div>
+                    </marko-web-query>
+                  </div>
+                </div>
+              </div>
             </marko-web-resolve-page>
           </div>
         </div>
       </@section>
     </marko-web-page-wrapper>
-
-    <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: 5, queryFragment: contentListFragment }>
-        <default-theme-featured-flow>
-          <@featured node=issue>
-            <global-magazine-latest-issue-node card=true flush=false node=issue />
-          </@featured>
-          <@list nodes=issueContent>
-            <global-content-list-flow nodes=issueContent />
-          </@list>
-        </default-theme-featured-flow>
-      </marko-web-query>
-    </marko-web-resolve-page>
   </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <marko-web-load-more
-        header=`More Content from ${issue.name}`
-        component-name="content-card-deck-flow"
-        fragment-name="content-list"
-        query-name="magazine-scheduled-content"
-        query-params={ issueId: id, limit: 10, skip: 5 }
-        page-input={ for: "magazine-issue", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page>
 </marko-web-magazine-issue-page-layout>
