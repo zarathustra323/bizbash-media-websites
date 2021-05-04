@@ -198,6 +198,7 @@ $theme-site-header-breakpoints: map-merge(
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
 @import "components/carousel";
 @import "components/directory";
+@import "components/page-body-media-gallery";
 
 .leaders {
   @include border-radius($theme-card-border-radius);
