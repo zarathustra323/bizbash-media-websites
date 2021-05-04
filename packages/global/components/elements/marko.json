@@ -21,6 +21,13 @@
       }
     }
   },
+  "<global-featured-venues-suppliers>": {
+    "template": "./featured-venues-suppliers.marko",
+    "@content-id": {
+      "type": "number",
+      "required": true
+    }
+  },
   "<global-venue-capacity>": {
     "template": "./venue-capacity.marko",
     "@spaces": "array"
