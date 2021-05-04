@@ -272,7 +272,8 @@ $theme-site-header-breakpoints: map-merge(
 }
 
 .page-contents {
-  .primary-image {
+  .primary-image,
+  .images .image {
     border-bottom: 1px solid rgba(0, 0, 0, .25);
     margin-bottom: $theme-primary-media-margin-bottom;
     &__image-caption {
@@ -302,5 +303,19 @@ $theme-site-header-breakpoints: map-merge(
   }
   &__header {
     border-bottom-width: 1px;
+  }
+}
+
+.page-attribution, .page-attribution div {
+  display: inline;
+}
+
+.page-attribution:not(:empty) + .page-dates {
+  display: inline;
+  &::before {
+    margin-right: .25rem;
+    margin-left: .25rem;
+    font-weight: 400;
+    content: "\2014";
   }
 }
