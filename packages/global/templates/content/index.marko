@@ -75,24 +75,21 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                     <div class="images">
                       <for|image, index| of=images>
                         <div id=`image-${image.id}`>
-                          <marko-web-element tag="h6" class=`image__title` >
-                            ${image.displayName}
-                          </marko-web-element>
-                          <div class="image">
-                            <div class="image__wrapper">
-                              <!-- @todo Add support for responsive images / size variance based on context -->
-                              <marko-web-img
-                                src=image.src
-                                srcset=image.src
-                                alt=image.displayName
-                              />
-                              <marko-web-image-caption class="image__image-caption" obj=image/>
-                              <marko-web-image-credit class="image__image-credit" obj=image/>
-                            </div>
-                          </div>
+                          <global-primary-image-block
+                            obj=image
+                            force-display=true
+                          />
                         </div>
                       </for>
                     </div>
+                  </if>
+                </if>
+                <if(content.type === 'top-list')>
+                  $ const galleries = getAsArray(content, 'relatedTo.edges').map(({ node }) => node).filter(node => node.type === 'media-gallery');
+                  <if(galleries.length)>
+                    <for|gallery| of=galleries>
+                      <global-body-media-gallery-element gallery=gallery />
+                    </for>
                   </if>
                 </if>
             </default-theme-page-contents>
