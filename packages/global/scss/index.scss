@@ -320,3 +320,31 @@ $theme-site-header-breakpoints: map-merge(
     content: "\2014";
   }
 }
+
+.node-list {
+  $self: &;
+  &--featured-venues-suppliers {
+    background-color: #e9ecef;
+
+    #{ $self } {
+      &__node {
+        padding-top: 0;
+        &:last-child {
+          padding-bottom: .75rem;
+        }
+        .node__contents--body {
+          margin-bottom: 0;
+        }
+      }
+      &__header,
+      &__nodes,
+      &__node .node {
+        background-color: #e9ecef;
+      }
+      &__header {
+        font-size: 20px;
+        padding-bottom: 0;
+      }
+    }
+  }
+}

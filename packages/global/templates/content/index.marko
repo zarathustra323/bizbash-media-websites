@@ -6,6 +6,7 @@ $ const { GAM, site } = out.global;
 $ const { id, type, pageNode } = data;
 
 $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
+$ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : false;
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -71,27 +72,30 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               </if>
               <if(content.type === "media-gallery")>
                 $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
-                  <if(images.length)>
-                    <div class="images">
-                      <for|image, index| of=images>
-                        <div id=`image-${image.id}`>
-                          <global-primary-image-block
-                            obj=image
-                            force-display=true
-                          />
-                        </div>
-                      </for>
-                    </div>
-                  </if>
-                </if>
-                <if(content.type === 'top-list')>
-                  $ const galleries = getAsArray(content, 'relatedTo.edges').map(({ node }) => node).filter(node => node.type === 'media-gallery');
-                  <if(galleries.length)>
-                    <for|gallery| of=galleries>
-                      <global-body-media-gallery-element gallery=gallery />
+                <if(images.length)>
+                  <div class="images">
+                    <for|image, index| of=images>
+                      <div id=`image-${image.id}`>
+                        <global-primary-image-block
+                          obj=image
+                          force-display=true
+                        />
+                      </div>
                     </for>
-                  </if>
+                  </div>
                 </if>
+              </if>
+              <if(content.type === 'top-list')>
+                $ const galleries = getAsArray(content, 'relatedTo.edges').map(({ node }) => node).filter(node => node.type === 'media-gallery');
+                <if(galleries.length)>
+                  <for|gallery| of=galleries>
+                    <global-body-media-gallery-element gallery=gallery />
+                  </for>
+                </if>
+              </if>
+              <if(displayVenueBox === true)>
+                <global-featured-venues-suppliers content-id=content.id />
+              </if>
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
