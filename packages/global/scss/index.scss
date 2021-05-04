@@ -285,7 +285,7 @@ $theme-site-header-breakpoints: map-merge(
       @include theme-media-credit();
     }
 
-    &__image-wrapper {
+    &__wrapper {
       @include border-radius($theme-primary-media-border-radius);
       @include box-shadow($theme-primary-media-box-shadow);
       img {
