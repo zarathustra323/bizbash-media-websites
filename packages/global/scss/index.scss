@@ -367,3 +367,10 @@ $theme-site-header-breakpoints: map-merge(
     }
   }
 }
+.magazine-publication-card-block {
+  &__body {
+    .issue-archive-cover {
+      margin-bottom: map-get($spacers, block);
+    }
+  }
+}
