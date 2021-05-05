@@ -17,8 +17,8 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
       $ const aliases = hierarchyAliases(content.primarySection);
       $ const adSlots = {
         "gpt-ad-leaderboard": GAM.getAdUnit({ name: "leaderboard", aliases }),
-        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250]}),
-        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 600] }),
+        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 600]}),
+        "gpt-ad-rail2": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250] }),
       };
       <marko-web-gam-slots slots=adSlots />
       <global-gam-content-targeting-element obj=content />
@@ -100,92 +100,19 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
 
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              <global-related-content-block
+                id=content.id
+                type=type
+                query-fragment=queryFragment
+                section-id=section.id
+                section-name=section.name
+              />
+              <marko-web-gam-display-ad id="gpt-ad-rail2" />
             </aside>
           </div>
 
         </@section>
       </marko-web-page-wrapper>
-
-      <div class="row mt-4">
-        <div class="col-lg-8">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: section.alias, limit: 4, queryFragment }
-          >
-            <default-theme-card-deck-flow cols=2 nodes=nodes>
-              <@slot|{ node, index }|>
-                <global-content-card-node
-                  with-teaser=false
-                  image-width=340
-                  node=node
-                />
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
-        </div>
-        <div class="col-lg-4 page-rail">
-          <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: section.alias, limit: 3, skip: 4, queryFragment }
-          >
-            <global-content-card-deck-flow nodes=nodes>
-              <@native-x index=1 name="load-more" />
-            </global-content-card-deck-flow>
-          </marko-web-query>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 page-rail">
-        </div>
-        <div class="col-lg-8">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: section.alias, limit: 2, skip: 7, queryFragment }
-          >
-            <default-theme-card-deck-flow cols=2 nodes=nodes>
-              <@slot|{ node, index }|>
-                <global-content-card-node
-                  with-teaser=false
-                  image-width=340
-                  node=node
-                />
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-query>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: section.alias, limit: 3, skip: 9, queryFragment }
-          >
-            <global-content-card-deck-flow nodes=nodes>
-              <@native-x index=2 name="load-more" />
-            </global-content-card-deck-flow>
-          </marko-web-query>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: section.alias, limit: 8, skip: 12, queryFragment }
-          >
-            <global-content-card-deck-flow nodes=nodes ad-index=4 ad-name="rail2" />
-          </marko-web-query>
-        </div>
-      </div>
-
     </marko-web-resolve-page>
   </@page>
   <@below-page>
@@ -199,7 +126,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
         aliases=aliases
         section-id=section.id
         section-name=section.name
-        section-skip=20
+        section-skip=5
       >
       </global-content-load-more-block>
     </marko-web-resolve-page>
