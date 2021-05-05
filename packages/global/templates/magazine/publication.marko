@@ -8,7 +8,7 @@ $ const { id, pageNode } = data;
     </marko-web-gtm-magazine-publication-context>
   </@head>
   <@page>
-    <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "leaderboard" }) modifiers=["top-of-page"] />
+    <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "lb1" }) modifiers=["top-of-page"] />
     <marko-web-page-wrapper>
       <@section>
         <div class="row">
@@ -32,6 +32,9 @@ $ const { id, pageNode } = data;
     <marko-web-resolve-page|{ data: issue }| node=pageNode>
       <marko-web-load-more
         component-name="magazine-issue-archive-flow"
+        component-input={
+          modifiers: ['magazine-issues']
+        }
         fragment-name="magazine-issue-archive"
         query-name="magazine-active-issues"
         query-params={ publicationId: id, limit: 12 }

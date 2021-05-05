@@ -15,7 +15,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
       $ const adSlots = {
-        "gpt-ad-leaderboard": GAM.getAdUnit({ name: "leaderboard", aliases }),
+        "gpt-ad-leaderboard": GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250]}),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 600] }),
       };
