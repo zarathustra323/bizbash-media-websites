@@ -5,15 +5,6 @@
   "<global-content-media-block>": {
     "template": "./content-media.marko"
   },
-  "<global-inquiry-block>": {
-    "template": "./inquiry.marko",
-    "@content": "object",
-    "@modifiers": "array",
-    "@with-header": {
-      "type": "boolean",
-      "default-value": true
-    }
-  },
   "<global-related-content-block>": {
     "template": "./related-content.marko",
     "<native-x>": {

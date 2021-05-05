@@ -21,8 +21,12 @@ $ const { id, alias, name, pageNode } = data;
     </marko-web-resolve-page>
   </@head>
   <@above-container>
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-    <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+      <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
+    </marko-web-resolve-page>
   </@above-container>
   <@page>
         <marko-web-query|{ nodes }|
@@ -31,6 +35,7 @@ $ const { id, alias, name, pageNode } = data;
         >
           <global-content-hero-flow nodes=nodes />
         </marko-web-query>
+        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
         <div class="row">
           <div class="col-lg-4 mb-block">
             <marko-web-query|{ nodes }|

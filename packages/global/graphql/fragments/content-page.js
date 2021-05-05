@@ -90,6 +90,47 @@ fragment ContentPageFragment on Content {
   ... on ContentArticle {
     sidebars
   }
+  ... on ContentTopList {
+    relatedTo(input:{ pagination: { limit: 100 }, sort: { order: values } }) {
+      edges {
+        node {
+          id
+          type
+          shortName
+          canonicalPath
+          images(input:{ pagination: { limit: 100 }, sort: { order: values } }) {
+            edges {
+              node {
+                id
+                src
+                alt
+                displayName
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ... on ContentVenue {
+    enableRmi
+    spaces(input:{ pagination: { limit: 25 } }) {
+      edges {
+        node {
+          id
+          name
+          area
+          capacityMin
+          capacityMaxSeated
+          capacityMaxStanding
+          floorPlan {
+            id
+            src
+          }
+        }
+      }
+    }
+  }
   ... on ContentWebinar {
     linkUrl
     startDate

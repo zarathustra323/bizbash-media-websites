@@ -196,7 +196,9 @@ $theme-site-header-breakpoints: map-merge(
 
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
+@import "components/carousel";
 @import "components/directory";
+@import "components/page-body-media-gallery";
 
 .leaders {
   @include border-radius($theme-card-border-radius);
@@ -271,7 +273,8 @@ $theme-site-header-breakpoints: map-merge(
 }
 
 .page-contents {
-  .primary-image {
+  .primary-image,
+  .images .image {
     border-bottom: 1px solid rgba(0, 0, 0, .25);
     margin-bottom: $theme-primary-media-margin-bottom;
     &__image-caption {
@@ -282,7 +285,7 @@ $theme-site-header-breakpoints: map-merge(
       @include theme-media-credit();
     }
 
-    &__image-wrapper {
+    &__wrapper {
       @include border-radius($theme-primary-media-border-radius);
       @include box-shadow($theme-primary-media-box-shadow);
       img {
@@ -301,5 +304,47 @@ $theme-site-header-breakpoints: map-merge(
   }
   &__header {
     border-bottom-width: 1px;
+  }
+}
+
+.page-attribution, .page-attribution div {
+  display: inline;
+}
+
+.page-attribution:not(:empty) + .page-dates {
+  display: inline;
+  &::before {
+    margin-right: .25rem;
+    margin-left: .25rem;
+    font-weight: 400;
+    content: "\2014";
+  }
+}
+
+.node-list {
+  $self: &;
+  &--featured-venues-suppliers {
+    background-color: #e9ecef;
+
+    #{ $self } {
+      &__node {
+        padding-top: 0;
+        &:last-child {
+          padding-bottom: .75rem;
+        }
+        .node__contents--body {
+          margin-bottom: 0;
+        }
+      }
+      &__header,
+      &__nodes,
+      &__node .node {
+        background-color: #e9ecef;
+      }
+      &__header {
+        font-size: 20px;
+        padding-bottom: 0;
+      }
+    }
   }
 }

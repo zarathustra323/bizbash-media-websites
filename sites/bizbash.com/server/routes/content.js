@@ -5,8 +5,7 @@ const contactQueryFragment = require('@bizbash-media/package-global/graphql/frag
 const company = require('@bizbash-media/package-global/templates/content/company');
 const content = require('@bizbash-media/package-global/templates/content');
 const contact = require('@bizbash-media/package-global/templates/content/contact');
-const podcast = require('@bizbash-media/package-global/templates/content/podcast');
-const webinar = require('@bizbash-media/package-global/templates/content/webinar');
+const venueSupplier = require('@bizbash-media/package-global/templates/content/venue-supplier');
 const document = require('@bizbash-media/package-global/templates/content/document');
 
 module.exports = (app) => {
@@ -18,12 +17,12 @@ module.exports = (app) => {
     template: contact,
     queryFragment: contactQueryFragment,
   }));
-  app.get('/*?webinar/:id(\\d{8})*', withContent({
-    template: webinar,
+  app.get('/*?venue/:id(\\d{8})*', withContent({
+    template: venueSupplier,
     queryFragment,
   }));
-  app.get('/*?podcast/:id(\\d{8})*', withContent({
-    template: podcast,
+  app.get('/*?supplier/:id(\\d{8})*', withContent({
+    template: venueSupplier,
     queryFragment,
   }));
   app.get('/*?document/:id(\\d{8})*', withContent({
