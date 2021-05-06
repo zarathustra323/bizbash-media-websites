@@ -387,6 +387,7 @@ $theme-site-header-breakpoints: map-merge(
 .card-deck-flow {
   .node {
     &--no-image-overlay {
+      height: 100%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       .node {
         &__title {
@@ -401,6 +402,18 @@ $theme-site-header-breakpoints: map-merge(
           );
         }
       }
+    }
+  }
+}
+
+.card-deck-flow + .ad-container {
+  &--bottom-leaderboard {
+    padding-top: map-get($spacers, block);
+    padding-bottom: map-get($spacers, block);
+    border-top: 1px solid rgba(0, 0, 0, .25);
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    + .load-more-trigger {
+      margin-top: map-get($spacers, block);
     }
   }
 }

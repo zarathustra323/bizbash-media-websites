@@ -71,7 +71,8 @@
     "@with-teaser": {
       "type": "boolean",
       "default-value": false
-    }
+    },
+    "@bottom-leaderboard": "object"
   },
   "<global-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",
