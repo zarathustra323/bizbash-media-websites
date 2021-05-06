@@ -14,7 +14,7 @@ $ const { nativeX, site } = out.global;
     <marko-web-gam-enable />
   </@head>
   <@above-container>
-    <!-- <marko-web-reveal-ad-listener /> -->
+    <marko-web-reveal-ad-listener />
     <marko-web-gtm-track-load-more />
     <default-theme-site-header />
     <default-theme-site-menu />
@@ -26,4 +26,7 @@ $ const { nativeX, site } = out.global;
     <${input.belowContainer} />
     <default-theme-site-footer />
   </@below-container>
+  <@foot>
+    <global-sticky-footer />
+  </@foot>
 </marko-web-document>

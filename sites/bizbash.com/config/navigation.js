@@ -32,7 +32,7 @@ module.exports = {
       { href: '/search', label: 'Search', icon: 'search' },
     ],
   },
-  footer: {
+  'sticky-footer': {
     items: footerItems,
   },
   menu: [

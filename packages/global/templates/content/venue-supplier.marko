@@ -15,7 +15,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
       $ const adSlots = {
-        "gpt-ad-leaderboard": GAM.getAdUnit({ name: "leaderboard", aliases }),
+        "gpt-ad-leaderboard": GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 250]}),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 600] }),
       };
@@ -24,13 +24,20 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     </marko-web-resolve-page>
   </@head>
   <@above-container>
-    <marko-web-gam-display-ad id="gpt-ad-leaderboard" modifiers=["above-container"] />
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
   </@above-container>
   <@page>
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
         $ const section = resolved.getAsObject("primarySection");
         $ const aliases = hierarchyAliases(content.primarySection);
         <marko-web-page-wrapper>
+          <@section>
+            <marko-web-gam-display-ad id="gpt-ad-leaderboard" />
+          </@section>
           <@section>
             <div class="row">
               <div class="col">
@@ -40,6 +47,13 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                   <global-breadcrumbs-website-section section=content.primarySection />
                   <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
                   <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
+                  <marko-web-social-sharing
+                    path=content.siteContext.path
+                    providers=["email", "linkedin", "facebook", "twitter", "instagram", "pinterest"]
+                    title=content.name
+                    description=content.teaser
+                    media=get(content, "primaryImage.src")
+                  />
                 </div>
               </div>
             </div>

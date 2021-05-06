@@ -27,11 +27,15 @@ $ const adSlots = {
       $ const aliases = hierarchyAliases(section);
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
     </marko-web-resolve-page>
   </@above-container>
   <@page>
     <div class="page-wrapper">
+      <div class="row">
+        <div class="col">
+          <marko-web-gam-display-ad id="gpt-ad-lb1" />
+        </div>
+      </div>
       <div class="row">
         <div class="col">
           <div class="page-wrapper__header">

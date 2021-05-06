@@ -9,6 +9,9 @@ fragment ContentPageFragment on Content {
   body
   status
   published
+  siteContext {
+    path
+  }
   company {
     id
     name

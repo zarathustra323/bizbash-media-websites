@@ -1969,6 +1969,21 @@
     "@parameter1/base-cms-object-path" "^2.4.2"
     "@parameter1/base-cms-utils" "^2.4.2"
 
+"@parameter1/base-cms-marko-web-reveal-ad@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-reveal-ad/-/base-cms-marko-web-reveal-ad-2.5.0.tgz#086ef8a0686f60bb609699ec049672a5e1a4af04"
+  integrity sha512-c59C16cfXvLJtxEqwuu7MYsUvFatY3FZl9UqmgY6Rdp6ASDtKoL1E7dPy3OmBvwBdfga40rqTQFzhNIh7o8qrw==
+  dependencies:
+    "@parameter1/base-cms-object-path" "^2.5.0"
+    "@parameter1/base-cms-utils" "^2.4.2"
+
+"@parameter1/base-cms-marko-web-social-sharing@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-social-sharing/-/base-cms-marko-web-social-sharing-2.4.2.tgz#a818967052748ab10d3251c4903e1b2632456f1b"
+  integrity sha512-gDgkrdYWn2ChVV594u5zfYloL/MvdR/Oo/vVa8VvMAbESEjtv8ajQIjecADhkAEDnDvuCA8g3dqrOBhlaP2ydg==
+  dependencies:
+    "@parameter1/base-cms-utils" "^2.4.2"
+
 "@parameter1/base-cms-marko-web-theme-default@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-default/-/base-cms-marko-web-theme-default-2.4.2.tgz#05c280f40dc8d0e37853bb3cb608b1cd17c2df7f"
@@ -2020,6 +2035,14 @@
   dependencies:
     "@parameter1/base-cms-utils" "^2.4.2"
     object-path "^0.11.4"
+
+"@parameter1/base-cms-object-path@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-object-path/-/base-cms-object-path-2.5.0.tgz#fe8598e4a3cb221be2f25aaf9af84294a30f508a"
+  integrity sha512-1rCRmd0MivzgPeHc8IvOp6TKG9t5Nody6dsPHaWbx4fyHw9Xcbuu/QeiaiehqdMDXyOnkj7baSeeOE2PT3wmTA==
+  dependencies:
+    "@parameter1/base-cms-utils" "^2.4.2"
+    object-path "^0.11.5"
 
 "@parameter1/base-cms-tenant-context@^2.0.0":
   version "2.0.0"
@@ -8855,7 +8878,7 @@ object-keys@^1.0.12, object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-object-path@^0.11.4:
+object-path@^0.11.4, object-path@^0.11.5:
   version "0.11.5"
   resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.5.tgz#d4e3cf19601a5140a55a16ad712019a9c50b577a"
   integrity sha512-jgSbThcoR/s+XumvGMTMf81QVBmah+/Q7K7YduKeKVWL7N111unR2d6pZZarSk6kY/caeNxUDyxOvMWyzoU2eg==

@@ -7,12 +7,14 @@ body {
   letter-spacing: $bizbash-letter-spacing;
 }
 .document-container {
-  padding-right: map-get($spacers, 3);
-  padding-left: map-get($spacers, 3);
-}
-.page {
   padding-right: 0;
   padding-left: 0;
+}
+.page {
+  padding: 15px;
+  > .hero-flow:first-child {
+    padding-top: map-get($spacers, block);
+  }
 }
 
 .container-fluid-max {
@@ -426,5 +428,12 @@ body {
   &__node {
     padding: map-get($spacers, block);
     margin-bottom: 0;
+  }
+}
+.page-attribution {
+  &__content-authors {
+    &::before {
+      content: "By";
+    }
   }
 }

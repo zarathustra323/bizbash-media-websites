@@ -194,11 +194,14 @@ $theme-site-header-breakpoints: map-merge(
   $theme-site-header-breakpoints
 );
 
+@import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
+@import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
 @import "components/carousel";
 @import "components/directory";
 @import "components/page-body-media-gallery";
+@import "components/sticky-footer";
 
 .leaders {
   @include border-radius($theme-card-border-radius);
@@ -213,6 +216,11 @@ $theme-site-header-breakpoints: map-merge(
   &--above-container {
     margin-top: map-get($spacers, block);
   }
+}
+
+.social-sharing {
+  margin-top: map-get($spacers, block);
+  margin-bottom: map-get($spacers, block);
 }
 
 .document-container-header {
@@ -273,8 +281,10 @@ $theme-site-header-breakpoints: map-merge(
 }
 
 .page-contents {
-  .primary-image,
-  .images .image {
+  &__images {
+    margin-top: map-get($spacers, block);;
+  }
+  .primary-image {
     border-bottom: 1px solid rgba(0, 0, 0, .25);
     margin-bottom: $theme-primary-media-margin-bottom;
     &__image-caption {
@@ -345,6 +355,65 @@ $theme-site-header-breakpoints: map-merge(
         font-size: 20px;
         padding-bottom: 0;
       }
+    }
+  }
+}
+
+.card-deck-flow {
+  &--magazine-issues {
+    .node {
+      padding: 0;
+      &__title a {
+        @include theme-apply-fonts(
+          $font-family: $theme-item-title-font-family,
+          $font-size-sm: $theme-item-title-font-size-sm,
+          $font-size: $theme-item-title-font-size,
+          $font-weight: $theme-item-title-font-weight,
+          $letter-spacing: $theme-item-title-letter-spacing,
+          $line-height-sm: $theme-item-title-line-height-sm,
+          $line-height: $theme-item-title-line-height
+        );
+      }
+    }
+  }
+}
+.magazine-publication-card-block {
+  &__body {
+    .issue-archive-cover {
+      margin-bottom: map-get($spacers, block);
+    }
+  }
+}
+.card-deck-flow {
+  .node {
+    &--no-image-overlay {
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      .node {
+        &__title {
+          @include theme-apply-fonts(
+            $font-family: $theme-item-title-font-family,
+            $font-size-sm: $theme-item-title-font-size-sm,
+            $font-size: $theme-item-title-font-size,
+            $font-weight: $theme-item-title-font-weight,
+            $letter-spacing: $theme-item-title-letter-spacing,
+            $line-height-sm: $theme-item-title-line-height-sm,
+            $line-height: $theme-item-title-line-height
+          );
+        }
+      }
+    }
+  }
+}
+
+.card-deck-flow + .ad-container {
+  &--bottom-leaderboard {
+    padding-top: map-get($spacers, block);
+    padding-bottom: map-get($spacers, block);
+    border-top: 1px solid rgba(0, 0, 0, .25);
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    + .load-more-trigger {
+      margin-top: map-get($spacers, block);
     }
   }
 }

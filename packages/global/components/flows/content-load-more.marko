@@ -4,6 +4,7 @@ $ const { GAM } = out.global;
 
 $ const {
   aliases,
+  bottomLeaderBoard,
 } = input;
 $ const nodes = getAsArray(input, "nodes");
 
@@ -35,5 +36,8 @@ $ const nodes = getAsArray(input, "nodes");
 
   <if(nodes4.length)>
     <global-content-card-deck-flow nodes=nodes2 />
+  </if>
+  <if(bottomLeaderBoard)>
+    <marko-web-gam-define-display-ad ...bottomLeaderBoard />
   </if>
 </if>

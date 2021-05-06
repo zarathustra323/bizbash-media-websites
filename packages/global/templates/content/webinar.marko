@@ -22,6 +22,13 @@ $ const { id, type, pageNode } = data;
               <default-theme-page-dates|{ blockName }|>
                 <marko-web-content-start-date block-name=blockName obj=content />
               </default-theme-page-dates>
+              <marko-web-social-sharing
+                path=content.siteContext.path
+                providers=["email", "linkedin", "facebook", "twitter", "instagram", "pinterest"]
+                title=content.name
+                description=content.teaser
+                media=get(content, "primaryImage.src")
+              />
             </div>
           </div>
         </@section>
