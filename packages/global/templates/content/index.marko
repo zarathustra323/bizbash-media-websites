@@ -61,6 +61,13 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
                   <marko-web-content-published block-name=blockName obj=content />
                 </if>
               </default-theme-page-dates>
+              <marko-web-social-sharing
+                path=content.siteContext.path
+                providers=["email", "linkedin", "facebook", "twitter", "instagram", "pinterest"]
+                title=content.name
+                description=content.teaser
+                media=get(content, "primaryImage.src")
+              />
             </div>
           </div>
         </@section>

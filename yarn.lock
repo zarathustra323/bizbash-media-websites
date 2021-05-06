@@ -1977,6 +1977,13 @@
     "@parameter1/base-cms-object-path" "^2.5.0"
     "@parameter1/base-cms-utils" "^2.4.2"
 
+"@parameter1/base-cms-marko-web-social-sharing@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-social-sharing/-/base-cms-marko-web-social-sharing-2.4.2.tgz#a818967052748ab10d3251c4903e1b2632456f1b"
+  integrity sha512-gDgkrdYWn2ChVV594u5zfYloL/MvdR/Oo/vVa8VvMAbESEjtv8ajQIjecADhkAEDnDvuCA8g3dqrOBhlaP2ydg==
+  dependencies:
+    "@parameter1/base-cms-utils" "^2.4.2"
+
 "@parameter1/base-cms-marko-web-theme-default@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-default/-/base-cms-marko-web-theme-default-2.4.2.tgz#05c280f40dc8d0e37853bb3cb608b1cd17c2df7f"

@@ -194,6 +194,7 @@ $theme-site-header-breakpoints: map-merge(
   $theme-site-header-breakpoints
 );
 
+@import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
 @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
@@ -215,6 +216,11 @@ $theme-site-header-breakpoints: map-merge(
   &--above-container {
     margin-top: map-get($spacers, block);
   }
+}
+
+.social-sharing {
+  margin-top: map-get($spacers, block);
+  margin-bottom: map-get($spacers, block);
 }
 
 .document-container-header {
