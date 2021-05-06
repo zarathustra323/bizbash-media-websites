@@ -25,7 +25,11 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
     </marko-web-resolve-page>
   </@head>
   <@above-container>
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
   </@above-container>
   <@page>
 
@@ -33,6 +37,9 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
+        <@section>
+          <marko-web-gam-display-ad id="gpt-ad-lb1" />
+        </@section>
         <@section>
           <div class="row">
             <div class="col">

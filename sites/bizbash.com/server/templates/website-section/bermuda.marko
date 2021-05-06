@@ -23,14 +23,15 @@ $ const { id, alias, name, pageNode } = data;
       $ const aliases = hierarchyAliases(section);
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
       <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-      <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
     </marko-web-resolve-page>
   </@above-container>
   <@page>
     <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
+        <@section>
+          <marko-web-gam-display-ad id="gpt-ad-lb1"/>
+        </@section>
         <@section>
           <global-breadcrumbs-website-section section=section />
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
