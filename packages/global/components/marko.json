@@ -7,5 +7,8 @@
     "./flows/marko.json",
     "./nodes/marko.json",
     "./page-wrappers/marko.json"
-  ]
+  ],
+  "<global-sticky-footer>": {
+    "template": "./sticky-footer.marko"
+  }
 }
