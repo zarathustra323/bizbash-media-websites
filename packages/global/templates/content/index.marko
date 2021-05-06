@@ -80,7 +80,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
               <if(content.type === "media-gallery")>
                 $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
                 <if(images.length)>
-                  <div class="images">
+                  <div class="page-contents__images">
                     <for|image, index| of=images>
                       <div id=`image-${image.id}`>
                         <global-primary-image-block
