@@ -196,6 +196,7 @@ $theme-site-header-breakpoints: map-merge(
 
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
+@import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
 @import "components/carousel";
 @import "components/directory";
 @import "components/page-body-media-gallery";
