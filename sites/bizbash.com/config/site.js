@@ -7,6 +7,12 @@ module.exports = {
   nativeX,
   gam,
   company: 'Bizbash Media, Inc',
+  publishedContent: {
+    webinars: {
+      title: 'Webinars Title',
+      description: '<p>BizBash is excited to bring our audience the latest knowledge and innovation from #eventprofs with our webinars and virtual showcases. Take a look at the latest trends in event tech, design, food and beverage, and more!</p><p>Looking to host a webinar with BizBash? Inquire <a href="https://www.bizbashlive.com/advertise" title="Advertise with Bizbash">here</a>.</p>',
+    },
+  },
   logos: {
     navbar: {
       src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_Logo_white_hires.png?h=60',
