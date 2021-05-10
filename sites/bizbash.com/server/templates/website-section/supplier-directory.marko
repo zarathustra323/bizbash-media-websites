@@ -40,12 +40,10 @@ $ const adSlots = {
           <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
+        <@section>
+        <global-directory-search content-type="supplier" topics=topics />
+        </@section>
       </marko-web-page-wrapper>
-      <div class="page-wrapper">
-        <div class="page-wrapper__body">
-          <global-directory-search content-type="supplier" topics=topics />
-        </div>
-      </div>
     </marko-web-resolve-page>
   </@page>
 </marko-web-website-section-page-layout>
