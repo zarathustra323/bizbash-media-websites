@@ -15,7 +15,6 @@ $ const { id, alias, name, pageNode } = data;
       $ const adSlots = {
         'gpt-ad-lb1': GAM.getAdUnit({ name: 'lb1', aliases }),
         'gpt-ad-lb2': GAM.getAdUnit({ name: 'lb2', aliases }),
-        'gpt-ad-rail1': GAM.getAdUnit({ name: 'rail1', aliases, size: [300, 600] }),
       };
       <marko-web-gam-slots slots=adSlots />
     </marko-web-resolve-page>
@@ -56,18 +55,6 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "venues-destinations", limit: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/venues-destinations">Venues & Destinations</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-        </div>
-        <div class="col-lg-4 mb-block">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
             params={ sectionAlias: "bizbash-lists/brands-event-pros", limit: 5, queryFragment }
           >
             <global-content-list-flow nodes=nodes>
@@ -77,8 +64,6 @@ $ const { id, alias, name, pageNode } = data;
             </global-content-list-flow>
           </marko-web-query>
         </div>
-      </div>
-      <div class="row">
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
@@ -91,25 +76,9 @@ $ const { id, alias, name, pageNode } = data;
             </global-content-list-flow>
           </marko-web-query>
         </div>
-        <div class="col-lg-4 mb-block">
-          <marko-web-gam-display-ad id="gpt-ad-rail1" />
-        </div>
-        <div class="col-lg-4 mb-block">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: "bizbash-lists", limit: 5, skip: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/bizbash-lists">More from ${out.global.config.siteName()}</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-        </div>
       </div>
     </marko-web-resolve-page>
   </@page>
-
   <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
