@@ -91,35 +91,44 @@ body {
   }
 }
 
-.node {
-  $self: &;
-  &--card {
-    // @todo more to core?
-    @include theme-line-height-crop($theme-item-title-line-height);
-    $title-font-size: 21px;
-    $title-font-size-sm: 16px;
-    $title-line-height: 1.3;
-    $title-line-height-sm: 1.3;
-    #{ $self }__title {
-      @include theme-apply-fonts(
-        $font-size: $title-font-size,
-        $font-size-sm: $title-font-size-sm,
-        $font-weight: 600,
-        $line-height: $title-line-height,
-        $line-height-sm: $title-line-height-sm
-      );
-    }
-    #{ $self }__title a {
-      @include theme-max-lines(
-        $font-size: $title-font-size,
-        $font-size-sm: $title-font-size-sm,
-        $line-height: $title-line-height,
-        $line-height-sm: $title-line-height-sm,
-        $num: 5
-      );
+.card-deck-flow {
+  &__node {
+    padding: map-get($spacers, block);
+    margin-bottom: 0;
+  }
+  .node {
+    &--image-overlay {
+      // @todo more to core?
+      @include theme-line-height-crop($theme-item-title-line-height);
+      $title-font-size: 21px;
+      $title-font-size-sm: 16px;
+      $title-line-height: 1.3;
+      $title-line-height-sm: 1.3;
+      .node {
+        &__title,
+        &__title a {
+          @include theme-apply-fonts(
+            $font-size: $title-font-size,
+            $font-size-sm: $title-font-size-sm,
+            $font-weight: 600,
+            $line-height: $title-line-height,
+            $line-height-sm: $title-line-height-sm
+          );
+          @include theme-max-lines(
+            $font-size: $title-font-size,
+            $font-size-sm: $title-font-size-sm,
+            $line-height: $title-line-height,
+            $line-height-sm: $title-line-height-sm,
+            $num: 5
+          );
+        }
+      }
     }
   }
+}
 
+.node {
+  $self: &;
   &__title::before {
     display: block;
     width: 0;
@@ -424,12 +433,6 @@ body {
   }
 }
 
-.card-deck-flow {
-  &__node {
-    padding: map-get($spacers, block);
-    margin-bottom: 0;
-  }
-}
 .page-attribution {
   &__content-authors {
     &::before {
