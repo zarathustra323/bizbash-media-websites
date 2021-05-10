@@ -33,7 +33,7 @@ module.exports = {
     { provider: 'facebook', href: 'https://www.facebook.com/BizBash/' },
     { provider: 'twitter', href: 'https://twitter.com/BizBash' },
     { provider: 'pinterest', href: 'https://www.pinterest.com/bizbash/' },
-    { provider: 'youtube', href: 'https://www.youtube.com/channel/UCtzRkaKB6yQvLnp_4fGsSUA' },
+    { provider: 'youtube', href: 'https://www.youtube.com/c/BizBash' },
   ],
   gtm: {
     containerId: process.env.GTM_CONTAINER_ID || 'GTM-5TWCFJ',
