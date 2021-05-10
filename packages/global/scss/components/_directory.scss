@@ -158,6 +158,22 @@
         }
       }
       .node {
+        &__header {
+          padding: 0;
+          margin: 0;
+        }
+        // Directory presented by (for pinned items)
+        &__presented-by {
+          width: 100%;
+          padding: 5px 10px;
+          margin: 0;
+          font-family: $font-source-sans-pro;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 19.8px;
+          color: $white;
+          background-color: $primary;
+        }
         &__image-wrapper {
         margin-bottom: map-get($spacers, 3);
         }
