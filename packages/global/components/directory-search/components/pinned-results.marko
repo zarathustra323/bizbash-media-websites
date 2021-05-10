@@ -32,9 +32,9 @@ $ const topicId = Number(input.topicId);
             attrs=input.attrs
           >
             <@header>
-              <h3 class="content__presented-by">
-                Presented by $!{node.shortName}
-              </h3>
+              <@left class="node__presented-by">
+                  Presented by $!{node.shortName}
+              </@left>
             </@header>
             <@image
               src=primaryImage.src

@@ -158,6 +158,10 @@
         }
       }
       .node {
+        &__header {
+          padding: 0;
+          margin: 0;
+        }
         &__image-wrapper {
         margin-bottom: map-get($spacers, 3);
         }
