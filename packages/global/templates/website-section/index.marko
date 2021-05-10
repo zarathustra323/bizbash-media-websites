@@ -64,7 +64,6 @@ $ const { id, alias, name, pageNode } = data;
         fragment-name="content-list"
         query-name="website-scheduled-content"
         query-params={ sectionId: id, limit: 14, skip: 24, requiresImage: true }
-        max-pages=3
         page-input={ for: "website-section", id }
       />
     </marko-web-resolve-page>
