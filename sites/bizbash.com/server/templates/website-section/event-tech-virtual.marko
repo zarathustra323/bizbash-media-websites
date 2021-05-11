@@ -39,7 +39,34 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
       </marko-web-page-wrapper>
+
       <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "event-tech-virtual/hybrid-virtual-event-production", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/event-tech-virtual/hybrid-virtual-event-production">Event Tech & Tools</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "event-tech-virtual/virtual-entertainment-gifts", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/event-tech-virtual/virtual-entertainment-gifts">Event Tech & Tools</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
