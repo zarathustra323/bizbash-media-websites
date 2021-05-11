@@ -30,25 +30,20 @@ $ const adSlots = {
     </marko-web-resolve-page>
   </@above-container>
   <@page>
-    <div class="page-wrapper">
-      <div class="row">
-        <div class="col">
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
+        <@section>
           <marko-web-gam-display-ad id="gpt-ad-lb1" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="page-wrapper__header">
-            <h1 class="page-wrapper__title">${section.name}</h1>
-            <if(section.description)>
-              <p class="page-wrapper__description">$!{section.description}</p>
-            </if>
-          </div>
-          <div class="page-wrapper__body">
-            <global-directory-search content-type="Supplier" topics=topics />
-          </div>
-        </div>
-      </div>
-    </div>
+        </@section>
+        <@section>
+          <global-breadcrumbs-website-section section=section />
+          <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+          <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
+        </@section>
+        <@section>
+        <global-directory-search content-type="supplier" topics=topics />
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
   </@page>
 </marko-web-website-section-page-layout>
