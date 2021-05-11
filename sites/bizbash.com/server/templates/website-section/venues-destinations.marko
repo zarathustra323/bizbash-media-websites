@@ -1,29 +1,29 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import queryFragment from '@bizbash-media/package-global/graphql/fragments/content-list';
 
 $ const blocks = [
-  { alias: "venues-destinations/alberta-calgary-edmonton", name: "Alberta: Calgary, Edmonton" },
-  { alias: "venues-destinations/atlanta", name: "Atlanta" },
-  { alias: "venues-destinations/boston", name: "Boston" },
-  { alias: "venues-destinations/chicago", name: "Chicago" },
-  { alias: "venues-destinations/denver", name: "Denver" },
-  { alias: "venues-destinations/las-vegas", name: "Las Vegas" },
-  { alias: "venues-destinations/los-angeles-southern-california", name: "Los Angeles / Southern California" },
-  { alias: "venues-destinations/miami-south-florida", name: "Miami / South Florida" },
-  { alias: "venues-destinations/montreal", name: "Montreal" },
-  { alias: "venues-destinations/nashville", name: "Nashville" },
-  { alias: "venues-destinations/new-york", name: "New York" },
+  { alias: "venues-destinations/canada/alberta-calgary-edmonton", name: "Alberta: Calgary, Edmonton" },
+  { alias: "venues-destinations/united-states/atlanta", name: "Atlanta" },
+  { alias: "venues-destinations/united-states/boston", name: "Boston" },
+  { alias: "venues-destinations/united-states/chicago", name: "Chicago" },
+  { alias: "venues-destinations/united-states/denver", name: "Denver" },
+  { alias: "venues-destinations/united-states/las-vegas", name: "Las Vegas" },
+  { alias: "venues-destinations/united-states/los-angeles-southern-california", name: "Los Angeles / Southern California" },
+  { alias: "venues-destinations/united-states/miami-south-florida", name: "Miami / South Florida" },
+  { alias: "venues-destinations/canada/montreal", name: "Montreal" },
+  { alias: "venues-destinations/united-states/nashville", name: "Nashville" },
+  { alias: "venues-destinations/united-states/new-york", name: "New York" },
   { alias: "venues-destinations/north-america", name: "North America" },
-  { alias: "venues-destinations/orlando-central-florida", name: "Orlando / Central Florida" },
-  { alias: "venues-destinations/philadelphia", name: "Philadelphia" },
-  { alias: "venues-destinations/phoenix-scottsdale", name: "Phoenix / Scottsdale" },
-  { alias: "venues-destinations/san-francisco-northern-california", name: "San Francisco/Northern California" },
-  { alias: "venues-destinations/seattle", name: "Seattle" },
-  { alias: "venues-destinations/texas", name: "Texas" },
-  { alias: "venues-destinations/toronto", name: "Toronto" },
-  { alias: "venues-destinations/vancouver", name: "Vancouver" },
-  { alias: "venues-destinations/washington-dc", name: "Washington DC" },
+  { alias: "venues-destinations/united-states/orlando-central-florida", name: "Orlando / Central Florida" },
+  { alias: "venues-destinations/united-states/philadelphia", name: "Philadelphia" },
+  { alias: "venues-destinations/united-states/phoenix-scottsdale", name: "Phoenix / Scottsdale" },
+  { alias: "venues-destinations/united-states/san-francisco-northern-california", name: "San Francisco/Northern California" },
+  { alias: "venues-destinations/united-states/seattle", name: "Seattle" },
+  { alias: "venues-destinations/united-states/texas", name: "Texas" },
+  { alias: "venues-destinations/canada/toronto", name: "Toronto" },
+  { alias: "venues-destinations/canada/vancouver", name: "Vancouver" },
+  { alias: "venues-destinations/united-states/washington-dc", name: "Washington DC" },
   // { alias: "venues-destinations/global", name: "Global" },
 ];
 
@@ -65,22 +65,38 @@ $ const { id, alias, name, pageNode } = data;
           <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
         </@section>
       </marko-web-page-wrapper>
+
       <div class="row">
-        <for|item| of=blocks>
-          $ const itemHref = `/${item.alias}`;
-          <div class="col-lg-4 mb-block">
+        $ const children = getAsArray(section, "children.edges").map(({ node }) => node);
+        $ const childrenMap = children.reduce
+        <for|child| of=children>
+          $ const grandChildren = getAsArray(child, "children.edges").map(({ node }) => node);
+          <div class="col-lg-12 mb-block">
             <marko-web-query|{ nodes }|
               name="website-scheduled-content"
-              params={ sectionAlias: item.alias, limit: 4, queryFragment }
+              params={ sectionAlias: child.alias, limit: 4, queryFragment }
             >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href=`/${item.alias}`>${item.name}</marko-web-link>
-                </@header>
-              </global-content-list-flow>
+              <div class="node-list__header">
+                <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
+              </div>
             </marko-web-query>
+            <if(grandChildren.length)>
+              <for|grandChild| of=grandChildren>
+                <div class="mb-block">
+                  <marko-web-query|{ nodes }|
+                    name="website-scheduled-content"
+                    params={ sectionAlias: grandChild.alias, limit: 3, queryFragment }
+                  >
+                    <div class="node-list__cityheader">
+                      <marko-web-link href=`/${grandChild.alias}`>${grandChild.name}</marko-web-link>
+                    </div>
+                    <global-content-card-deck-flow nodes=nodes />
+                  </marko-web-query>
+              </div>
+              </for>
+            </if>
           </div>
-        </for>
+          </for>
       </div>
     </marko-web-resolve-page>
   </@page>

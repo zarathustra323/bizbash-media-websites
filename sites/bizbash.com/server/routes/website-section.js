@@ -2,6 +2,7 @@ const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middlewar
 const section = require('@bizbash-media/package-global/templates/website-section');
 const queryFragment = require('@bizbash-media/package-global/graphql/fragments/website-section-page');
 
+const venueDestinationFragment = require('../graphql/fragments/venue-destinations-page');
 const eventplannerschoiceTemplate = require('../templates/website-section/eventplannerschoice');
 const gatherGeeksTemplate = require('../templates/website-section/gathergeeks');
 const productionStrategyTemplate = require('../templates/website-section/production-strategy');
@@ -52,7 +53,7 @@ module.exports = (app) => {
 
   app.get('/:alias(venues-destinations)', withWebsiteSection({
     template: venuesDestinationsTemplate,
-    queryFragment,
+    queryFragment: venueDestinationFragment,
   }));
 
   app.get('/:alias(bizbash-lists)', withWebsiteSection({
