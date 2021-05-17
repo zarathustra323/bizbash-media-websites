@@ -29,143 +29,102 @@ $ const { id, alias, name, pageNode } = data;
     </marko-web-resolve-page>
   </@above-container>
   <@page>
-        <marko-web-query|{ nodes }|
-          name="website-optioned-content"
-          params={ sectionId: id, optionName: "Pinned", limit: 5, requiresImage: true, queryFragment }
+    <marko-web-query|{ nodes }|
+      name="website-optioned-content"
+      params={ sectionId: id, optionName: "Pinned", limit: 5, requiresImage: true, queryFragment }
+    >
+      <global-content-hero-flow nodes=nodes />
+    </marko-web-query>
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "industry-buzz", limit: 3, queryFragment }
+      >
+        <div class="node-list__header">
+            <marko-web-link href="/industry-buzz">Industry Buzz</marko-web-link>
+        </div>
+        <global-content-card-deck-flow nodes=nodes display-image=false/>
+      </marko-web-query>
+    </div>
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "production-strategy", limit: 3, queryFragment, requiresImage: true }
+      >
+        <div class="node-list__header">
+            <marko-web-link href="/production-strategy">Production & Strategy</marko-web-link>
+        </div>
+        <global-content-card-deck-flow nodes=nodes />
+      </marko-web-query>
+    </div>
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "catering-design", limit: 3, queryFragment, requiresImage: true }
+      >
+        <div class="node-list__header">
+            <marko-web-link href="/catering-design">Catering & Design</marko-web-link>
+        </div>
+        <global-content-card-deck-flow nodes=nodes/>
+      </marko-web-query>
+    </div>
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "event-tech-virtual", limit: 3, queryFragment, requiresImage: true  }
+      >
+        <div class="node-list__header">
+            <marko-web-link href="/event-tech-virtual">Event Tech & Virtual</marko-web-link>
+        </div>
+        <global-content-card-deck-flow nodes=nodes />
+      </marko-web-query>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-block">
+        <marko-web-gam-display-ad id="gpt-ad-home-rail1" modifiers=["in-card"] />
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ node: issue }|
+          name="magazine-latest-issue"
+          params={ publicationId: "5b2a4e6c0305572b008b45ae", queryFragment: latestIssueFragment, requiresImage: true  }
         >
-          <global-content-hero-flow nodes=nodes />
+          <global-magazine-latest-issue-flow issue-node=issue>
+            <@header>
+              <marko-web-magazine-issue-name tag=null obj=issue link=true>
+                In Print
+              </marko-web-magazine-issue-name>
+            </@header>
+          </global-magazine-latest-issue-flow>
         </marko-web-query>
-        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-        <div class="row">
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "industry-buzz", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/industry-buzz">Industry Buzz</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["industry-buzz"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "production-strategy", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/production-strategy">Production & Strategy</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["production-strategy"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "catering-design", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/catering-design">Catering & Design</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["catering-design"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-gam-display-ad id="gpt-ad-home-rail2"  modifiers=["in-card"] />
+      </div>
+    </div>
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "venues-destinations", limit: 3, queryFragment, requiresImage: true  }
+      >
+        <div class="node-list__header">
+          <marko-web-link href="/venues-destinations">Venues & Destinations</marko-web-link>
         </div>
-        <div class="row">
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "event-tech-virtual", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/event-tech-virtual">Event Tech & Virtual</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["event-tech-virtual"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-gam-display-ad id="gpt-ad-home-rail1" modifiers=["in-card"] />
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "venues-destinations", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/venues-destinations">Venues & Destinations</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["local-venues-destinations"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
+        <global-content-card-deck-flow nodes=nodes />
+      </marko-web-query>
+    </div>
+    <div class="col-lg-12 mb-block">
+      <marko-web-query|{ nodes }|
+        name="website-scheduled-content"
+        params={ sectionAlias: "bizbash-lists", limit: 3, queryFragment, requiresImage: true  }
+      >
+        <div class="node-list__header">
+          <marko-web-link href="/bizbash-lists">BizBash Lists</marko-web-link>
         </div>
-        <div class="row">
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: "bizbash-lists", limit: 5, queryFragment }
-            >
-              <global-content-list-flow nodes=nodes>
-                <@header>
-                  <marko-web-link href="/bizbash-lists">BizBash Lists</marko-web-link>
-                </@header>
-                <@native-x
-                  index=4
-                  name="primary"
-                  aliases=["bizbash-lists"]
-                />
-              </global-content-list-flow>
-            </marko-web-query>
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-query|{ node: issue }|
-              name="magazine-latest-issue"
-              params={ publicationId: "5b2a4e6c0305572b008b45ae", queryFragment: latestIssueFragment }
-            >
-              <global-magazine-latest-issue-flow issue-node=issue>
-                <@header>
-                  <marko-web-magazine-issue-name tag=null obj=issue link=true>
-                    In Print
-                  </marko-web-magazine-issue-name>
-                </@header>
-              </global-magazine-latest-issue-flow>
-            </marko-web-query>
-          </div>
-          <div class="col-lg-4 mb-block">
-            <marko-web-gam-display-ad id="gpt-ad-home-rail2"  modifiers=["in-card"] />
-          </div>
-        </div>
-
-        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
+        <global-content-card-deck-flow nodes=nodes />
+      </marko-web-query>
+    </div>
+  <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
   </@page>
   <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
