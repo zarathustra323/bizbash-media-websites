@@ -1,4 +1,6 @@
 import DefaultTheme from '@parameter1/base-cms-marko-web-theme-default/browser';
+import GTM from '@parameter1/base-cms-marko-web-gtm/browser';
+import GAM from '@parameter1/base-cms-marko-web-gam/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
 import RevealAd from '@parameter1/base-cms-marko-web-reveal-ad/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
@@ -9,6 +11,8 @@ const ContactUsForm = () => import(/* webpackChunkName: "global-contact-us" */ '
 
 export default (Browser) => {
   DefaultTheme(Browser);
+  GTM(Browser);
+  GAM(Browser);
   Inquiry(Browser, { component: InquiryForm });
   RevealAd(Browser);
   SocialSharing(Browser);
