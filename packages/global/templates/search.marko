@@ -1,4 +1,5 @@
-$ const { config, GAM } = out.global;
+$ const { config, GAM, site } = out.global;
+$ const { apiKey, domain } = site.getAsObject('search');
 
 $ const type = "search";
 $ const title = "Search";
@@ -26,7 +27,7 @@ $ const description = `Search ${config.siteName()}`;
       <@section>
         <div class="row">
           <div class="col">
-            setup Algolia
+            <marko-web-browser-component name="GlobalBingSearchBox" props={ apiKey, domain } />
           </div>
         </div>
       </@section>
