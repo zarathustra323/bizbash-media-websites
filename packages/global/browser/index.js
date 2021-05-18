@@ -5,7 +5,7 @@ import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
 import RevealAd from '@parameter1/base-cms-marko-web-reveal-ad/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
 
-const BingSearchBox = () => import(/* webpackChunkName: "global-bing-search-boxr" */ './bing-search-box.vue');
+const BingSearchBox = () => import(/* webpackChunkName: "global-bing-search-box" */ './bing-search-box.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InquiryForm = () => import(/* webpackChunkName: "global-inquiry-form" */ './inquiry-form.vue');
 const ContactUsForm = () => import(/* webpackChunkName: "global-contact-us" */ './contact-us-form.vue');
