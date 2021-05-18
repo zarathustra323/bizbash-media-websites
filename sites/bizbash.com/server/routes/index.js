@@ -1,5 +1,6 @@
 const contactUsHandler = require('@bizbash-media/package-global/contact-us');
 const inquiryHandler = require('@bizbash-media/package-global/inquiry-handler');
+const identityX = require('@bizbash-media/package-global/routes/identity-x');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');
@@ -14,6 +15,9 @@ module.exports = (app) => {
   // @todo This should be removed once contact-us is moved to core.
   contactUsHandler(app);
   inquiryHandler(app);
+
+  // Identity X
+  identityX(app);
 
   // Homepage
   home(app);
