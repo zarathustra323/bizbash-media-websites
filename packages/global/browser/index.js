@@ -1,6 +1,7 @@
 import DefaultTheme from '@parameter1/base-cms-marko-web-theme-default/browser';
 import GTM from '@parameter1/base-cms-marko-web-gtm/browser';
 import GAM from '@parameter1/base-cms-marko-web-gam/browser';
+import IdentityX from '@parameter1/base-cms-marko-web-identity-x/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
 import RevealAd from '@parameter1/base-cms-marko-web-reveal-ad/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
@@ -13,6 +14,7 @@ export default (Browser) => {
   DefaultTheme(Browser);
   GTM(Browser);
   GAM(Browser);
+  IdentityX(Browser);
   Inquiry(Browser, { component: InquiryForm });
   RevealAd(Browser);
   SocialSharing(Browser);
