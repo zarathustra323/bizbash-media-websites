@@ -1,10 +1,12 @@
 const navigation = require('./navigation');
+const identityX = require('./identity-x');
 const nativeX = require('./native-x');
 const gam = require('./gam');
 
 module.exports = {
   navigation,
   nativeX,
+  identityX,
   gam,
   company: 'Bizbash Media, Inc',
   publishedContent: {
