@@ -50,6 +50,10 @@ module.exports = {
       logo: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/site_logo.png?h=60',
     },
   },
+  search: {
+    apiKey: '2682f90e71ea403b9cbf6fa7740bf006',
+    domain: 'bizbash.com',
+  },
   inquiry: {
     enabled: true,
     directSend: true,
