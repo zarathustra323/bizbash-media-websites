@@ -73,7 +73,8 @@
       "default-value": false
     },
     "@bottom-leaderboard": "object",
-    "@path": "string"
+    "@path": "string",
+    "@isHome": "boolean"
   },
   "<global-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",

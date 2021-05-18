@@ -2,7 +2,7 @@ import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const { site, GAM } = out.global;
 $ const nxConfig = site.get('nativeX');
-$ const { aliases, adIndex, adName, bottomLeaderboard, col, displayImage, withTeaser, path } = input;
+$ const { aliases, adIndex, adName, bottomLeaderboard, col, displayImage, withTeaser, path, isHome } = input;
 $ const nodes = getAsArray(input, "nodes");
 $ const nativeX = getAsObject(input, "nativeX");
 $ const adPosition = input.adPosition || "after";
@@ -24,6 +24,20 @@ $ const adPosition = input.adPosition || "after";
         node=node
         config=nxConfig
       >
+      <if(isHome)>
+        <global-content-node
+          image-position="top"
+          full-height=true
+          card=true
+          flush=true
+          node=node
+          with-teaser=false
+          with-dates=false
+        >
+          <@image width=112 ar="1:1" />
+        </global-content-node>
+      </if>
+      <else>
         <global-content-card-node
           with-teaser=withTeaser
           display-image=displayImage
@@ -32,6 +46,7 @@ $ const adPosition = input.adPosition || "after";
           attrs=containerAttrs
           link-attrs=linkAttrs
         />
+        </else>
       </marko-web-native-x-render>
     </@slot>
     <if(adIndex !== null)>

@@ -1,0 +1,94 @@
+import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+$ const content = getAsObject(input, "node");
+$ const primaryImage = getAsObject(content, "primaryImage");
+$ const primarySection = getAsObject(content, "primarySection");
+
+$ const imageOnly = defaultValue(input.imageOnly, false);
+$ const withTeaser = defaultValue(input.withTeaser, true);
+$ const withBody = defaultValue(input.withBody, false);
+$ const withSection = defaultValue(input.withSection, true);
+$ const withAttribution = defaultValue(input.withAttribution, false);
+$ const withDates = defaultValue(input.withDates, true);
+$ const withPrimarySectionModifier = defaultValue(input.withPrimarySectionModifier, true);
+
+$ const isWebinar = content.type === "webinar";
+$ const isPromotion = content.type === "promotion";
+$ const isEvent = ["event", "webinar"].includes(content.type);
+$ const isUpcoming = content.startDate > Date.now();
+
+$ const aspectRatio = get(input, "image.ar", "3:2");
+
+$ const { linkAttrs } = input;
+$ const headerAttributes = {};
+$ const modifiers = getAsArray(input, "modifiers");
+$ const { alias } = primarySection;
+
+$ if (withSection && alias && withPrimarySectionModifier) {
+  headerAttributes['data-section-alias'] = alias;
+  modifiers.push(`section-${primarySection.alias}`);
+}
+
+$ const imageLink = primaryImage.src ? { href: content.siteContext.path, attrs: linkAttrs } : false;
+
+<marko-web-node
+  type=`${content.type}-content`
+  image-position=defaultValue(input.imagePosition, "left")
+  card=defaultValue(input.card, false)
+  flush=defaultValue(input.flush, true)
+  full-height=defaultValue(input.fullHeight, false)
+  attrs=input.attrs
+  modifiers=modifiers
+>
+  <if(defaultValue(input.displayImage, true))>
+    <@image
+      src=primaryImage.src
+      alt=primaryImage.alt
+      is-logo=primaryImage.isLogo
+      fluid=true
+      ar=input.imageAr
+      width=(input.imageWidth || 300)
+      link={ href: get(content, "siteContext.path"), attrs: linkAttrs }
+    />
+  </if>
+  <if(!imageOnly)>
+    <@body>
+      <@title tag="h5" ...input.title>
+        <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
+        <marko-web-website-section-name block-name="node" tag="span" modifiers=["webiste-section-name"] obj=primarySection link=true />
+      </@title>
+      <@text
+        modifiers=["teaser", ...getAsArray(input, "teaser.modifiers").map(mod => `teaser-${mod}`)]
+        show=(Boolean(withTeaser && content.teaser))
+      >
+        <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+      </@text>
+      <@text
+        modifiers=["body"]
+        show=(Boolean(withBody && content.body))
+      >
+        <marko-web-content-body tag=null obj=content />
+      </@text>
+      <@text
+        modifiers=["promotion-link-button"]
+        show=(Boolean(isPromotion && content.linkUrl && content.linkText))
+      >
+        <marko-web-link
+          class="btn btn-primary btn-block"
+          href=content.linkUrl
+          title=content.linkText
+          target="_blank"
+        >
+          ${content.linkText}
+        </marko-web-link>
+      </@text>
+      <@text modifiers=["attribution"] show=(Boolean(withAttribution))>
+        <attribution ...input.attribution content=content />
+      </@text>
+      <@text|{ blockName }| show=(Boolean(withDates && !isEvent))>
+        <marko-web-content-published block-name=blockName obj=content format="MMMM D, YYYY" />
+      </@text>
+    </@body>
+  </if>
+</marko-web-node>
