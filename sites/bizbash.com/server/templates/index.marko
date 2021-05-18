@@ -42,9 +42,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "industry-buzz", limit: 3, queryFragment }
       >
         <div class="node-list__header">
-            <marko-web-link href="/industry-buzz">Industry Buzz</marko-web-link>
+            Industry Buzz
         </div>
-        <global-content-card-deck-flow nodes=nodes display-image=false/>
+        <global-content-card-deck-flow nodes=nodes display-image=false path='/industry-buzz'/>
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -53,9 +53,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "production-strategy", limit: 3, queryFragment, requiresImage: true }
       >
         <div class="node-list__header">
-            <marko-web-link href="/production-strategy">Production & Strategy</marko-web-link>
+            Production & Strategy
         </div>
-        <global-content-card-deck-flow nodes=nodes />
+        <global-content-card-deck-flow nodes=nodes path='/production-strategy'/>
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -64,9 +64,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "catering-design", limit: 3, queryFragment, requiresImage: true }
       >
         <div class="node-list__header">
-            <marko-web-link href="/catering-design">Catering & Design</marko-web-link>
+            Catering & Design
         </div>
-        <global-content-card-deck-flow nodes=nodes/>
+        <global-content-card-deck-flow nodes=nodes path='/catering-design'/>
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -75,9 +75,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "event-tech-virtual", limit: 3, queryFragment, requiresImage: true  }
       >
         <div class="node-list__header">
-            <marko-web-link href="/event-tech-virtual">Event Tech & Virtual</marko-web-link>
+            Event Tech & Virtual
         </div>
-        <global-content-card-deck-flow nodes=nodes />
+        <global-content-card-deck-flow nodes=nodes path='/event-tech-virtual'/>
       </marko-web-query>
     </div>
     <div class="row">
@@ -108,9 +108,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "venues-destinations", limit: 3, queryFragment, requiresImage: true  }
       >
         <div class="node-list__header">
-          <marko-web-link href="/venues-destinations">Venues & Destinations</marko-web-link>
+          Venues & Destinations
         </div>
-        <global-content-card-deck-flow nodes=nodes />
+        <global-content-card-deck-flow nodes=nodes path='/venues-destinations'/>
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -119,9 +119,9 @@ $ const { id, alias, name, pageNode } = data;
         params={ sectionAlias: "bizbash-lists", limit: 3, queryFragment, requiresImage: true  }
       >
         <div class="node-list__header">
-          <marko-web-link href="/bizbash-lists">BizBash Lists</marko-web-link>
+          BizBash Lists
         </div>
-        <global-content-card-deck-flow nodes=nodes />
+        <global-content-card-deck-flow nodes=nodes path='/bizbash-lists'/>
       </marko-web-query>
     </div>
   <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
