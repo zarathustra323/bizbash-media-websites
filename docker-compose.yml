@@ -24,6 +24,7 @@ x-env-defaults: &env
   SENDGRID_API_KEY: ${SENDGRID_API_KEY-(unset)}
   SENDGRID_DEV_TO: support@parameter1.com
   YARN_CACHE_FOLDER: /.yarn-cache
+  IDENTITYX_API_TOKEN: ${IDENTITYX_API_TOKEN-(unset)}
 
 x-env-tauron: &env-tauron
   GRAPHQL_URI: ${GRAPHQL_URI-https://graphql.tauron.base.parameter1.com}
