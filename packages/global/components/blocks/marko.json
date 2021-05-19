@@ -5,6 +5,17 @@
   "<global-content-media-block>": {
     "template": "./content-media.marko"
   },
+  "<global-section-cards-block>": {
+    "template": "./section-cards.marko",
+    "@alias": {
+      "type": "string",
+      "required": true
+    },
+    "@display-image": {
+      "type": "boolean",
+      "default-value": true
+    }
+  },
   "<global-related-content-block>": {
     "template": "./related-content.marko",
     "<native-x>": {
