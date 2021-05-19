@@ -56,6 +56,7 @@
   "<global-content-hero-card-node>": {
     "template": "./content-hero-card.marko",
     "@node": "object",
+    "@modifiers": "array",
     "@title-modifiers": "array",
     "@image-width": {
       "type": "number",
