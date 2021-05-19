@@ -16,8 +16,8 @@ const tertiaryItems = [
 ];
 
 module.exports = {
-  primary: { items: topics },
-  secondary: {
+  secondary: { items: topics },
+  primary: {
     items: [
       { href: '/gathergeeks', label: 'Podcast' },
       { href: '/webinars', label: 'Webinars' },
@@ -32,12 +32,12 @@ module.exports = {
   contexts: [
     {
       when: ['/production-strategy'],
-      primary: { items: topics },
+      secondary: { items: topics },
       tertiary: { items: tertiaryItems },
-      secondary: {
+      primary: {
         items: [
           { href: '/production-strategy/audiovisual-lighting', label: 'Audiovisual & Lighting' },
-          { href: '/production-strategy/experiential-marketing-activations-sponsorships', label: 'Experiental Marketing, Activations & Sponsorships' },
+          { href: '/production-strategy/experiential-marketing-activations-sponsorships', label: 'Marketing, Activations & Sponsorships' },
           { href: '/production-strategy/event-management', label: 'Event Management' },
           { href: '/production-strategy/event-production-fabrication', label: 'Event Production & Fabrication' },
           { href: '/production-strategy/opinion-experts', label: 'Opinion & Experts' },
@@ -50,9 +50,9 @@ module.exports = {
     },
     {
       when: ['/catering-design'],
-      primary: { items: topics },
+      secondary: { items: topics },
       tertiary: { items: tertiaryItems },
-      secondary: {
+      primary: {
         items: [
           { href: '/catering-design/beverages', label: 'Beverages' },
           { href: '/catering-design/food-trends', label: 'Food Trends' },
@@ -67,9 +67,9 @@ module.exports = {
     },
     {
       when: ['/event-tech-virtual'],
-      primary: { items: topics },
+      secondary: { items: topics },
       tertiary: { items: tertiaryItems },
-      secondary: {
+      primary: {
         items: [
           { href: '/event-tech-virtual/event-tech-tools', label: 'Event Tech & Tools' },
           { href: '/event-tech-virtual/hybrid-virtual-event-production', label: 'Hybrid & Virtual Event Production' },
@@ -80,9 +80,9 @@ module.exports = {
     },
     {
       when: ['/venues-destinations'],
-      primary: { items: topics },
+      secondary: { items: topics },
       tertiary: { items: tertiaryItems },
-      secondary: {
+      primary: {
         items: [
           { href: '/venues-destinations/canada', label: 'Canada' },
           { href: '/venues-destinations/united-states', label: 'United States' },
@@ -92,9 +92,9 @@ module.exports = {
     },
     {
       when: ['/bizbash-lists'],
-      primary: { items: topics },
+      secondary: { items: topics },
       tertiary: { items: tertiaryItems },
-      secondary: {
+      primary: {
         items: [
           { href: '/bizbash-lists/top-100-events', label: 'Top 100 Events' },
           { href: '/bizbash-lists/brands-event-pros', label: 'Brands & Event Pros' },

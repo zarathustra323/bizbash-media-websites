@@ -140,8 +140,8 @@ $theme-site-header-breakpoints: (
 
 $theme-site-navbar-primary-bg-color:        $black;
 $theme-site-navbar-primary-font-family:     $font-source-sans-pro;
-$theme-site-navbar-primary-font-size:       18.5px;
-$theme-site-navbar-primary-font-size-sm:    16px;
+$theme-site-navbar-primary-font-size:       14px;
+$theme-site-navbar-primary-font-size-sm:    12px;
 $theme-site-navbar-primary-font-weight:     700;
 $theme-site-navbar-primary-line-height:     1;
 
@@ -494,6 +494,11 @@ body {
       }
     }
   }
+  &__items--primary {
+    #{ self }__item {
+      flex-grow: 0;
+    }
+  }
 }
 .site-navbar--primary {
   .site-navbar {
@@ -703,4 +708,8 @@ body {
       content: "By";
     }
   }
+}
+
+.site-navbar {
+
 }
