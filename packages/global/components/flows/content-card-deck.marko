@@ -2,18 +2,10 @@ import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const { site, GAM } = out.global;
 $ const nxConfig = site.get('nativeX');
-$ const { aliases, adIndex, adName, bottomLeaderboard, col, displayImage, withTeaser, path }  = input;
+$ const { aliases, adIndex, adName, bottomLeaderboard, col, displayImage, withTeaser }  = input;
 $ const nodes = getAsArray(input, "nodes");
 $ const nativeX = getAsObject(input, "nativeX");
 $ const adPosition = input.adPosition || "after";
-
-<if (path)>
-<div class='view-more'>
-<marko-web-link href=path>
-  View more &raquo;
-</marko-web-link>
-</div>
-</if>
 
 <if(nodes.length)>
   <default-theme-card-deck-flow cols=col nodes=nodes>
@@ -24,14 +16,14 @@ $ const adPosition = input.adPosition || "after";
         node=node
         config=nxConfig
       >
-      <global-content-card-node
-        with-teaser=withTeaser
-        display-image=displayImage
-        image-width=340
-        node=nxNode
-        attrs=containerAttrs
-        link-attrs=linkAttrs
-      />
+        <global-content-card-node
+          with-teaser=withTeaser
+          display-image=displayImage
+          image-width=340
+          node=nxNode
+          attrs=containerAttrs
+          link-attrs=linkAttrs
+        />
       </marko-web-native-x-render>
     </@slot>
     <if(adIndex !== null)>
