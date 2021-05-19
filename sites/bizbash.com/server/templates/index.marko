@@ -41,7 +41,7 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "industry-buzz", limit: 3, queryFragment }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
             Industry Buzz
         </div>
         <global-content-card-deck-flow nodes=nodes display-image=false path='/industry-buzz'/>
@@ -52,10 +52,10 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "production-strategy", limit: 3, queryFragment, requiresImage: true }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
             Production & Strategy
         </div>
-        <global-content-card-deck-flow nodes=nodes path='/production-strategy' isHome=true/>
+        <global-content-card-deck-flow nodes=nodes path='/production-strategy' />
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -63,10 +63,10 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "catering-design", limit: 3, queryFragment, requiresImage: true }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
             Catering & Design
         </div>
-        <global-content-card-deck-flow nodes=nodes path='/catering-design' isHome=true/>
+        <global-content-card-deck-flow nodes=nodes path='/catering-design' />
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -74,10 +74,10 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "event-tech-virtual", limit: 3, queryFragment, requiresImage: true  }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
             Event Tech & Virtual
         </div>
-        <global-content-card-deck-flow nodes=nodes path='/event-tech-virtual' isHome=true/>
+        <global-content-card-deck-flow nodes=nodes path='/event-tech-virtual' />
       </marko-web-query>
     </div>
     <div class="row">
@@ -107,10 +107,10 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "venues-destinations", limit: 3, queryFragment, requiresImage: true  }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
           Venues & Destinations
         </div>
-        <global-content-card-deck-flow nodes=nodes path='/venues-destinations' isHome=true/>
+        <global-content-card-deck-flow nodes=nodes path='/venues-destinations' />
       </marko-web-query>
     </div>
     <div class="col-lg-12 mb-block">
@@ -118,10 +118,10 @@ $ const { id, alias, name, pageNode } = data;
         name="website-scheduled-content"
         params={ sectionAlias: "bizbash-lists", limit: 3, queryFragment, requiresImage: true  }
       >
-        <div class="node-list__header">
+        <div class="node-list__header node-list__header-home">
           BizBash Lists
         </div>
-        <global-content-card-deck-flow nodes=nodes path='/bizbash-lists' isHome=true/>
+        <global-content-card-deck-flow nodes=nodes path='/bizbash-lists' />
       </marko-web-query>
     </div>
   <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />

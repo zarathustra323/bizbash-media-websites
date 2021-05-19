@@ -334,6 +334,11 @@ $theme-site-header-breakpoints: map-merge(
 
 .node-list {
   $self: &;
+  &__header {
+    &-home {
+      padding-left: 1.5rem;
+    }
+  }
   &--featured-venues-suppliers {
     background-color: #e9ecef;
 
