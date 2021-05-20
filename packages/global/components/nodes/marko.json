@@ -40,6 +40,30 @@
     },
     "@image-ar": {
       "type": "string",
+      "default-value": "3:2"
+    },
+    "@display-image": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@with-teaser": {
+      "type": "boolean",
+      "default-value": true
+    },
+    "@attrs": "object",
+    "@link-attrs": "object"
+  },
+  "<global-content-hero-card-node>": {
+    "template": "./content-hero-card.marko",
+    "@node": "object",
+    "@modifiers": "array",
+    "@title-modifiers": "array",
+    "@image-width": {
+      "type": "number",
+      "default-value": 300
+    },
+    "@image-ar": {
+      "type": "string",
       "default-value": "6:5"
     },
     "@display-image": {
