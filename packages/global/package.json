@@ -1,6 +1,6 @@
 {
   "name": "@bizbash-media/package-global",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "Brian Miller <brian@parameter1.com>",
   "repository": "https://github.com/parameter1/bizbash-media-websites/tree/master/packages/global",
   "license": "MIT",
@@ -27,8 +27,8 @@
     "@parameter1/base-cms-utils": "^2.4.2",
     "@parameter1/base-cms-web-cli": "^2.20.1",
     "@sendgrid/mail": "^6.4.0",
-    "cheerio": "^1.0.0-rc.3",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
     "newrelic": "^6.4.1",
