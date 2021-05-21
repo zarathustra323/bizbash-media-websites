@@ -27,7 +27,7 @@ $ const bottomLeaderboard = {
               <@item>${title}</@item>
             </default-theme-breadcrumbs-with-home>
             <h1 class="page-wrapper__title">${title}</h1>
-            <div class="page-wrapper__deck">${description}</div>
+            <div class="page-wrapper__deck">$!{description}</div>
           </div>
         </div>
       </@section>
@@ -35,7 +35,7 @@ $ const bottomLeaderboard = {
 
     <marko-web-query|{ nodes }|
       name="all-published-content"
-      params={ limit: 18, queryFragment }
+      params={ contentTypes: ["Whitepaper"], limit: 18, queryFragment }
     >
       <global-content-list-flow
         nodes=nodes
@@ -62,7 +62,7 @@ $ const bottomLeaderboard = {
       }
       fragment-name="content-list"
       query-name="all-published-content"
-      query-params={ limit: 18, skip: 18 }
+      query-params={ contentTypes: ["Whitepaper"], limit: 18, skip: 18 }
       page-input={ for: "published-content" }
     />
   </@below-page>
