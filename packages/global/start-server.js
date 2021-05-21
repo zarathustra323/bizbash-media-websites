@@ -34,6 +34,10 @@ module.exports = (options = {}) => {
       const nativeXConfig = getAsObject(options, 'siteConfig.nativeX');
       set(app.locals, 'nativeX', buildNativeXConfig(nativeXConfig));
 
+      // Setup IdentityX.
+      const identityXConfig = get(options, 'siteConfig.identityX');
+      set(app.locals, 'identityX', identityXConfig);
+
       // Clean all response bodies.
       app.use(cleanResponse());
     },

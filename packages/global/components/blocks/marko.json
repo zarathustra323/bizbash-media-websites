@@ -1,4 +1,7 @@
 {
+  "taglib-imports": [
+    "./content-page/marko.json"
+  ],
   "<global-primary-image-block>": {
     "template": "./primary-image.marko"
   },

@@ -2144,6 +2144,24 @@
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-icons/-/base-cms-marko-web-icons-2.0.0.tgz#a62c0040cfe5b73f1bef28cb2b25b0c6be956064"
   integrity sha512-mbOQrnltRIZfl9fpeYrfuA4PHrCacDe8gdXucK7L6y6B4UAtzPbCNaEwPInXnhSCxkbdyRXfCirEYxTrAV7hOw==
 
+"@parameter1/base-cms-marko-web-identity-x@^2.20.1":
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-identity-x/-/base-cms-marko-web-identity-x-2.20.1.tgz#b76ee32494ee7b0613dbfd1e372b0b46c6e025fc"
+  integrity sha512-fkFKhyyiW4f+bi7u+8F+44HotqTocmf57pja1ewO9q6xBDvymlDGf/Ye5w7zrniNHW0dMUal16+6bZDRZSeLtw==
+  dependencies:
+    "@parameter1/base-cms-object-path" "^2.5.0"
+    "@parameter1/base-cms-utils" "^2.4.2"
+    apollo-cache-inmemory "^1.6.6"
+    apollo-client "^2.6.10"
+    apollo-link-context "^1.0.20"
+    apollo-link-http "^1.5.17"
+    body-parser "^1.19.0"
+    cookie "0.3.1"
+    express "^4.17.1"
+    graphql-tag "^2.11.0"
+    moment "^2.29.1"
+    node-fetch "^2.6.1"
+
 "@parameter1/base-cms-marko-web-inquiry@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-inquiry/-/base-cms-marko-web-inquiry-2.5.0.tgz#13dccd509c9eb883d19dd8d378bb83b8fc8651dd"
@@ -4568,6 +4586,11 @@ cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
+
+cookie@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
+  integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
 
 cookie@0.4.0:
   version "0.4.0"
