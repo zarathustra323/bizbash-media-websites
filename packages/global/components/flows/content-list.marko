@@ -7,7 +7,7 @@ $ const nativeX = getAsObject(input, "nativeX");
 $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : false;
 $ const innerJustified = input.innerJustified != null ? input.innerJustified : true;
-$ const { imageAr: ar, imagePosition, imageWidth } = input;
+$ const { imageAr: ar, imagePosition, imageWidth, bottomLeaderboard } = input;
 
 <marko-web-node-list inner-justified=innerJustified class=input.class>
   <if(input.header)>
@@ -35,3 +35,6 @@ $ const { imageAr: ar, imagePosition, imageWidth } = input;
     </@slot>
   </@nodes>
 </marko-web-node-list>
+<if(bottomLeaderboard)>
+  <marko-web-gam-define-display-ad ...bottomLeaderboard />
+</if>

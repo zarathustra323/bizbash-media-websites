@@ -32,7 +32,8 @@
     "@image-position": {
       "type": "string",
       "default-value": "left"
-    }
+    },
+    "@bottom-leaderboard": "object"
   },
   "<global-content-hero-flow>": {
     "template": "./content-hero.marko",
