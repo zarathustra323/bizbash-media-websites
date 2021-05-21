@@ -6,6 +6,10 @@ $ const { GAM, config } = out.global;
 $ const type = "published-content";
 $ const title = "White Papers";
 $ const description = defaultDescription(title, config);
+$ const bottomLeaderboard = {
+  ...GAM.getAdUnit({ name: 'lb1', aliases: ["white-paper"] }),
+  modifiers: ["content-list-leaderboard"]
+};
 
 <marko-web-default-page-layout type=type title=title description=description>
   <@head>
@@ -31,17 +35,34 @@ $ const description = defaultDescription(title, config);
 
     <marko-web-query|{ nodes }|
       name="all-published-content"
-      params={ contentTypes: ["Whitepaper"], limit: 18, queryFragment }
+      params={ limit: 18, queryFragment }
     >
-      <global-content-list-flow nodes=nodes />
+      <global-content-list-flow
+        nodes=nodes
+        image-width=240
+        with-teaser=true
+        image-ar="3:2"
+        bottom-leaderboard=bottomLeaderboard
+      />
     </marko-web-query>
   </@page>
   <@below-page>
+    $ const loadmoreLeaderboard = {
+      ...bottomLeaderboard,
+      modifiers: ["load-more"]
+    };
     <marko-web-load-more
       component-name="content-list-flow"
+      component-input= {
+        imagePosition: "left",
+        imageWidth: 240,
+        imageAr: "3:2",
+        withTeaser: true,
+        bottomLeaderboard,
+      }
       fragment-name="content-list"
       query-name="all-published-content"
-      query-params={ contentTypes: ["Whitepaper"], limit: 18, skip: 18 }
+      query-params={ limit: 18, skip: 18 }
       page-input={ for: "published-content" }
     />
   </@below-page>
