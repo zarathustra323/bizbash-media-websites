@@ -6,6 +6,8 @@ $ const primarySection = getAsObject(content, "primarySection");
 $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 $ const { linkAttrs, imageAr: ar, imagePosition, imageWidth } = input;
+$ const isWebinar = content.type === "webinar";
+$ const isUpcoming = content.startDate > Date.now();
 
 <marko-web-node
   type=`${content.type}-content`
@@ -30,8 +32,25 @@ $ const { linkAttrs, imageAr: ar, imagePosition, imageWidth } = input;
     <@title tag="h5">
       <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
     </@title>
+    $ console.log(isWebinar, content.startDate, content.linkUrl)
     <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+    </@text>
+    <@text|{ blockName }|
+      modifiers=["event-details"]
+      show=(Boolean(isWebinar && (content.startDate || content.endDate || content.linkUrl)))
+    >
+      <if(isWebinar && content.linkUrl)>
+        <marko-web-link
+          class=`${blockName}__content-link-url`
+          href=content.linkUrl
+          title="View / Register"
+          target="_blank"
+        >
+          <if(isUpcoming)>Register</if>
+          <else>View</else>
+        </marko-web-link>
+      </if>
     </@text>
     <@footer>
       <@left>
