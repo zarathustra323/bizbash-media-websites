@@ -254,15 +254,6 @@ $theme-site-header-breakpoints: map-merge(
   }
 }
 
-.node {
-  $self: &;
-  &--image-headshot {
-    #{ $self }__image-inner-wrapper {
-      box-shadow: none;
-    }
-  }
-}
-
 .supplier-disclaimer {
   font-size: .85rem;
   font-style: italic;
@@ -366,24 +357,6 @@ $theme-site-header-breakpoints: map-merge(
   }
 }
 
-.card-deck-flow {
-  &--magazine-issues {
-    .node {
-      padding: 0;
-      &__title a {
-        @include theme-apply-fonts(
-          $font-family: $theme-item-title-font-family,
-          $font-size-sm: $theme-item-title-font-size-sm,
-          $font-size: $theme-item-title-font-size,
-          $font-weight: $theme-item-title-font-weight,
-          $letter-spacing: $theme-item-title-letter-spacing,
-          $line-height-sm: $theme-item-title-line-height-sm,
-          $line-height: $theme-item-title-line-height
-        );
-      }
-    }
-  }
-}
 .magazine-publication-card-block {
   &__body {
     .issue-archive-cover {
@@ -409,6 +382,59 @@ $theme-site-header-breakpoints: map-merge(
           );
         }
       }
+    }
+    &--image-overlay {
+      // @todo more to core?
+      @include theme-line-height-crop($theme-item-title-line-height);
+      $title-font-size: 21px;
+      $title-font-size-sm: 16px;
+      $title-line-height: 1.3;
+      $title-line-height-sm: 1.3;
+      .node {
+        &__title,
+        &__title a {
+          @include theme-apply-fonts(
+            $font-size: $title-font-size,
+            $font-size-sm: $title-font-size-sm,
+            $font-weight: 600,
+            $line-height: $title-line-height,
+            $line-height-sm: $title-line-height-sm
+          );
+          @include theme-max-lines(
+            $font-size: $title-font-size,
+            $font-size-sm: $title-font-size-sm,
+            $line-height: $title-line-height,
+            $line-height-sm: $title-line-height-sm,
+            $num: 5
+          );
+        }
+      }
+    }
+  }
+  &__node {
+    padding: map-get($spacers, block);
+    margin-bottom: 0;
+  }
+
+  &--magazine-issues {
+    .node {
+      padding: 0;
+      &__title a {
+        @include theme-apply-fonts(
+          $font-family: $theme-item-title-font-family,
+          $font-size-sm: $theme-item-title-font-size-sm,
+          $font-size: $theme-item-title-font-size,
+          $font-weight: $theme-item-title-font-weight,
+          $letter-spacing: $theme-item-title-letter-spacing,
+          $line-height-sm: $theme-item-title-line-height-sm,
+          $line-height: $theme-item-title-line-height
+        );
+      }
+    }
+  }
+  &--section-card-block {
+    .node {
+      padding: 0;
     }
   }
 }
@@ -513,44 +539,13 @@ body {
   }
 }
 
-.card-deck-flow {
-  &__node {
-    padding: map-get($spacers, block);
-    margin-bottom: 0;
-  }
-  .node {
-    &--image-overlay {
-      // @todo more to core?
-      @include theme-line-height-crop($theme-item-title-line-height);
-      $title-font-size: 21px;
-      $title-font-size-sm: 16px;
-      $title-line-height: 1.3;
-      $title-line-height-sm: 1.3;
-      .node {
-        &__title,
-        &__title a {
-          @include theme-apply-fonts(
-            $font-size: $title-font-size,
-            $font-size-sm: $title-font-size-sm,
-            $font-weight: 600,
-            $line-height: $title-line-height,
-            $line-height-sm: $title-line-height-sm
-          );
-          @include theme-max-lines(
-            $font-size: $title-font-size,
-            $font-size-sm: $title-font-size-sm,
-            $line-height: $title-line-height,
-            $line-height-sm: $title-line-height-sm,
-            $num: 5
-          );
-        }
-      }
-    }
-  }
-}
-
 .node {
   $self: &;
+  &--image-headshot {
+    #{ $self }__image-inner-wrapper {
+      box-shadow: none;
+    }
+  }
   &__title::before {
     display: block;
     width: 0;
@@ -702,6 +697,33 @@ body {
   &__content-authors {
     &::before {
       content: "By";
+    }
+  }
+}
+
+.section-card-block {
+  &__header {
+    @include theme-card-header();
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+  }
+  &__view-more {
+    display: none;
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &__view-more-bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+    margin-top: 4px;
+    @include media-breakpoint-up(md) {
+      display: none;
     }
   }
 }
