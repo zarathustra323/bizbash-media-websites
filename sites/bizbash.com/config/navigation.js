@@ -16,8 +16,8 @@ const tertiaryItems = [
 ];
 
 module.exports = {
-  secondary: { items: topics },
-  primary: {
+  primary: { items: topics },
+  secondary: {
     items: [
       { href: '/gathergeeks', label: 'Podcast' },
       { href: '/webinars', label: 'Webinars' },
