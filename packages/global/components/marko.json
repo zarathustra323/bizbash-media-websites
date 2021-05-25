@@ -11,7 +11,7 @@
   "<global-sticky-footer>": {
     "template": "./sticky-footer.marko"
   },
-  "<refresh-theme-contextual-header>": {
+  "<global-contextual-header>": {
     "template": "./site-header/contextual.marko"
   }
 }
