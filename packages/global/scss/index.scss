@@ -710,6 +710,29 @@ body {
   }
 }
 
-.site-navbar {
-
+.section-card-block {
+  &__header {
+    @include theme-card-header();
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+  }
+  &__view-more {
+    display: none;
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &__view-more-bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: map-get($spacers, 2);
+    padding-left: map-get($spacers, 2);
+    margin-top: 4px;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
 }
