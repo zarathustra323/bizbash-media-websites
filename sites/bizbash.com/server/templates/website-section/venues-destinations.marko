@@ -81,19 +81,22 @@ $ const { id, alias, name, pageNode } = data;
               </div>
             </marko-web-query>
             <if(grandChildren.length)>
+              <div class="row">
               <for|grandChild| of=grandChildren>
-                <div class="mb-block">
+                <div class="col-lg-4 mb-block">
                   <marko-web-query|{ nodes }|
                     name="website-scheduled-content"
-                    params={ sectionAlias: grandChild.alias, limit: 3, queryFragment }
+                    params={ sectionAlias: grandChild.alias, limit: 5, queryFragment }
                   >
-                    <div class="node-list__cityheader">
-                      <marko-web-link href=`/${grandChild.alias}`>${grandChild.name}</marko-web-link>
-                    </div>
-                    <global-content-card-deck-flow nodes=nodes />
+                    <global-content-list-flow nodes=nodes>
+                      <@header>
+                         <marko-web-link href=`/${grandChild.alias}`>${grandChild.name}</marko-web-link>
+                      </@header>
+                    </global-content-list-flow>
                   </marko-web-query>
               </div>
               </for>
+              </div>
             </if>
           </div>
           </for>
