@@ -1,4 +1,4 @@
-$sticky-footer-background-color:      rgba(0, 0, 0, .8) !default;
+$sticky-footer-background-color:      $primary !default;
 
 $sticky-footer-container-height:      40px !default;
 $sticky-footer-container-padding:     .5rem !default;
@@ -28,7 +28,7 @@ $sticky-footer-close-z-index:         $sticky-footer-container-z-index + 1 !defa
     padding: $sticky-footer-container-padding;
     text-align: center;
     visibility: hidden;
-    background-color: $black;
+    background-color: $primary;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 0;
