@@ -23,9 +23,9 @@ module.exports = {
       ],
     },
     footer: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/bizbash-new-footer.png?h=80',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlackFooter.png?h=80',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/bizbash-new-footer.png?h=160 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlackFooter.png?h=160 2x',
       ],
     },
   },
