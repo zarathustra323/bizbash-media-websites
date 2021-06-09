@@ -138,7 +138,7 @@ $theme-site-header-breakpoints: (
   small-text-secondary: 860px
 );
 
-$theme-site-navbar-primary-bg-color:        $black;
+$theme-site-navbar-primary-bg-color:        $primary;
 $theme-site-navbar-primary-font-family:     $font-source-sans-pro;
 $theme-site-navbar-primary-font-size:       14px;
 $theme-site-navbar-primary-font-size-sm:    12px;
@@ -150,16 +150,16 @@ $theme-site-navbar-primary-link-active-decoration:  none;
 $theme-site-navbar-primary-link-color:              #fff;
 $theme-site-navbar-primary-link-hover-color:        #fff;
 
-$theme-site-navbar-secondary-bg-color:      $black;
+$theme-site-navbar-secondary-bg-color:      $primary;
 $theme-site-navbar-secondary-font-size:     12px;
 $theme-site-navbar-secondary-font-size-sm:  12px;
 $theme-site-navbar-secondary-font-family:   $font-roboto-condensed;
 $theme-site-navbar-secondary-font-weight:   700;
 $theme-site-navbar-secondary-line-height:   1;
 
-$theme-site-navbar-secondary-link-color:              $primary;
+$theme-site-navbar-secondary-link-color:              #fff;
 $theme-site-navbar-secondary-link-active-decoration:  none;
-$theme-site-navbar-secondary-hover-color:             $primary;
+$theme-site-navbar-secondary-hover-color:             #fff;
 
 $theme-site-navbar-tertiary-link-active-color:  $white;
 $theme-site-navbar-tertiary-link-color:         $white;
