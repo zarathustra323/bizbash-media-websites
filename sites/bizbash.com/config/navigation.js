@@ -7,7 +7,7 @@ const topics = [
 ];
 
 let hamburgerMenu = topics;
-hamburgerMenu = [...hamburgerMenu, { href: '/industry-buzz', label: 'Industry Buzz' }]
+hamburgerMenu = [...hamburgerMenu, { href: '/industry-buzz', label: 'Industry Buzz' }];
 
 const footerItems = [
   { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
