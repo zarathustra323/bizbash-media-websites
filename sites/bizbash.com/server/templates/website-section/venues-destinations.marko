@@ -76,18 +76,18 @@ $ const { id, alias, name, pageNode } = data;
               name="website-scheduled-content"
               params={ sectionAlias: child.alias, limit: 4, queryFragment }
             >
-                <if (child.name === 'North America' || child.name === 'Global')>
-                  <global-content-list-flow nodes=nodes>
-                    <@header>
-                      <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
-                    </@header>
-                  </global-content-list-flow>
-                </if>
-                <else>
-                  <div class="node-list__header">
+              <if (['North America', 'Global'].includes(child.name))>
+                <global-content-list-flow nodes=nodes>
+                  <@header>
                     <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
-                  </div>
-                </else>
+                  </@header>
+                </global-content-list-flow>
+              </if>
+              <else>
+                <div class="node-list__header">
+                  <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
+                </div>
+              </else>
             </marko-web-query>
             <if(grandChildren.length)>
               <div class="row">
