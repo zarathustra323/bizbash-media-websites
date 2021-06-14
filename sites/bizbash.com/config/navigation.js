@@ -6,9 +6,6 @@ const topics = [
   { href: '/bizbash-lists', label: 'BizBash Lists' },
 ];
 
-let hamburgerMenu = topics;
-hamburgerMenu = [...hamburgerMenu, { href: '/industry-buzz', label: 'Industry Buzz' }];
-
 const footerItems = [
   { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
   { href: '/venue-directory', label: 'Find a Venue' },
@@ -128,7 +125,10 @@ module.exports = {
     },
     {
       label: 'Find Inspiration',
-      items: hamburgerMenu,
+      items: [
+        ...topics,
+        { href: '/industry-buzz', label: 'Industry Buzz' },
+      ],
     },
     {
       label: 'Other Resources',
