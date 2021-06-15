@@ -125,7 +125,10 @@ module.exports = {
     },
     {
       label: 'Find Inspiration',
-      items: topics,
+      items: [
+        ...topics,
+        { href: '/industry-buzz', label: 'Industry Buzz' },
+      ],
     },
     {
       label: 'Other Resources',
