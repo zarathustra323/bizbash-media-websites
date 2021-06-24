@@ -8,7 +8,7 @@ $ const blockName = input.blockName || "site-header";
 
 $ const contexts = site.getAsArray("navigation.contexts");
 
-$ const contextualNav = (req.path.match(/[0-9]+/)) ? null : contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)))
+$ const contextualNav = (req.path.match(/\/[0-9]+/)) ? null : contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)))
 $ const getNavItems = (key) => {
   if (!contextualNav) return  site.getAsArray(`navigation.${key}`);
   return getAsArray(contextualNav, key);
