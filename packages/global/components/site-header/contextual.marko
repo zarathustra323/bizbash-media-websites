@@ -7,7 +7,7 @@ $ const { config, site, req } = out.global;
 $ const blockName = input.blockName || "site-header";
 
 $ const contexts = site.getAsArray("navigation.contexts");
-$ const pageType = input.pageType || "website-section";
+$ const pageType = input.pageType
 $ const contextualNav = (pageType === "website-section") ?  contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path))) : null
 $ const getNavItems = (key) => {
   if (!contextualNav) return  site.getAsArray(`navigation.${key}`);
