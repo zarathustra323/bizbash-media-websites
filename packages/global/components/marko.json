@@ -12,6 +12,7 @@
     "template": "./sticky-footer.marko"
   },
   "<global-contextual-header>": {
-    "template": "./site-header/contextual.marko"
+    "template": "./site-header/contextual.marko",
+    "@page-type": "string"
   }
 }

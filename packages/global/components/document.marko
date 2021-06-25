@@ -1,5 +1,4 @@
 $ const { nativeX, site } = out.global;
-
 <marko-web-document ...input>
   <@head>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -39,7 +38,7 @@ $ const { nativeX, site } = out.global;
   <@above-container>
     <marko-web-reveal-ad-listener />
     <marko-web-gtm-track-load-more />
-    <global-contextual-header />
+    <global-contextual-header page-type=input.container.page.for />
     <default-theme-site-menu />
     <div class="document-container-header">
       <${input.aboveContainer} />
