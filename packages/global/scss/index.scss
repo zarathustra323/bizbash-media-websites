@@ -533,7 +533,7 @@ body {
     &__link::before {
       float: left;
       padding-right: $theme-site-navbar-primary-padding-x - 1;
-      color: $primary;
+      color: $black;
       content: "|";
     }
     &__item:first-child {
