@@ -21,7 +21,7 @@ $white:     #fff;
 $gray-600:  #4d4d4d;
 
 // General Settings
-$body-bg:     #fff;
+$body-bg:     $white;
 $body-color:  #333;
 $list-group-border-width: 0;
 $enable-shadows: false;
@@ -105,7 +105,7 @@ $theme-breadcrumbs-font-weight:   600;
 
 // Cards
 $theme-card-header-color:             $primary;
-$theme-card-header-background-color:  #fff;
+$theme-card-header-background-color:  $white;
 $theme-card-header-border:            none;
 $theme-card-header-font-family:       $font-oswald;
 $theme-card-header-font-size:         26.825px;
@@ -139,27 +139,27 @@ $theme-site-header-breakpoints: (
 );
 
 $theme-site-navbar-primary-bg-color:        $primary;
-$theme-site-navbar-primary-font-family:     $font-source-sans-pro;
-$theme-site-navbar-primary-font-size:       14px;
+$theme-site-navbar-primary-font-family:     $font-roboto-condensed;
+$theme-site-navbar-primary-font-size:       16px;
 $theme-site-navbar-primary-font-size-sm:    12px;
 $theme-site-navbar-primary-font-weight:     700;
 $theme-site-navbar-primary-line-height:     1;
 
-$theme-site-navbar-primary-link-active-color:       $black;
+$theme-site-navbar-primary-link-active-color:       $white;
 $theme-site-navbar-primary-link-active-decoration:  none;
-$theme-site-navbar-primary-link-color:              #fff;
-$theme-site-navbar-primary-link-hover-color:        #fff;
+$theme-site-navbar-primary-link-color:              $black;
+$theme-site-navbar-primary-link-hover-color:        $black;
 
 $theme-site-navbar-secondary-bg-color:      $primary;
 $theme-site-navbar-secondary-font-size:     12px;
 $theme-site-navbar-secondary-font-size-sm:  12px;
-$theme-site-navbar-secondary-font-family:   $font-roboto-condensed;
-$theme-site-navbar-secondary-font-weight:   700;
+$theme-site-navbar-secondary-font-family:   $font-source-sans-pro;
+$theme-site-navbar-secondary-font-weight:   600;
 $theme-site-navbar-secondary-line-height:   1;
 
-$theme-site-navbar-secondary-link-color:              #fff;
+$theme-site-navbar-secondary-link-color:              $black;
 $theme-site-navbar-secondary-link-active-decoration:  none;
-$theme-site-navbar-secondary-hover-color:             #fff;
+$theme-site-navbar-secondary-hover-color:             $black;
 
 $theme-site-navbar-tertiary-link-active-color:  $white;
 $theme-site-navbar-tertiary-link-color:         $white;
@@ -242,6 +242,8 @@ $theme-site-header-breakpoints: map-merge(
 
 .document-container {
   padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .marko-web-gtm-slot {
@@ -276,11 +278,11 @@ $theme-site-header-breakpoints: map-merge(
 
 .page-contents {
   &__images {
-    margin-top: map-get($spacers, block);;
+    margin-top: map-get($spacers, block);
   }
   .primary-image {
-    border-bottom: 1px solid rgba(0, 0, 0, .25);
     margin-bottom: $theme-primary-media-margin-bottom;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
     &__image-caption {
       @include theme-media-caption();
     }
@@ -311,7 +313,8 @@ $theme-site-header-breakpoints: map-merge(
   }
 }
 
-.page-attribution, .page-attribution div {
+.page-attribution,
+.page-attribution div {
   display: inline;
 }
 
@@ -327,9 +330,14 @@ $theme-site-header-breakpoints: map-merge(
 
 .node-list {
   $self: &;
+  &__nodes {
+    padding: 0;
+  }
+  &__node {
+    border-bottom: none;
+  }
   &--featured-venues-suppliers {
     background-color: #e9ecef;
-
     #{ $self } {
       &__node {
         padding-top: 0;
@@ -346,8 +354,8 @@ $theme-site-header-breakpoints: map-merge(
         background-color: #e9ecef;
       }
       &__header {
-        font-size: 20px;
         padding-bottom: 0;
+        font-size: 20px;
       }
     }
   }
@@ -369,7 +377,7 @@ $theme-site-header-breakpoints: map-merge(
   .node {
     &--no-image-overlay {
       height: 100%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
       .node {
         &__title {
           @include theme-apply-fonts(
@@ -455,10 +463,6 @@ $theme-site-header-breakpoints: map-merge(
 body {
   letter-spacing: $bizbash-letter-spacing;
 }
-.document-container {
-  padding-right: 0;
-  padding-left: 0;
-}
 .page {
   padding: 15px;
   > .hero-flow:first-child {
@@ -516,6 +520,7 @@ body {
 .site-navbar {
   $self: &;
   &__items--secondary {
+    text-transform: none;
     #{ $self }__item--white {
       #{ $self }__link {
         color: $white;
@@ -694,15 +699,6 @@ body {
   &__hero {
     padding-right: map-get($spacers, block);
     padding-left: map-get($spacers, block);
-  }
-}
-
-.node-list {
-  &__nodes {
-    padding: 0;
-  }
-  &__node {
-    border-bottom: none;
   }
 }
 
