@@ -4,11 +4,12 @@ import { asArray } from "@parameter1/base-cms-utils";
 
 $ const { config, site, req } = out.global;
 
-$ const blockName = input.blockName || "site-header";
+$ const { blockName = "site-header", pageType } = input;
 
 $ const contexts = site.getAsArray("navigation.contexts");
-$ const contextualNav = contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
+$ const useContext = pageType === "website-section";
+$ const isActive = (contexts) => contexts.some((path) => isActiveLink(req.path, path));
+$ const contextualNav = useContext && contexts.find((context) => isActive(getAsArray(context, "when")))
 $ const getNavItems = (key) => {
   if (!contextualNav) return  site.getAsArray(`navigation.${key}`);
   return getAsArray(contextualNav, key);
