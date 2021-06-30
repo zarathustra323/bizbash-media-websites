@@ -14,7 +14,6 @@
 
 
 import queryFragment from "../../graphql/fragments/featured-venue-supplier-list";
-
 <marko-web-query|{ nodes }|
   name="related-published-content"
   params={
@@ -25,7 +24,7 @@ import queryFragment from "../../graphql/fragments/featured-venue-supplier-list"
   }
 >
 <marko-web-node-list nodes=nodes modifiers=["featured-venues-suppliers", "unjustified"]>
-  <@header>Featured Venues/Supppliers:</@header>
+  <@header>Featured Venues/Suppliers:</@header>
   <@nodes nodes=nodes>
     <@slot|{ node }|>
       <global-content-list-node node=node />
