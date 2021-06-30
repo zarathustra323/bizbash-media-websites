@@ -8,7 +8,7 @@ $ const {
 
 <marko-web-query|{ nodes }|
   name="related-published-content"
-  params={ contentId: id, limit: 10, queryFragment }
+  params={ contentId: id, limit: 10, excludeContentTypes: ['Venue', 'Supplier'], queryFragment }
 >
   <global-content-list-flow nodes=nodes inner-justified=false>
     <@header>Related</@header>
