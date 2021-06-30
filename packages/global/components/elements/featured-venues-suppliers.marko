@@ -1,18 +1,3 @@
-
-
-<!-- <cms-query-related-published-content|{ nodes }| limit=100 content-id=input.contentId include-content-types=["Venue", "Supplier"] query-fragment=contentListFragment>
-  <if(nodes.length)>
-    <endeavor-item-list modifiers=["featured-venues-suppliers", "unjustified"] items=nodes>
-      <@header>Featured Venues/Suppliers:</@header>
-      <@item|{ item }|>
-        <marko-web-website-section-name obj=item.primarySection />
-        <bizbash-list-item-section-name modifiers=["featured-venue-supplier"] content=item />
-      </@item>
-    </endeavor-item-list>
-  </if>
-</cms-query-related-published-content> -->
-
-
 import queryFragment from "../../graphql/fragments/featured-venue-supplier-list";
 
 <marko-web-query|{ nodes }|
