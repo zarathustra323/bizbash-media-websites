@@ -39,7 +39,7 @@
   $self: &;
   &__input,
   &__input:focus {
-    @include input-font-style;
+    @include input-font-style();
     margin-bottom: 1.5rem;
     border: solid 5px $gray-200;
   }
@@ -127,7 +127,7 @@
   background-color: #f1f1f1;
   &__input {
     width: 80%;
-    @include input-font-style;
+    @include input-font-style();
     border: none;
     &::placeholder {
       color: #666;
@@ -175,7 +175,7 @@
           background-color: $primary;
         }
         &__image-wrapper {
-        margin-bottom: map-get($spacers, 3);
+          margin-bottom: map-get($spacers, 3);
         }
         &--card {
           padding-top: map-get($spacers, 3);
@@ -189,13 +189,13 @@
     .node {
       &__title {
         font-size: 18px;
-        font-weight: bold;
+        font-weight: 700;
       }
       &__text {
         font-family: $font-roboto-condensed;
         font-size: 14px;
         line-height: 1.25rem;
-        color: rgba(51, 51, 51, 0.5);
+        color: rgba(51, 51, 51, .5);
       }
     }
   }
