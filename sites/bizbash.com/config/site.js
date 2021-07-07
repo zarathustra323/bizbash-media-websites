@@ -17,15 +17,15 @@ module.exports = {
   },
   logos: {
     navbar: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlack.png?h=60',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlack.png?h=120 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=120 2x',
       ],
     },
     footer: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlackFooter.png?h=80',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-footer-tagline.png?h=90',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/BB_WhiteBlackFooter.png?h=160 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-footer-tagline.png?h=180 2x',
       ],
     },
   },
