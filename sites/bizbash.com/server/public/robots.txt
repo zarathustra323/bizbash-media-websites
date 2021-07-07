@@ -4,7 +4,6 @@
 User-agent: *
 Disallow: /__
 Disallow: /print/content
-Disallow: *
 
 Sitemap: https://www.bizbash.com/sitemap.xml
 Sitemap: https://www.bizbash.com/sitemap-google-news.xml
