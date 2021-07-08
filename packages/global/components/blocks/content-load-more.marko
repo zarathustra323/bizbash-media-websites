@@ -7,6 +7,7 @@ $ const {
   sectionName,
   sectionSkip
 } = input;
+$ const limit = aliases.includes("sponsored") ? 15 : 14
 
 <if(type === "contact")>
   <marko-web-load-more
@@ -42,7 +43,7 @@ $ const {
     component-input={ aliases, nativeX: input.nativeX }
     fragment-name="content-list"
     query-name="website-scheduled-content"
-    query-params={ sectionId, excludeContentIds: [id], limit: 14, skip: sectionSkip }
+    query-params={ sectionId, excludeContentIds: [id], limit: limit, skip: sectionSkip }
     page-input={ for: "content", id, type }
   />
 </else-if>

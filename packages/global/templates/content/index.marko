@@ -16,20 +16,22 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
     </marko-web-gtm-content-context>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
-      $ const adSlots = {
+      $ const adSlots = aliases.includes("sponsored") ? {} : {
         "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
         "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
       };
-      <marko-web-gam-slots slots=adSlots />
+        <marko-web-gam-slots slots=adSlots />
       <global-gam-content-targeting-element obj=content />
     </marko-web-resolve-page>
   </@head>
   <@above-container>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+      <if(!aliases.includes("sponsored"))>
+        <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
+        <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+      </if>
     </marko-web-resolve-page>
   </@above-container>
   <@page>
@@ -39,7 +41,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
-          <marko-web-gam-display-ad id="gpt-ad-lb1" />
+            <marko-web-gam-display-ad id="gpt-ad-lb1" />
         </@section>
         <@section>
           <div class="row">
@@ -145,7 +147,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
                 section-id=section.id
                 section-name=section.name
               />
-              <marko-web-gam-display-ad id="gpt-ad-rail2" />
+                <marko-web-gam-display-ad id="gpt-ad-rail2" />
             </aside>
           </div>
 
