@@ -9,7 +9,6 @@ fragment LeadershipCompanyVideosFragment on Content {
     path
   }
   ... on ContentCompany {
-    isLeader: hasWebsiteSchedule(input: { sectionAlias: "leaders" })
     youtube {
       url
     }
