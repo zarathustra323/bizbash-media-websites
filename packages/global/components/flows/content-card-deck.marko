@@ -26,7 +26,7 @@ $ const adPosition = input.adPosition || "after";
         />
       </marko-web-native-x-render>
     </@slot>
-    <if(adIndex !== null && adName && primarySectionAlias !== 'sponsored')>
+    <if(adIndex !== null && adName)>
       <@slot position=adPosition index=adIndex>
         <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: adName, size: [300, 250], aliases }) modifiers=["in-card"] />
       </@slot>
