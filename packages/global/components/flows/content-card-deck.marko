@@ -32,7 +32,7 @@ $ const adPosition = input.adPosition || "after";
       </@slot>
     </if>
   </default-theme-card-deck-flow>
-  <if(bottomLeaderboard && adName && primarySectionAlias !== 'sponsored')>
+  <if(bottomLeaderboard && primarySectionAlias !== 'sponsored')>
     <marko-web-gam-define-display-ad ...bottomLeaderboard modifiers=["bottom-leaderboard"] />
   </if>
 
