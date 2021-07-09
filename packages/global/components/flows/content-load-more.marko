@@ -3,11 +3,12 @@ import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 $ const { GAM } = out.global;
 
 $ const {
+  primarySectionAlias,
   aliases,
   bottomLeaderboard,
 } = input;
 $ const nodes = getAsArray(input, "nodes");
-$ const adName = aliases.includes('sponsored') ? null : "load-more"
+$ const adName = primarySectionAlias === 'sponsored' ? null : "load-more"
 
 <if(nodes.length && adName)>
   $ const nodes1 = nodes.slice(0,5);
@@ -43,5 +44,5 @@ $ const adName = aliases.includes('sponsored') ? null : "load-more"
   </if>
 </if>
 <else>
-  <global-content-card-deck-flow nodes=nodes />
+  <global-content-card-deck-flow nodes=nodes primary-section-alias=primarySectionAlias/>
 </else>

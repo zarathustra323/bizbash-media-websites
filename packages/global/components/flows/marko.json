@@ -47,6 +47,7 @@
   "<global-content-load-more-flow>": {
     "template": "./content-load-more.marko",
     "@nodes": "array",
+    "@primary-section-alias": "string",
     "@aliases": "array"
   },
   "<global-content-card-deck-flow>": {
@@ -61,6 +62,7 @@
       "default-value": 3
     },
     "@nodes": "array",
+    "@primary-section-alias": "string",
     "@aliases": "array",
     "@ad-index": "number",
     "@ad-name": "string",

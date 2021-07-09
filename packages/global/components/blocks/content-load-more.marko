@@ -2,12 +2,13 @@ $ const {
   id,
   type,
   name,
+  primarySectionAlias,
   aliases,
   sectionId,
   sectionName,
   sectionSkip
 } = input;
-$ const limit = aliases.includes("sponsored") ? 15 : 14
+$ const limit = primarySectionAlias === 'sponsored' ? 15 : 14
 
 <if(type === "contact")>
   <marko-web-load-more
@@ -40,7 +41,7 @@ $ const limit = aliases.includes("sponsored") ? 15 : 14
   <marko-web-load-more
     header=`More in ${sectionName}`
     component-name="content-load-more-flow"
-    component-input={ aliases, nativeX: input.nativeX }
+    component-input={ primarySectionAlias, aliases, nativeX: input.nativeX }
     fragment-name="content-list"
     query-name="website-scheduled-content"
     query-params={ sectionId, excludeContentIds: [id], limit: limit, skip: sectionSkip }
