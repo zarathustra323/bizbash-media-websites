@@ -47,7 +47,7 @@
   "<global-content-load-more-flow>": {
     "template": "./content-load-more.marko",
     "@nodes": "array",
-    "@primary-section-alias": "string",
+    "@display-ads": "boolean",
     "@aliases": "array"
   },
   "<global-content-card-deck-flow>": {
@@ -57,12 +57,15 @@
       "@name": "string",
       "@aliases": "array"
     },
+    "@display-ads": {
+      "type": "boolean",
+      "default-value": true
+    },
     "@col": {
       "type": "number",
       "default-value": 3
     },
     "@nodes": "array",
-    "@primary-section-alias": "string",
     "@aliases": "array",
     "@ad-index": "number",
     "@ad-name": "string",

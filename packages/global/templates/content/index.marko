@@ -163,7 +163,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
         id=id
         type=type
         name=content.name
-        primary-section-alias=content.primarySection.alias
+        display-ads=(content.primarySection.alias !== 'sponsored')
         aliases=aliases
         section-id=section.id
         section-name=section.name
