@@ -9,7 +9,7 @@ $ const {
 } = input;
 $ const nodes = getAsArray(input, "nodes");
 $ const displayAds = defaultValue(input.displayAds, true)
-$ const adName = displayAds ? "load-more" : null;
+$ const adName = "load-more"
 
 <if(nodes.length)>
   <if(displayAds)>

@@ -19,7 +19,7 @@ $ const limit = displayAds ? 14 : 15
     query-name="all-author-content"
     query-params={
       skip: 4,
-      limit: limit,
+      limit,
       contactId: id,
       withSite: false,
     }
@@ -33,7 +33,7 @@ $ const limit = displayAds ? 14 : 15
     component-input={ displayAds, aliases }
     fragment-name="content-list"
     query-name="all-company-content"
-    query-params={ companyId: id, limit: limit, }
+    query-params={ companyId: id, limit, }
     page-input={ for: "content", id, type }
   />
 </else-if>
@@ -44,7 +44,7 @@ $ const limit = displayAds ? 14 : 15
     component-input={ displayAds, aliases, nativeX: input.nativeX }
     fragment-name="content-list"
     query-name="website-scheduled-content"
-    query-params={ sectionId, excludeContentIds: [id], limit: limit, skip: sectionSkip }
+    query-params={ sectionId, excludeContentIds: [id], limit, skip: sectionSkip }
     page-input={ for: "content", id, type }
   />
 </else-if>

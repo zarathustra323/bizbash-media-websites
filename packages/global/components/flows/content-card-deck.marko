@@ -26,13 +26,14 @@ $ const adPosition = input.adPosition || "after";
         />
       </marko-web-native-x-render>
     </@slot>
-    <if(adIndex !== null && adName)>
+    <if(adIndex !== null)>
       <@slot position=adPosition index=adIndex>
         <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: adName, size: [300, 250], aliases }) modifiers=["in-card"] />
       </@slot>
     </if>
   </default-theme-card-deck-flow>
-  <if(bottomLeaderboard && adName)>
+  <if(bottomLeaderboard)>
     <marko-web-gam-define-display-ad ...bottomLeaderboard modifiers=["bottom-leaderboard"] />
   </if>
+
 </if>
