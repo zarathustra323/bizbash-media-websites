@@ -92,6 +92,7 @@ export default {
       error: false,
       pages: [],
       term: '',
+      iconModifiers: [],
     };
   },
   methods: {
