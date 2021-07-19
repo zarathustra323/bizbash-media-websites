@@ -1,6 +1,6 @@
 {
   "name": "@bizbash-media/bizbash.com",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "author": "Brian Miller <brian@parameter1.com>",
   "repository": "https://github.com/parameter1/bizbash-media-websites/tree/master/sites/bizbash.com",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@bizbash-media/package-global": "^0.1.17",
+    "@bizbash-media/package-global": "^0.1.18",
     "@parameter1/base-cms-marko-core": "^2.12.0",
     "@parameter1/base-cms-marko-web": "^2.20.1",
     "@parameter1/base-cms-marko-web-gam": "^2.20.0",
