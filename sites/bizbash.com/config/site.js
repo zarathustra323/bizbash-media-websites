@@ -53,7 +53,7 @@ module.exports = {
     },
   },
   search: {
-    apiKey: '2682f90e71ea403b9cbf6fa7740bf006',
+    apiKey: process.env.BING_API_KEY || 'NOT_SET',
     domain: 'bizbash.com',
   },
   inquiry: {
