@@ -111,7 +111,8 @@ export default {
           mkt,
         };
         const query = q => Object.keys(q).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(q[k])}`).join('&');
-        const url = `https://api.cognitive.microsoft.com/bing/v5.0/search?${query(payload)}`;
+
+        const url = `https://api.bing.microsoft.com/v7.0/search?${query(payload)}`;
         const headers = { 'Ocp-Apim-Subscription-Key': apiKey };
 
         const res = await fetch(url, { headers });
