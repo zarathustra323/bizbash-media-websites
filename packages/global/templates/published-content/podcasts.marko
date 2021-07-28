@@ -40,12 +40,12 @@ $ const description = defaultDescription(title, config);
         queryFragment,
       }
     >
-      <global-content-list-flow nodes=nodes />
+      <global-content-card-deck-flow nodes=nodes />
     </marko-web-query>
   </@page>
   <@below-page>
     <marko-web-load-more
-      component-name="content-list-flow"
+      component-name="content-load-more-flow"
       fragment-name="content-list"
       query-name="all-published-content"
       query-params={
