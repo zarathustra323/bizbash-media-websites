@@ -284,6 +284,10 @@ $theme-site-header-breakpoints: map-merge(
   .primary-image {
     margin-bottom: $theme-primary-media-margin-bottom;
     border-bottom: 1px solid rgba(0, 0, 0, .25);
+    &__image-display-name {
+      font-size: $theme-page-body-images-title-font-size;
+      font-weight: $theme-page-body-images-title-font-weight;
+    }
     &__image-caption {
       @include theme-media-caption();
     }
