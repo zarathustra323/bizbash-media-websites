@@ -2,6 +2,9 @@ import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import queryFragment from '@bizbash-media/package-global/graphql/fragments/content-list';
 
+$ const { GAM, nativeX: nxConfig, site } = out.global;
+$ const { id, alias, name, pageNode } = data;
+
 $ function sortAlphabetically(item1, item2) {
   const itemOne = item1.name;
   const itemTwo = item2.name;
@@ -10,10 +13,6 @@ $ function sortAlphabetically(item1, item2) {
   }
   return -1;
 };
-
-
-$ const { GAM, nativeX: nxConfig, site } = out.global;
-$ const { id, alias, name, pageNode } = data;
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
