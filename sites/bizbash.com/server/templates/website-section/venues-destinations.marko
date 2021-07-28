@@ -59,14 +59,23 @@ $ const { id, alias, name, pageNode } = data;
           <div class="col-lg-12 mb-block">
             <marko-web-query|{ nodes }|
               name="website-scheduled-content"
-              params={ sectionAlias: child.alias, limit: 5, queryFragment }
+              params={ sectionAlias: child.alias, limit: 15, queryFragment, requiresImage: true }
             >
               <if (['North America', 'Global'].includes(child.name))>
-                <global-content-list-flow nodes=nodes>
-                  <@header>
-                    <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
+                <div class="node-list__header">
+                  <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 mb-block">
+                    <global-content-list-flow nodes=nodes.slice(0,5) />
+                  </div>
+                  <div class="col-lg-4 mb-block">
+                    <global-content-list-flow nodes=nodes.slice(5,10) />
+                  </div>
+                  <div class="col-lg-4 mb-block">
+                    <global-content-list-flow nodes=nodes.slice(10,15) />
+                  </div>
+                </div>
               </if>
               <else>
                 <div class="node-list__header">
@@ -81,7 +90,7 @@ $ const { id, alias, name, pageNode } = data;
                 <div class="col-lg-4 mb-block">
                   <marko-web-query|{ nodes }|
                     name="website-scheduled-content"
-                    params={ sectionAlias: grandChild.alias, limit: 5, queryFragment }
+                    params={ sectionAlias: grandChild.alias, limit: 5, queryFragment, requiresImage: true }
                   >
                     <global-content-list-flow nodes=nodes>
                       <@header>
