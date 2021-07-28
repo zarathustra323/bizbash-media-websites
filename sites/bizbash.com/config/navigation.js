@@ -27,17 +27,7 @@ const tertiaryItems = [
 
 module.exports = {
   primary: { items: topics },
-  secondary: {
-    items: [
-      { href: '/webinars', label: 'Webinars' },
-      { href: '/white-papers', label: 'White Papers & E-Books' },
-      { href: '/gathergeeks', label: 'Podcast' },
-      { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
-      { href: '/page/our-events', label: 'Events & Awards' },
-      { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
-      { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
-    ],
-  },
+  secondary: { items: secondaryItems },
   tertiary: { items: tertiaryItems },
   contexts: [
     {
