@@ -714,7 +714,6 @@ body {
   &__header {
     @include theme-card-header();
     font-size: 32px;
-    font-weight: 800;
     line-height: .5;
     text-align: center;
     letter-spacing: 5px;
