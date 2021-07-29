@@ -6,6 +6,16 @@ const topics = [
   { href: '/bizbash-lists', label: 'BizBash Lists' },
 ];
 
+const secondaryItems = [
+  { href: '/webinars', label: 'Webinars' },
+  { href: '/white-papers', label: 'White Papers & E-Books' },
+  { href: '/gathergeeks', label: 'Podcast' },
+  { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
+  { href: '/page/our-events', label: 'Events & Awards' },
+  { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
+  { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
+];
+
 const footerItems = [
   { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
   { href: '/venue-directory', label: 'Find a Venue' },
@@ -17,22 +27,12 @@ const tertiaryItems = [
 
 module.exports = {
   primary: { items: topics },
-  secondary: {
-    items: [
-      { href: '/webinars', label: 'Webinars' },
-      { href: '/white-papers', label: 'White Papers & E-Books' },
-      { href: '/gathergeeks', label: 'Podcast' },
-      { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
-      { href: '/page/our-events', label: 'Events & Awards' },
-      { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
-      { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
-    ],
-  },
+  secondary: { items: secondaryItems },
   tertiary: { items: tertiaryItems },
   contexts: [
     {
       when: ['/production-strategy'],
-      secondary: { items: topics },
+      secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
@@ -50,7 +50,7 @@ module.exports = {
     },
     {
       when: ['/catering-design'],
-      secondary: { items: topics },
+      secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
@@ -67,7 +67,7 @@ module.exports = {
     },
     {
       when: ['/event-tech-virtual'],
-      secondary: { items: topics },
+      secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
@@ -80,7 +80,7 @@ module.exports = {
     },
     {
       when: ['/venues-destinations'],
-      secondary: { items: topics },
+      secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
@@ -92,7 +92,7 @@ module.exports = {
     },
     {
       when: ['/bizbash-lists'],
-      secondary: { items: topics },
+      secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
