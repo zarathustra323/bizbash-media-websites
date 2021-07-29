@@ -2,33 +2,17 @@ import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import queryFragment from '@bizbash-media/package-global/graphql/fragments/content-list';
 
-$ const blocks = [
-  { alias: "venues-destinations/canada/alberta-calgary-edmonton", name: "Alberta: Calgary, Edmonton" },
-  { alias: "venues-destinations/united-states/atlanta", name: "Atlanta" },
-  { alias: "venues-destinations/united-states/boston", name: "Boston" },
-  { alias: "venues-destinations/united-states/chicago", name: "Chicago" },
-  { alias: "venues-destinations/united-states/denver", name: "Denver" },
-  { alias: "venues-destinations/united-states/las-vegas", name: "Las Vegas" },
-  { alias: "venues-destinations/united-states/los-angeles-southern-california", name: "Los Angeles / Southern California" },
-  { alias: "venues-destinations/united-states/miami-south-florida", name: "Miami / South Florida" },
-  { alias: "venues-destinations/canada/montreal", name: "Montreal" },
-  { alias: "venues-destinations/united-states/nashville", name: "Nashville" },
-  { alias: "venues-destinations/united-states/new-york", name: "New York" },
-  { alias: "venues-destinations/north-america", name: "North America" },
-  { alias: "venues-destinations/united-states/orlando-central-florida", name: "Orlando / Central Florida" },
-  { alias: "venues-destinations/united-states/philadelphia", name: "Philadelphia" },
-  { alias: "venues-destinations/united-states/phoenix-scottsdale", name: "Phoenix / Scottsdale" },
-  { alias: "venues-destinations/united-states/san-francisco-northern-california", name: "San Francisco/Northern California" },
-  { alias: "venues-destinations/united-states/seattle", name: "Seattle" },
-  { alias: "venues-destinations/united-states/texas", name: "Texas" },
-  { alias: "venues-destinations/canada/toronto", name: "Toronto" },
-  { alias: "venues-destinations/canada/vancouver", name: "Vancouver" },
-  { alias: "venues-destinations/united-states/washington-dc", name: "Washington DC" },
-  // { alias: "venues-destinations/global", name: "Global" },
-];
-
 $ const { GAM, nativeX: nxConfig, site } = out.global;
 $ const { id, alias, name, pageNode } = data;
+
+$ function sortAlphabetically(item1, item2) {
+  const itemOne = item1.name;
+  const itemTwo = item2.name;
+  if (itemOne > itemTwo) {
+    return 1;
+  }
+  return -1;
+};
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
@@ -72,30 +56,40 @@ $ const { id, alias, name, pageNode } = data;
         <for|child| of=children>
           $ const grandChildren = getAsArray(child, "children.edges").map(({ node }) => node);
           <div class="col-lg-12 mb-block">
-            <marko-web-query|{ nodes }|
-              name="website-scheduled-content"
-              params={ sectionAlias: child.alias, limit: 5, queryFragment }
-            >
               <if (['North America', 'Global'].includes(child.name))>
-                <global-content-list-flow nodes=nodes>
-                  <@header>
+                <marko-web-query|{ nodes }|
+                  name="website-scheduled-content"
+                  params={ sectionAlias: child.alias, limit: 15, queryFragment, requiresImage: true }
+                >
+                  <div class="node-list__header">
                     <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
-                  </@header>
-                </global-content-list-flow>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4 mb-block">
+                      <global-content-list-flow nodes=nodes.slice(0,5) />
+                    </div>
+                    <div class="col-lg-4 mb-block">
+                      <global-content-list-flow nodes=nodes.slice(5,10) />
+                    </div>
+                    <div class="col-lg-4 mb-block">
+                      <global-content-list-flow nodes=nodes.slice(10,15) />
+                    </div>
+                  </div>
+                </marko-web-query>
               </if>
               <else>
                 <div class="node-list__header">
                   <marko-web-link href=`/${child.alias}`>${child.name}</marko-web-link>
                 </div>
               </else>
-            </marko-web-query>
             <if(grandChildren.length)>
+              $ grandChildren.sort(sortAlphabetically)
               <div class="row">
               <for|grandChild| of=grandChildren>
                 <div class="col-lg-4 mb-block">
                   <marko-web-query|{ nodes }|
                     name="website-scheduled-content"
-                    params={ sectionAlias: grandChild.alias, limit: 5, queryFragment }
+                    params={ sectionAlias: grandChild.alias, limit: 5, queryFragment, requiresImage: true }
                   >
                     <global-content-list-flow nodes=nodes>
                       <@header>
