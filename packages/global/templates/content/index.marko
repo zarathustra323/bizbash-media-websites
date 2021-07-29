@@ -8,6 +8,7 @@ $ const { id, type, pageNode } = data;
 
 $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
 $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : false;
+$ const sectionsWithoutAds = [];
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -16,7 +17,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
     </marko-web-gtm-content-context>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
-      $ const adSlots = content.primarySection.alias === 'sponsored' ? {} : {
+      $ const adSlots = sectionsWithoutAds.includes(content.primarySection.alias) ? {} : {
         "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
         "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
@@ -28,7 +29,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
   <@above-container>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
-      <if(!content.primarySection.alias === 'sponsored')>
+      <if(!sectionsWithoutAds.includes(content.primarySection.alias))>
         <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
         <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
       </if>
@@ -163,7 +164,7 @@ $ const displayVenueBox = ['article', 'media-gallery'].includes(type) ? true : f
         id=id
         type=type
         name=content.name
-        display-ads=(content.primarySection.alias !== 'sponsored')
+        display-ads=(!sectionsWithoutAds.includes(content.primarySection.alias))
         aliases=aliases
         section-id=section.id
         section-name=section.name
