@@ -37,7 +37,7 @@ module.exports = {
       primary: {
         items: [
           { href: '/production-strategy/audiovisual-lighting', label: 'AV & Lighting' },
-          { href: '/production-strategy/experiential-marketing-activations-sponsorships', label: 'Experiential & Activations' },
+          { href: '/production-strategy/experiential-marketing-activations-sponsorships', label: 'Experiential' },
           { href: '/production-strategy/event-management', label: 'Management' },
           { href: '/production-strategy/event-production-fabrication', label: 'Production' },
           { href: '/production-strategy/opinion-experts', label: 'Opinion' },
