@@ -48,7 +48,8 @@
     "template": "./content-load-more.marko",
     "@nodes": "array",
     "@display-ads": "boolean",
-    "@aliases": "array"
+    "@aliases": "array",
+    "@title-modifiers": "array"
   },
   "<global-content-card-deck-flow>": {
     "template": "./content-card-deck.marko",
@@ -78,7 +79,8 @@
       "type": "boolean",
       "default-value": false
     },
-    "@bottom-leaderboard": "object"
+    "@bottom-leaderboard": "object",
+    "@title-modifiers": "array"
   },
   "<global-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",

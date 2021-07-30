@@ -375,6 +375,13 @@ $theme-site-header-breakpoints: map-merge(
 }
 .card-deck-flow {
   .node {
+    .node {
+      &__title {
+        &--published {
+          font-weight: 700;
+        }
+      }
+    }
     &--no-image-overlay {
       height: 100%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
