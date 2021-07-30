@@ -40,14 +40,14 @@ $ const description = defaultDescription(title, config);
         queryFragment,
       }
     >
-      <global-content-card-deck-flow nodes=nodes title-modifiers=["published"] />
+      <global-content-card-deck-flow nodes=nodes title-modifiers=["bold"] />
     </marko-web-query>
   </@page>
   <@below-page>
     <marko-web-load-more
       component-name="content-load-more-flow"
       component-input={
-        titleModifiers: ["published"]
+        titleModifiers: ["bold"]
       }
       fragment-name="content-list"
       query-name="all-published-content"

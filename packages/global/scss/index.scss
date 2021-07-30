@@ -377,7 +377,7 @@ $theme-site-header-breakpoints: map-merge(
   .node {
     .node {
       &__title {
-        &--published {
+        &--bold {
           font-weight: 700;
         }
       }
