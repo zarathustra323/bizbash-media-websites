@@ -16,7 +16,7 @@ fragment VenueDestinationsFragment on WebsiteSection {
         id
         alias
         name
-        children(input: { pagination: { limit: 0 } }) {
+        children(input: { pagination: { limit: 0 }, sort: { field: name, order: asc } }) {
           edges {
             node {
               id
