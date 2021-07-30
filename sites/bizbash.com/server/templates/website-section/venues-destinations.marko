@@ -53,7 +53,8 @@ $ function sortAlphabetically(item1, item2) {
       <div class="row">
         $ const children = getAsArray(section, "children.edges").map(({ node }) => node);
         $ const childrenMap = children.reduce
-        <for|child| of=children>
+        $ const childrenRemapped = [children[1], children[0], children[2], children[3]];
+        <for|child| of=childrenRemapped>
           $ const grandChildren = getAsArray(child, "children.edges").map(({ node }) => node);
           <div class="col-lg-12 mb-block">
               <if (['North America', 'Global'].includes(child.name))>
