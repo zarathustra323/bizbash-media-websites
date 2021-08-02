@@ -577,6 +577,10 @@ body {
     }
   }
 
+  &__footer-left {
+    color: $primary;
+  }
+
   &__footer-right {
     white-space: nowrap;
   }
