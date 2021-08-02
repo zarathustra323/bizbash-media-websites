@@ -37,7 +37,7 @@ $ const bottomLeaderboard = {
       name="all-published-content"
       params={ contentTypes: ["Whitepaper"], limit: 18, queryFragment }
     >
-      <global-content-card-deck-flow nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard />
+      <global-content-card-deck-flow nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard title-modifiers=["bold"] />
     </marko-web-query>
   </@page>
   <@below-page>
@@ -47,7 +47,11 @@ $ const bottomLeaderboard = {
     };
     <marko-web-load-more
       component-name="content-load-more-flow"
-      component-input={ withTeaser: true, bottomLeaderboard }
+      component-input={
+        titleModifiers: ["bold"],
+        withTeaser: true,
+        bottomLeaderboard
+      }
       fragment-name="content-list"
       query-name="all-published-content"
       query-params={ contentTypes: ["Whitepaper"], limit: 18, skip: 18 }
