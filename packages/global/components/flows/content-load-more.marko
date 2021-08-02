@@ -21,7 +21,7 @@ $ const adName = "load-more";
 
     <!-- Card Deck flow with 300x250 in ad slot 4 -->
     <if(nodes1.length)>
-      <global-content-card-deck-flow nodes=nodes1 ad-index=4 ad-name=adName title-modifiers=titleModifiers />
+      <global-content-card-deck-flow nodes=nodes1 ad-index=4 ad-name=adName title-modifiers=titleModifiers native-x={ index: 0, name: "primary" } />
     </if>
 
     <if(nodes2.length)>

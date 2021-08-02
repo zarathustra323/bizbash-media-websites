@@ -9,9 +9,6 @@ config
   .setAliasPlacements('catering-design', [
     { name: 'primary', id: '5d4b04513bb2db00018cfa1a' },
   ])
-  .setAliasPlacements('style-decor', [
-    { name: 'primary', id: '5d4b04619f69b200013ab0f4' },
-  ])
   .setAliasPlacements('production-strategy', [
     { name: 'primary', id: '5d4b04769f69b200013ab109' },
   ])

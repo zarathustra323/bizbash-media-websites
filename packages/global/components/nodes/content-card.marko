@@ -38,7 +38,9 @@ $ const { linkAttrs } = input;
         <marko-web-website-section-name obj=primarySection link=true />
       </@left>
       <@right|{ blockName }|>
+      <if(content.type !== 'text-ad')>
         <dates block-name=blockName content=content />
+      </if>
       </@right>
     </@footer>
   </@body>
