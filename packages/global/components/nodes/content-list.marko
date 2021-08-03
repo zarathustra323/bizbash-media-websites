@@ -56,7 +56,9 @@ $ const isUpcoming = content.startDate > Date.now();
         <marko-web-website-section-name obj=primarySection link=true />
       </@left>
       <@right|{ blockName }|>
-        <dates block-name=blockName content=content />
+        <if(content.type !== 'text-ad')>
+          <dates block-name=blockName content=content />
+        </if>
       </@right>
     </@footer>
   </@body>
