@@ -61,7 +61,6 @@ module.exports = {
     directSend: true,
     sendTo: 'connect@bizbash.com',
     sendFrom: 'BizBash.com <noreply@bizbash.com>',
-    sendBcc: 'emailactivity@cygnus.com',
     logo: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/site_logo.png?h=60',
     bgColor: '#25292d', // @todo Move to styling!
     blockedEmails: [
