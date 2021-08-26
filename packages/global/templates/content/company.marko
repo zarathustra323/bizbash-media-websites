@@ -23,7 +23,7 @@ $ const { id, type, pageNode } = data;
       <marko-web-load-more
         header=`More from ${content.name}`
         component-name="content-load-more-flow"
-        component-input={ aliases }
+        component-input={ aliases, displayAds: false }
         fragment-name="content-list"
         query-name="all-company-content"
         query-params={ companyId: id, limit: 9, includeContentTypes, withSite: false }
