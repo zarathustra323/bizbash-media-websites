@@ -1,5 +1,5 @@
 <template>
-  <form v-if="incomplete" @submit.prevent="submit">
+  <form v-if="incomplete" @submit.prevent="onSubmit">
     <div class="form-group">
       <label for="inquiry-given-name" class="required-field">First Name</label>
       <input
@@ -134,6 +134,14 @@
     </div>
 
     <pre v-if="error" class="alert alert-danger text-danger">An error occurred: {{ error }}</pre>
+    <vue-recaptcha
+      ref="invisibleRecaptcha"
+      size="invisible"
+      :sitekey="sitekey"
+      :load-recaptcha-script="true"
+      @verify="onVerify"
+      @expired="onExpired"
+    />
     <button type="submit" class="btn btn-block btn-lg btn-primary" :disabled="loading">
       Submit
     </button>
@@ -144,10 +152,19 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha';
 import FormMixin from '@parameter1/base-cms-marko-web-inquiry/browser/form-mixin';
 
 export default {
+  components: { VueRecaptcha },
+  inject: ['EventBus'],
   mixins: [FormMixin],
+  props: {
+    sitekey: {
+      type: String,
+      required: true,
+    },
+  },
   data: () => ({
     givenName: '',
     familyName: '',
@@ -178,7 +195,17 @@ export default {
     desiredAmenities: '',
   }),
   methods: {
-    async submit() {
+    onSubmit() {
+      this.$refs.invisibleRecaptcha.execute();
+    },
+    onVerify(response) {
+      this.submit(response);
+    },
+    onExpired() {
+      this.error = 'Timed out validating your submission.';
+      this.loading = false;
+    },
+    async submit(token) {
       const {
         givenName,
         familyName,
@@ -194,7 +221,7 @@ export default {
         eventDescription,
         desiredAmenities,
       } = this;
-      await this.$submit({
+      const payload = {
         givenName,
         familyName,
         email,
@@ -209,7 +236,10 @@ export default {
         eventDate,
         eventDescription,
         desiredAmenities,
-      });
+        token,
+      };
+      await this.$submit(payload);
+      this.EventBus.$emit('inquiry-form-submit', { payload });
     },
   },
 };
