@@ -66,6 +66,13 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                   $ const spaces = getAsArray(content, 'spaces.edges').map(({ node }) => node);
                   <global-venue-capacity spaces=spaces />
                 </div>
+              <global-related-content-block
+                id=content.id
+                type=type
+                query-fragment=queryFragment
+                section-id=section.id
+                section-name=section.name
+              />
               </div>
 
               <aside class="col-lg-4 page-rail">
