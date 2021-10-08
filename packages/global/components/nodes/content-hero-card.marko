@@ -7,6 +7,13 @@ $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 
 $ const { linkAttrs } = input;
+
+$ Object.keys(primarySection).forEach((key) => {
+  if (primarySection[key] === "Industry Insiders") {
+    primarySection[key] = "Sponsored";
+  }
+});
+
 <if(displayImage)>
   <marko-web-node
     type=`${content.type}-content`

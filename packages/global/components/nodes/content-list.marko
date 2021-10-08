@@ -9,6 +9,12 @@ $ const { linkAttrs, imageAr: ar, imagePosition, imageWidth } = input;
 $ const isWebinar = content.type === "webinar";
 $ const isUpcoming = content.startDate > Date.now();
 
+$ Object.keys(primarySection).forEach((key) => {
+  if (primarySection[key] === "Industry Insiders") {
+    primarySection[key] = "Sponsored";
+  }
+});
+
 <marko-web-node
   type=`${content.type}-content`
   flush=true
