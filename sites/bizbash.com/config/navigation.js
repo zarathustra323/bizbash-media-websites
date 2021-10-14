@@ -14,6 +14,7 @@ const secondaryItems = [
   { href: '/page/our-events', label: 'Events & Awards' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
+  { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['hubilo'] },
 ];
 
 const footerItems = [

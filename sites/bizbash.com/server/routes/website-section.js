@@ -14,6 +14,7 @@ const bermudaTemplate = require('../templates/website-section/bermuda');
 const industryBuzzTemplate = require('../templates/website-section/industry-buzz');
 const venuesDestinationsTemplate = require('../templates/website-section/venues-destinations');
 const bizbashListsTemplate = require('../templates/website-section/bizbash-lists');
+const bizbashHubiloTemplate = require('../templates/website-section/bizbash-hubilo');
 
 module.exports = (app) => {
   app.get('/:alias(supplier-directory)', withWebsiteSection({
@@ -68,6 +69,11 @@ module.exports = (app) => {
 
   app.get('/:alias(industry-buzz)', withWebsiteSection({
     template: industryBuzzTemplate,
+    queryFragment,
+  }));
+
+  app.get('/:alias(hubilo)', withWebsiteSection({
+    template: bizbashHubiloTemplate,
     queryFragment,
   }));
 
