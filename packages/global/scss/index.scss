@@ -531,11 +531,6 @@ body {
         color: $white;
       }
     }
-    #{ $self }__item--hubilo {
-      #{ $self }__link {
-        color: #fdbd37;
-      }
-    }
   }
   &__items--primary {
     #{ self }__item {
