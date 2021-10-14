@@ -10,3 +10,15 @@ $grid-gutter-width: 48px;
     font-weight: 700;
   }
 }
+
+.coming-soon {
+  -webkit-line-clamp: 5;
+  max-height: 116.725px;
+  margin-left: 12px;
+  overflow: hidden;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-weight: 300;
+  color: #333;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
