@@ -41,6 +41,7 @@ const aliases = [
   'bizbash-lists',
   'local-venues-destinations',
   'gathergeeks',
+  'hubilo',
 ];
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
