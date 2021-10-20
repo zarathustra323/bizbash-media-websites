@@ -129,6 +129,7 @@ module.exports = {
       items: [
         ...topics,
         { href: '/industry-buzz', label: 'Industry Buzz' },
+        { href: '/hubilo', label: 'BizBash x Hubilo' },
       ],
     },
     {
