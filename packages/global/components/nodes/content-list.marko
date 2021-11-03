@@ -9,7 +9,7 @@ $ const { linkAttrs, imageAr: ar, imagePosition, imageWidth } = input;
 $ const isWebinar = content.type === "webinar";
 $ const isUpcoming = content.startDate > Date.now();
 
-$ if (primarySection.name === "Industry Insiders") {
+$ if(getAsArray(content.labels).includes("Sponsored")) {
   primarySection.name = "Sponsored";
 };
 
