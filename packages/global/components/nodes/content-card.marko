@@ -37,7 +37,7 @@ $ const { linkAttrs } = input;
     </@text>
     <@text|{ blockName }|
       modifiers=["event-details"]
-      show=(Boolean(isWebinar && (content.startDate || content.endDate || content.linkUrl)))
+      show=(Boolean(isWebinar && (content.startDate || content.endDate || content.linkUrl) && withTeaser && content.teaser))
     >
       <if(isWebinar && content.linkUrl)>
         <marko-web-link
