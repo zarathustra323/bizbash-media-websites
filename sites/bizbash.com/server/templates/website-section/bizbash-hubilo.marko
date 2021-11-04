@@ -36,13 +36,31 @@ $ const { id, alias, name, pageNode } = data;
 
       <div class="row">
         <div class="col-lg-4 mb-block">
+        <!-- This won't load anything as nothing is scheduled YET -->
+         <!--
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "hubilo/webinars", limit: 5, queryFragment }
+            params={ sectionAlias: "hubilo/event-masters", limit: 5, queryFragment }
           >
-            <global-content-list-flow nodes=nodes>
+            <global-content-list-flow nodes=nodes inner-justified=false>
               <@header>
-                <marko-web-link href="/hubilo/webinars">Webinars</marko-web-link>
+                <marko-web-link href="/hubilo/event-masters">Event Masters</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+          -->
+          <!-- REMOVE NEXT 2 LINES once content is scheduled and previous is uncommented -->
+          <div class="node-list__header">Event Masters</div>
+          <p class="coming-soon">COMING SOON!</p>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "hubilo/white-papers", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes inner-justified=false>
+              <@header>
+                <marko-web-link href="/hubilo/white-papers">White Papers & E-Books</marko-web-link>
               </@header>
             </global-content-list-flow>
           </marko-web-query>
@@ -50,9 +68,26 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
+            params={ sectionAlias: "hubilo/webinars", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes inner-justified=false>
+              <@header>
+                <marko-web-link href="/hubilo/webinars">Webinars</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
             params={ sectionAlias: "hubilo/thought-leadership", limit: 5, queryFragment }
           >
-            <global-content-list-flow nodes=nodes>
+            <global-content-list-flow nodes=nodes inner-justified=false>
               <@header>
                 <marko-web-link href="/hubilo/thought-leadership">Thought Leadership</marko-web-link>
               </@header>
@@ -62,51 +97,15 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "hubilo/white-papers", limit: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/hubilo/white-papers">White Papers & E-Books</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 mb-block">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
             params={ sectionAlias: "hubilo/podcasts", limit: 5, queryFragment }
           >
-            <global-content-list-flow nodes=nodes>
+            <global-content-list-flow nodes=nodes inner-justified=false>
               <@header>
                 <marko-web-link href="/hubilo/podcasts">Podcasts</marko-web-link>
               </@header>
             </global-content-list-flow>
           </marko-web-query>
         </div>
-
-
-        <div class="col-lg-4 mb-block">
-        <!-- This won't load anything as nothing is scheduled YET -->
-         <!--
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: "hubilo/event-masters", limit: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/hubilo/event-masters">Event Masters</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-          -->
-          <!-- REMOVE LINES 113 AND 114 once content is scheduled and previous is uncommented -->
-          <div class="node-list__header">Event Masters</div>
-          <p class="coming-soon">COMING SOON!</p>
-        </div>
-
         <div class="col-lg-4 ad-rail">
           <marko-web-gam-display-ad id="gpt-ad-rail1" />
         </div>
@@ -119,7 +118,7 @@ $ const { id, alias, name, pageNode } = data;
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
         component-name="content-load-more-flow"
-        component-input={ aliases }
+        component-input={ aliases, displayAds: false }
         fragment-name="content-list"
         query-name="website-scheduled-content"
         query-params={ sectionId: id, limit: 14, skip: 0, requiresImage: true }
