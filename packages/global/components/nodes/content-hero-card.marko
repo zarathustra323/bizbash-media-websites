@@ -7,6 +7,11 @@ $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 
 $ const { linkAttrs } = input;
+
+$ if (getAsArray(content.labels).includes("Sponsored")) {
+  primarySection.name = "Sponsored";
+};
+
 <if(displayImage)>
   <marko-web-node
     type=`${content.type}-content`
