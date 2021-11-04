@@ -37,9 +37,21 @@ $ const bottomLeaderboard = {
 
     <marko-web-query|{ nodes }|
       name="all-published-content"
-      params={ contentTypes: ["Webinar"], sortField: "startDate", sortOrder: "desc", limit: 18, queryFragment }
+      params={
+        contentTypes: ["Webinar"],
+        sortField: "startDate",
+        sortOrder: "desc",
+        limit: 18,
+        queryFragment
+      }
     >
-      <global-content-card-deck-flow  nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard title-modifiers=["bold"] show-view-button=true />
+      <global-content-card-deck-flow
+        nodes=nodes
+        with-teaser=true
+        bottom-leaderboard=bottomLeaderboard
+        title-modifiers=["bold"]
+        show-view-button=true
+      />
     </marko-web-query>
   </@page>
   <@below-page>
@@ -57,7 +69,13 @@ $ const bottomLeaderboard = {
       }
       fragment-name="content-list"
       query-name="all-published-content"
-      query-params={ contentTypes: ["Webinar"], sortField: "startDate", sortOrder: "desc", limit: 18, skip: 18 }
+      query-params={
+        contentTypes: ["Webinar"],
+        sortField: "startDate",
+        sortOrder: "desc",
+        limit: 18,
+        skip: 18
+      }
       page-input={ for: "published-content" }
     />
   </@below-page>
