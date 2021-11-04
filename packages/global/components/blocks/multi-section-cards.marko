@@ -1,0 +1,39 @@
+import queryFragment from "../../graphql/fragments/section-card-block";
+import sectionFragment from "../../graphql/fragments/section-info";
+
+<!-- @todo determine how to display the sponsor logo -->
+$ const queryParams = {
+  sectionAlias: "gathergeeks",
+  limit: 1,
+  queryFragment,
+  sectionFragment,
+};
+
+$ const blockName = "section-card-block";
+
+$ const allNodes = [];
+
+
+<marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Video"], limit: 1, queryFragment }>
+    $ allNodes.push(...nodes);
+    <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Webinar"], limit: 1, queryFragment }>
+      $ allNodes.push(...nodes);
+      <marko-web-query|{nodes, section }| name="website-scheduled-content" params=queryParams>
+      $ allNodes.push(...nodes)
+          <marko-web-block name=blockName>
+            <marko-web-element block-name=blockName name="header">
+              Webinars and Podcasts
+            </marko-web-element>
+          <default-theme-card-deck-flow
+            cols=3
+            nodes=allNodes
+            modifiers=[blockName]
+          >
+            <@slot|{ node }|>
+              <global-content-card-node node=node display-image=input.displayImage title-modifiers=["small"]/>
+            </@slot>
+          </default-theme-card-deck-flow>
+        </marko-web-block>
+      </marko-web-query>
+    </marko-web-query>
+  </marko-web-query>

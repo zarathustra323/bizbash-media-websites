@@ -7,6 +7,7 @@ $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 $ const isWebinar = content.type === "webinar";
 $ const isUpcoming = content.startDate > Date.now();
+$ const showViewButton = input.showViewButton != null ? input.showViewButton : false;
 
 $ const { linkAttrs } = input;
 
@@ -37,7 +38,7 @@ $ const { linkAttrs } = input;
     </@text>
     <@text|{ blockName }|
       modifiers=["event-details"]
-      show=(Boolean(isWebinar && (content.startDate || content.endDate || content.linkUrl) && withTeaser && content.teaser))
+      show=(Boolean(isWebinar && (content.startDate || content.endDate || content.linkUrl) && showViewButton))
     >
       <if(isWebinar && content.linkUrl)>
         <marko-web-link

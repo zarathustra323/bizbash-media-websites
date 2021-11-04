@@ -39,7 +39,7 @@ $ const bottomLeaderboard = {
       name="all-published-content"
       params={ contentTypes: ["Webinar"], sortField: "startDate", sortOrder: "desc", limit: 18, queryFragment }
     >
-      <global-content-card-deck-flow  nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard title-modifiers=["bold"] />
+      <global-content-card-deck-flow  nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard title-modifiers=["bold"] show-view-button=true />
     </marko-web-query>
   </@page>
   <@below-page>
@@ -53,6 +53,7 @@ $ const bottomLeaderboard = {
         titleModifiers: ["bold"],
         withTeaser: true,
         bottomLeaderboard,
+        showViewButton: true
       }
       fragment-name="content-list"
       query-name="all-published-content"
