@@ -5,6 +5,8 @@ import IdentityX from '@parameter1/base-cms-marko-web-identity-x/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
 import RevealAd from '@parameter1/base-cms-marko-web-reveal-ad/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
+import Search from '@parameter1/base-cms-marko-web-search/browser';
+
 
 const BingSearchBox = () => import(/* webpackChunkName: "global-bing-search-box" */ './bing-search-box.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
@@ -18,6 +20,7 @@ export default (Browser) => {
   IdentityX(Browser);
   Inquiry(Browser, { component: InquiryForm });
   RevealAd(Browser);
+  Search(Browser);
   SocialSharing(Browser);
 
   // @todo this should be removed once contact us is moved to core.
