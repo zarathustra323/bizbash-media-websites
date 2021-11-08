@@ -7,8 +7,6 @@ module.exports = (app, siteConfig) => {
   const {
     contentTypes = [
       'Article',
-      'Company',
-      'MediaGallery',
       'Podcast',
       'Video',
       'Whitepaper',
