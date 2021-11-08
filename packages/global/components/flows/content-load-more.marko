@@ -13,8 +13,6 @@ $ const nodes = getAsArray(input, "nodes");
 $ const displayAds = defaultValue(input.displayAds, true);
 $ const adName = "load-more";
 
-$ console.log('SHOW', showViewButton);
-
 <if(nodes.length)>
   <if(displayAds)>
     $ const nodes1 = nodes.slice(0,5);
