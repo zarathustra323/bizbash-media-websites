@@ -6,10 +6,13 @@ const cleanResponse = require('@parameter1/base-cms-marko-core/middleware/clean-
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
+const sharedRoutes = require('./routes');
 
 const buildNativeXConfig = require('./native-x/build-config');
 
-const routes = siteRoutes => (app) => {
+const routes = (siteRoutes, siteConfig) => (app) => {
+  // Shared/global routes (all sites)
+  sharedRoutes(app, siteConfig);
   // Load site routes.
   siteRoutes(app);
 };
@@ -18,7 +21,7 @@ module.exports = (options = {}) => {
   const { onStart } = options;
   return startServer({
     ...options,
-    routes: routes(options.routes),
+    routes: routes(options.routes, options.siteConfig),
     document: options.document || document,
     components: options.components || components,
     fragments: options.fragments || fragments,

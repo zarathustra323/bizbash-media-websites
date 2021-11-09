@@ -2,12 +2,14 @@ const navigation = require('./navigation');
 const identityX = require('./identity-x');
 const nativeX = require('./native-x');
 const gam = require('./gam');
+const search = require('./search');
 
 module.exports = {
   navigation,
   nativeX,
   identityX,
   gam,
+  search,
   company: 'Bizbash Media, Inc',
   publishedContent: {
     webinars: {
@@ -51,10 +53,6 @@ module.exports = {
       bgColor: '#005ea0', // @todo Move to styling!
       logo: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/site_logo.png?h=60',
     },
-  },
-  search: {
-    apiKey: process.env.BING_API_KEY || 'NOT_SET',
-    domain: 'bizbash.com',
   },
   inquiry: {
     enabled: true,

@@ -204,7 +204,8 @@ $theme-site-header-breakpoints: map-merge(
 @import "components/directory";
 @import "components/identity-x";
 @import "components/page-body-media-gallery";
-@import "components/search";
+@import "components/search-page";
+@import "components/pagination-controls";
 @import "components/sticky-footer";
 
 .leaders {
