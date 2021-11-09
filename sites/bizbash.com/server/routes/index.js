@@ -1,4 +1,3 @@
-const contactUsHandler = require('@bizbash-media/package-global/contact-us');
 const inquiryHandler = require('@bizbash-media/package-global/inquiry-handler');
 const identityX = require('@bizbash-media/package-global/routes/identity-x');
 const home = require('./home');
@@ -11,9 +10,6 @@ const subscribe = require('./subscribe');
 const websiteSections = require('./website-section');
 
 module.exports = (app) => {
-  // Handle contact is submissions on /__contact-us
-  // @todo This should be removed once contact-us is moved to core.
-  contactUsHandler(app);
   inquiryHandler(app);
 
   // Identity X

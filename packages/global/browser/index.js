@@ -10,7 +10,6 @@ import Search from '@parameter1/base-cms-marko-web-search/browser';
 
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InquiryForm = () => import(/* webpackChunkName: "global-inquiry-form" */ './inquiry-form.vue');
-const ContactUsForm = () => import(/* webpackChunkName: "global-contact-us" */ './contact-us-form.vue');
 
 export default (Browser) => {
   DefaultTheme(Browser);
@@ -22,7 +21,5 @@ export default (Browser) => {
   Search(Browser);
   SocialSharing(Browser);
 
-  // @todo this should be removed once contact us is moved to core.
-  Browser.register('GlobalContactUsForm', ContactUsForm);
   Browser.register('GlobalImageSlider', ImageSlider);
 };
