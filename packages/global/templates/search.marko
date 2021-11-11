@@ -80,11 +80,11 @@ $ const currentPage = search.getCurrentPage();
                       inner-justified=true
                       flush-x=true
                       flush-y=false
-                      modifiers=["section-feed"]
+                      modifiers=["section-feed", "search-results"]
                     >
                       <@nodes nodes=nodes>
                         <@slot|{ node }|>
-                          <global-content-list-node node=node with-teaser=true />
+                          <global-content-list-node node=node with-teaser=true display-image=false />
                         </@slot>
                       </@nodes>
                     </marko-web-node-list>
