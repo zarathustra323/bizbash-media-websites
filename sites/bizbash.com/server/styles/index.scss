@@ -14,10 +14,11 @@ $grid-gutter-width: 48px;
 .coming-soon {
   -webkit-line-clamp: 5;
   max-height: 116.725px;
-  margin-left: 12px;
   overflow: hidden;
   font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 17px;
   font-weight: 300;
+  line-height: 1.5;
   color: #333;
   text-decoration: none;
   text-overflow: ellipsis;

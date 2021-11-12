@@ -33,7 +33,8 @@
       "type": "string",
       "default-value": "left"
     },
-    "@bottom-leaderboard": "object"
+    "@bottom-leaderboard": "object",
+    "@collapsible": "boolean"
   },
   "<global-content-hero-flow>": {
     "template": "./content-hero.marko",
