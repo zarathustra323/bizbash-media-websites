@@ -1,12 +1,13 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
 const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
-const cleanResponse = require('@parameter1/base-cms-marko-core/middleware/clean-marko-response');
+const identityX = require('@parameter1/base-cms-marko-web-identity-x');
 
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
 const sharedRoutes = require('./routes');
+const idxRouteTemplates = require('./templates/user');
 
 const buildNativeXConfig = require('./native-x/build-config');
 
@@ -38,11 +39,8 @@ module.exports = (options = {}) => {
       set(app.locals, 'nativeX', buildNativeXConfig(nativeXConfig));
 
       // Setup IdentityX.
-      const identityXConfig = get(options, 'siteConfig.identityX');
-      set(app.locals, 'identityX', identityXConfig);
-
-      // Clean all response bodies.
-      app.use(cleanResponse());
+      const idxConfig = getAsObject(options, 'siteConfig.identityX');
+      identityX(app, idxConfig, { templates: idxRouteTemplates });
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
   });
