@@ -55,6 +55,7 @@ const aliases = [
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
   { name: 'lb1', templateName: 'lb1', path: `${alias}/lb1` },
   { name: 'lb2', templateName: 'lb2', path: `${alias}/lb2` },
+  { name: 'lb-sticky-bottom', templateName: 'lb-sticky-bottom', path: `${alias}/lb1` },
   { name: 'rail1', templateName: 'rail', path: `${alias}/rail1` },
   { name: 'rail2', templateName: 'rail', path: `${alias}/rail2` },
   { name: 'load-more', path: `${alias}/load-more` },
