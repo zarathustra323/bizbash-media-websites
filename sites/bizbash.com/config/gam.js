@@ -19,6 +19,13 @@ config
       { viewport: [320, 0], size: [300, 50] },
     ],
   })
+  .setTemplate('lb-sticky-bottom', {
+    size: [[970, 90], [728, 90]],
+    sizeMapping: [
+      { viewport: [980, 0], size: [[970, 90], [728, 90]] },
+      { viewport: [0, 0], size: [] },
+    ],
+  })
   .setTemplate('rail', {
     size: [[300, 250], [300, 600]],
   });
@@ -27,6 +34,7 @@ config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'lb1', path: 'default/lb1' },
     { name: 'lb2', templateName: 'lb2', path: 'default/lb2' },
+    { name: 'lb-sticky-bottom', templateName: 'lb-sticky-bottom', path: 'default/lb1' },
     { name: 'rail1', templateName: 'rail', path: 'default/rail1' },
     { name: 'rail2', templateName: 'rail', path: 'default/rail2' },
     { name: 'load-more', path: 'default/load-more' },
