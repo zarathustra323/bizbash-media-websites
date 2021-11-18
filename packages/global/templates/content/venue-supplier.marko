@@ -85,7 +85,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     </@page>
   <@foot>
     <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
+      <global-fixed-ad-bottom aliases=hierarchyAliases(content.primarySection) />
     </marko-web-resolve-page>
   </@foot>
 </marko-web-content-page-layout>
