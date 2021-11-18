@@ -197,6 +197,7 @@ $theme-site-header-breakpoints: map-merge(
 
 @import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
+@import "../../node_modules/@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
 @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
 @import "components/ads";

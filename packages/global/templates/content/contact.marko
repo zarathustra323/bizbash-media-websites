@@ -100,4 +100,9 @@ $ const { id, type, pageNode } = data;
       />
     </marko-web-resolve-page>
   </@below-page>
+  <@foot>
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      <global-fixed-ad-bottom aliases=hierarchyAliases(content.primarySection) />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-content-page-layout>

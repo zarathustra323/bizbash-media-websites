@@ -8,6 +8,10 @@
     "./nodes/marko.json",
     "./page-wrappers/marko.json"
   ],
+  "<global-fixed-ad-bottom>": {
+    "template": "./fixed-ad-bottom.marko",
+    "@aliases": "array"
+  },
   "<global-sticky-footer>": {
     "template": "./sticky-footer.marko"
   },

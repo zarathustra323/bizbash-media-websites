@@ -62,4 +62,9 @@ $ const description = defaultDescription(title, config);
       page-input={ for: "published-content" }
     />
   </@below-page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <global-fixed-ad-bottom />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-default-page-layout>
