@@ -42,4 +42,9 @@ $ const { id, pageNode } = data;
       />
     </marko-web-resolve-page>
   </@below-page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <global-fixed-ad-bottom />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-magazine-publication-page-layout>
