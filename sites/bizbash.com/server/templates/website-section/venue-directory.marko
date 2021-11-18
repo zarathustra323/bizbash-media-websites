@@ -46,4 +46,9 @@ $ const adSlots = {
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <global-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
 </marko-web-website-section-page-layout>
