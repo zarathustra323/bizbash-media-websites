@@ -7,9 +7,11 @@ module.exports = (app, siteConfig) => {
   const {
     contentTypes = [
       'Article',
+      'MediaGallery',
       'Podcast',
       'Video',
       'Whitepaper',
+      'Webinar',
     ],
     assignedToWebsiteSectionIds,
   } = getAsObject(siteConfig, 'search');
