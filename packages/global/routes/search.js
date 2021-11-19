@@ -10,8 +10,8 @@ module.exports = (app, siteConfig) => {
       'MediaGallery',
       'Podcast',
       'Video',
-      'Whitepaper',
       'Webinar',
+      'Whitepaper',
     ],
     assignedToWebsiteSectionIds,
   } = getAsObject(siteConfig, 'search');
