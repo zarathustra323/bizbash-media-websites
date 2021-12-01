@@ -139,6 +139,7 @@ module.exports = {
         { href: '/gathergeeks', label: 'GatherGeeks Podcast' },
         { href: '/on-demand', label: 'On-Demand' },
         { href: '/page/our-events', label: 'Events' },
+        { href: '/page/awards', label: 'Awards' },
         { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
         { href: '/white-papers', label: 'White Papers & E-Books' },
       ],
