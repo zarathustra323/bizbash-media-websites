@@ -7,7 +7,7 @@ const topics = [
 ];
 
 const secondaryItems = [
-  { href: '/webinars', label: 'On-Demand' },
+  { href: '/on-demand', label: 'On-Demand' },
   { href: '/white-papers', label: 'White Papers & E-Books' },
   { href: '/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
@@ -137,7 +137,7 @@ module.exports = {
       label: 'Other Resources',
       items: [
         { href: '/gathergeeks', label: 'GatherGeeks Podcast' },
-        { href: '/webinars', label: 'Webinars' },
+        { href: '/on-demand', label: 'On-Demand' },
         { href: '/page/our-events', label: 'Events' },
         { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
         { href: '/white-papers', label: 'White Papers & E-Books' },
