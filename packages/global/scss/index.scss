@@ -280,6 +280,11 @@ $theme-site-header-breakpoints: map-merge(
 }
 
 .page-contents {
+  &__content-embed-code {
+    &::before {
+      display: none;
+    }
+  }
   &__images {
     margin-top: map-get($spacers, block);
   }
