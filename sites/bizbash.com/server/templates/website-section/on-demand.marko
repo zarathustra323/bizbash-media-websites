@@ -68,12 +68,12 @@ $ const { id, alias, name, pageNode } = data;
         </div>
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
-            name="all-published-content"
-            params={ contentTypes: ['Webinar', 'Video'], limit: 5, queryFragment }
+            name="website-scheduled-content"
+            params={ sectionAlias: "webinars-virtual-events", limit: 5, queryFragment }
           >
             <global-content-list-flow nodes=nodes inner-justified=false>
               <@header>
-                <marko-web-link href="/webinars">Webinars & Virtual Events</marko-web-link>
+                <marko-web-link href="/webinars-virtual-events">Webinars & Virtual Events</marko-web-link>
               </@header>
             </global-content-list-flow>
           </marko-web-query>
@@ -92,8 +92,8 @@ $ const { id, alias, name, pageNode } = data;
         component-name="content-load-more-flow"
         component-input={ aliases, displayAds: false, showViewButton: true }
         fragment-name="content-list"
-        query-name="all-published-content"
-        query-params={ contentTypes: ['Webinar', 'Video'], limit: 14, skip: 5, requiresImage: true }
+        query-name="website-scheduled-content"
+        query-params={ sectionAlias: "webinars-virtual-events", limit: 14, skip: 5, requiresImage: true }
         page-input={ for: "website-section", id }
       />
     </marko-web-resolve-page>
