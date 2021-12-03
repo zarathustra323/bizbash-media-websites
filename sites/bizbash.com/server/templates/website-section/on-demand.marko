@@ -45,13 +45,13 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "hubilo/event-masters", limit: 5, queryFragment }
+            params={ sectionAlias: "on-demand/event-masters", limit: 5, queryFragment }
             collapsible=false
           >
             <global-content-list-flow nodes=nodes inner-justified=false collapsible=false>
               <@header>
                 <if(nodes.length)>
-                  <marko-web-link href="/hubilo/event-masters">Event Masters</marko-web-link>
+                  <marko-web-link href="/on-demand/event-masters">Event Masters</marko-web-link>
                  </if>
                  <else>
                  Event Masters
@@ -69,11 +69,11 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "webinars-virtual-events", limit: 5, queryFragment }
+            params={ sectionAlias: "on-demand/webinars-virtual-events", limit: 5, queryFragment }
           >
             <global-content-list-flow nodes=nodes inner-justified=false>
               <@header>
-                <marko-web-link href="/webinars-virtual-events">Webinars & Virtual Events</marko-web-link>
+                <marko-web-link href="/on-demand/webinars-virtual-events">Webinars & Virtual Events</marko-web-link>
               </@header>
             </global-content-list-flow>
           </marko-web-query>
