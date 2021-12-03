@@ -19,6 +19,13 @@
       "default-value": true
     }
   },
+  "<global-webinars-podcasts-block>": {
+    "template": "./webinars-podcasts.marko",
+    "@display-image": {
+      "type": "boolean",
+      "default-value": true
+    }
+  },
   "<global-related-content-block>": {
     "template": "./related-content.marko",
     "<native-x>": {
