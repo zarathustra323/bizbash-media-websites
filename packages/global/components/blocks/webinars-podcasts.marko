@@ -1,0 +1,32 @@
+import queryFragment from "../../graphql/fragments/section-card-block";
+import sectionFragment from "../../graphql/fragments/section-info";
+<!-- @todo determine how to display the sponsor logo -->
+$ const queryParams = {
+  sectionAlias: "gathergeeks",
+  limit: 1,
+  queryFragment,
+  sectionFragment,
+};
+$ const blockName = "section-card-block";
+$ const allNodes = [];
+$ const { GAM } = out.global;
+
+
+<marko-web-element block-name=blockName name="header">
+  Webinars & Podcasts
+</marko-web-element>
+<div class="row my-block">
+  <div class="col">
+    <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "vid", aliases: ['home'] }) modifiers=["no-shadow"] />
+  </div>
+  <div class="col">
+    <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Webinar"], limit: 1, queryFragment }>
+      <global-content-card-node node=nodes[0] display-image=input.displayImage title-modifiers=["small"] />
+    </marko-web-query>
+  </div>
+  <div class="col">
+    <marko-web-query|{nodes, section }| name="website-scheduled-content" params=queryParams>
+      <global-content-card-node node=nodes[0] display-image=input.displayImage title-modifiers=["small"] />
+    </marko-web-query>
+  </div>
+</div>

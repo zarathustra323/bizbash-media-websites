@@ -28,6 +28,9 @@ config
   })
   .setTemplate('rail', {
     size: [[300, 250], [300, 600]],
+  })
+  .setTemplate('video', {
+    size: [[400, 300], [640, 480]],
   });
 
 config
@@ -40,6 +43,7 @@ config
     { name: 'load-more', path: 'default/load-more' },
     { name: 'reskin', path: 'default/reskin' },
     { name: 'wa', path: 'default/wa' },
+    { name: 'vid', templateName: 'video', path: 'bb_vid' },
   ]);
 
 const aliases = [
