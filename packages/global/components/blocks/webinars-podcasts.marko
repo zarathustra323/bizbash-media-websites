@@ -16,15 +16,15 @@ $ const { GAM } = out.global;
   Webinars & Podcasts
 </marko-web-element>
 <div class="row my-block">
-  <div class="col">
+  <div class="col-sm-1 col-md-6 col-lg-4">
     <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "vid", aliases: ['home'] }) modifiers=["no-shadow"] />
   </div>
-  <div class="col">
+  <div class="col-sm-1 col-md-6 col-lg-4">
     <marko-web-query|{ nodes }| name="all-published-content" params={ contentTypes: ["Webinar"], limit: 1, queryFragment }>
       <global-content-card-node node=nodes[0] display-image=input.displayImage title-modifiers=["small"] />
     </marko-web-query>
   </div>
-  <div class="col">
+  <div class="col-sm-1 col-md-6 col-lg-4">
     <marko-web-query|{nodes, section }| name="website-scheduled-content" params=queryParams>
       <global-content-card-node node=nodes[0] display-image=input.displayImage title-modifiers=["small"] />
     </marko-web-query>
