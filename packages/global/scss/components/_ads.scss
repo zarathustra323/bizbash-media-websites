@@ -7,6 +7,10 @@
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
   }
+  iframe[id*="bb_vid"] {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 .marko-web-gam-fixed-ad-bottom {
   &__container {
