@@ -16,6 +16,7 @@ const venuesDestinationsTemplate = require('../templates/website-section/venues-
 const bizbashListsTemplate = require('../templates/website-section/bizbash-lists');
 const bizbashHubiloTemplate = require('../templates/website-section/bizbash-hubilo');
 const onDemandTemplate = require('../templates/website-section/on-demand');
+const meetingsTradeShowsTemplate = require('../templates/website-section/meetings-trade-shows');
 
 module.exports = (app) => {
   app.get('/:alias(supplier-directory)', withWebsiteSection({
@@ -80,6 +81,11 @@ module.exports = (app) => {
 
   app.get('/:alias(on-demand)', withWebsiteSection({
     template: onDemandTemplate,
+    queryFragment,
+  }));
+
+  app.get('/:alias(meetings-trade-shows)', withWebsiteSection({
+    template: meetingsTradeShowsTemplate,
     queryFragment,
   }));
 
