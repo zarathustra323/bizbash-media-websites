@@ -718,6 +718,15 @@ body {
   &__hero {
     padding-right: map-get($spacers, block);
     padding-left: map-get($spacers, block);
+    .node {
+      &__text {
+        &--teaser {
+          @include media-breakpoint-down(sm) {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
