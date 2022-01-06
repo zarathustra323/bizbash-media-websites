@@ -11,7 +11,7 @@ module.exports = (app, siteConfig) => {
       'Podcast',
       'Video',
       'Webinar',
-      'Whitepaper',
+      { type: 'Whitepaper', label: 'White Paper' },
     ],
     assignedToWebsiteSectionIds,
   } = getAsObject(siteConfig, 'search');
