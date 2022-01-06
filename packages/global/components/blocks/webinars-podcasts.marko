@@ -1,8 +1,7 @@
 import queryFragment from "../../graphql/fragments/section-card-block";
 import sectionFragment from "../../graphql/fragments/section-info";
-<!-- @todo determine how to display the sponsor logo -->
 $ const queryParams = {
-  sectionAlias: "gathergeeks",
+  sectionAlias: "on-demand/gathergeeks",
   limit: 1,
   queryFragment,
   sectionFragment,
@@ -14,6 +13,11 @@ $ const { GAM } = out.global;
 
 <marko-web-element block-name=blockName name="header">
   Webinars & Podcasts
+</marko-web-element>
+<marko-web-element block-name=blockName name="view-more">
+  <marko-web-link href="/on-demand">
+    View more &raquo;
+  </marko-web-link>
 </marko-web-element>
 <div class="row my-block">
   <div class="col-sm-1 col-md-6 col-lg-4">
