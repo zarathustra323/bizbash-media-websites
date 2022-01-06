@@ -29,7 +29,7 @@ module.exports = (app) => {
     queryFragment,
   }));
 
-  app.get('/:alias(gathergeeks)', withWebsiteSection({
+  app.get('/:alias(on-demand/gathergeeks)', withWebsiteSection({
     template: gatherGeeksTemplate,
     queryFragment,
   }));
