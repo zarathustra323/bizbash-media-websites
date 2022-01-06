@@ -57,33 +57,6 @@ $ const { id, alias, name, pageNode } = data;
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
-            params={ sectionAlias: "meetings-trade-shows/people", limit: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/meetings-trade-shows/people">People</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-        </div>
-        <div class="col-lg-4 mb-block">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
-            params={ sectionAlias: "meetings-trade-shows/places", limit: 5, queryFragment }
-          >
-            <global-content-list-flow nodes=nodes>
-              <@header>
-                <marko-web-link href="/meetings-trade-shows/places">Places</marko-web-link>
-              </@header>
-            </global-content-list-flow>
-          </marko-web-query>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 mb-block">
-          <marko-web-query|{ nodes }|
-            name="website-scheduled-content"
             params={ sectionAlias: "meetings-trade-shows/strategy", limit: 5, queryFragment }
           >
             <global-content-list-flow nodes=nodes>
@@ -101,6 +74,33 @@ $ const { id, alias, name, pageNode } = data;
             <global-content-list-flow nodes=nodes>
               <@header>
                 <marko-web-link href="/meetings-trade-shows/trade-shows">Trade Shows</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "meetings-trade-shows/people", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/meetings-trade-shows/people">People</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "meetings-trade-shows/places", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes>
+              <@header>
+                <marko-web-link href="/meetings-trade-shows/places">Places</marko-web-link>
               </@header>
             </global-content-list-flow>
           </marko-web-query>

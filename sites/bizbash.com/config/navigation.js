@@ -9,7 +9,7 @@ const topics = [
 const secondaryItems = [
   { href: '/on-demand', label: 'On-Demand' },
   { href: '/white-papers', label: 'White Papers & E-Books' },
-  { href: '/gathergeeks', label: 'Podcast' },
+  { href: '/on-demand/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
   { href: '/page/our-events', label: 'Events' },
   // { href: '/page/awards', label: 'Awards' },
@@ -99,10 +99,10 @@ module.exports = {
       primary: {
         items: [
           { href: '/meetings-trade-shows/meetings', label: 'Meetings' },
-          { href: '/meetings-trade-shows/people', label: 'People' },
-          { href: '/meetings-trade-shows/places', label: 'Places' },
           { href: '/meetings-trade-shows/strategy', label: 'Strategy' },
           { href: '/meetings-trade-shows/trade-shows', label: 'Trade Shows' },
+          { href: '/meetings-trade-shows/people', label: 'People' },
+          { href: '/meetings-trade-shows/places', label: 'Places' },
           { href: '/meetings-trade-shows/trends', label: 'Trends' },
         ],
       },
@@ -139,7 +139,7 @@ module.exports = {
     {
       label: 'Other Resources',
       items: [
-        { href: '/gathergeeks', label: 'GatherGeeks Podcast' },
+        { href: '/on-demand/gathergeeks', label: 'GatherGeeks Podcast' },
         { href: '/on-demand', label: 'On-Demand' },
         { href: '/page/our-events', label: 'Events' },
         // { href: '/page/awards', label: 'Awards' },

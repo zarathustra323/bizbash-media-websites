@@ -78,8 +78,17 @@ $ const { id, alias, name, pageNode } = data;
             </global-content-list-flow>
           </marko-web-query>
         </div>
-        <div class="col-lg-4 ad-rail">
-          <marko-web-gam-display-ad id="gpt-ad-rail1" />
+        <div class="col-lg-4 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-scheduled-content"
+            params={ sectionAlias: "on-demand/gathergeeks", limit: 5, queryFragment }
+          >
+            <global-content-list-flow nodes=nodes inner-justified=false>
+              <@header>
+                <marko-web-link href="/on-demand/gathergeeks">GatherGeeks</marko-web-link>
+              </@header>
+            </global-content-list-flow>
+          </marko-web-query>
         </div>
       </div>
     </marko-web-resolve-page>

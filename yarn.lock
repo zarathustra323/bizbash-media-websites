@@ -2350,10 +2350,10 @@
     moment "^2.29.1"
     node-fetch "^2.6.5"
 
-"@parameter1/base-cms-marko-web-inquiry@^2.49.0":
-  version "2.49.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-inquiry/-/base-cms-marko-web-inquiry-2.49.0.tgz#013f40354f21328bc4a7d6a87cfc8ca0de1d879d"
-  integrity sha512-0r2k2lbOugCfHbd6orzuQzLnPbH1K4X1s5JUzkvKIjk9pELqEna+MOrUf63wvAcvbJc6FaqD7yzcQvigr3dTAg==
+"@parameter1/base-cms-marko-web-inquiry@^2.61.0":
+  version "2.61.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-inquiry/-/base-cms-marko-web-inquiry-2.61.0.tgz#3dd04010cbb246318e798f724e6ec9fb1ebafa05"
+  integrity sha512-JXnhqx+RMPOvDOJtVcLwlDMe+yA08gck3SBClcXIlWglZ2hCG+l5M1VsZwQX94emEDMARY4iioh+Kpz4h5FIeA==
   dependencies:
     "@parameter1/base-cms-env" "^2.45.0"
     "@parameter1/base-cms-object-path" "^2.45.0"
@@ -2390,10 +2390,10 @@
     "@parameter1/base-cms-object-path" "^2.45.0"
     "@parameter1/base-cms-utils" "^2.22.2"
 
-"@parameter1/base-cms-marko-web-search@^2.48.1":
-  version "2.48.1"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-search/-/base-cms-marko-web-search-2.48.1.tgz#d8f53077912d93732d913cd4296497f7726e45be"
-  integrity sha512-exHyH+IysgnRup+nB9l56TrO0v4S7toTZwthhQN+ncoFXOMscQV3SBZDmlhLOsB3eGcbDn5MlkX2T11IlcauVw==
+"@parameter1/base-cms-marko-web-search@^2.62.0":
+  version "2.62.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-search/-/base-cms-marko-web-search-2.62.0.tgz#43022072db64b0f5cc62e42f238f3af62e981848"
+  integrity sha512-cv9p9DgcYhtgltUwT946ioxHA9QqFt7qn/uksoArI7W9bNsSXCob5KBUOYiq79pYYxVfIsBtKXQVeL2YDNho2g==
   dependencies:
     "@parameter1/base-cms-inflector" "^2.0.0"
     "@parameter1/base-cms-marko-web-icons" "^2.46.3"
@@ -2411,10 +2411,10 @@
   dependencies:
     "@parameter1/base-cms-utils" "^2.22.2"
 
-"@parameter1/base-cms-marko-web-theme-default@^2.51.0":
-  version "2.51.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-default/-/base-cms-marko-web-theme-default-2.51.0.tgz#d31604a331ece610eb9bbcb1c6c5e9ed427b2185"
-  integrity sha512-WtHdwv+C4VnGjffXTbWQXFkdrV/CwzS0WkDFwOFo+WVuQMbolNjl7AYdD+F4C3tjqbhzRgqTBLX4rHeeKaVDVw==
+"@parameter1/base-cms-marko-web-theme-default@^2.63.0":
+  version "2.63.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-default/-/base-cms-marko-web-theme-default-2.63.0.tgz#bbe5b17a1f6e7214d2adb99e0749c27ef77a2ffc"
+  integrity sha512-SQjvJ8WxkE7nsAGhW56bfplo+ShPluXEBT9128pq9a27+WzjcsUKApW8V5XETFNF8zO+zpxh0lAUnVRbDY/8eQ==
   dependencies:
     "@parameter1/base-cms-marko-web-icons" "^2.46.3"
     "@parameter1/base-cms-object-path" "^2.45.0"
@@ -2423,10 +2423,10 @@
     graphql "^14.7.0"
     graphql-tag "^2.12.5"
 
-"@parameter1/base-cms-marko-web@^2.57.0":
-  version "2.57.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web/-/base-cms-marko-web-2.57.0.tgz#4a0fcf8bfeb171cd7e621c2328b3c9b61d2e5fc4"
-  integrity sha512-4+vAYUsAEwkoKeeH39tRUs8fwyrkVi6ls3IOeNkiuPt9ErbN9CGT3ggBjeF4JEo8WouCXcF9kYm8sLOxwHZP6A==
+"@parameter1/base-cms-marko-web@^2.62.0":
+  version "2.62.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web/-/base-cms-marko-web-2.62.0.tgz#27bfabe68c1fdf636d7525a3416ac3fc36b4d9a6"
+  integrity sha512-HijI0FBMhOf0lzG25JOJkOVdaM+nHVotGOlWGoc3t+0qgff7YeMeX9tEQnTI6IKVA+BHYvOnewdDkuXhzYeoGw==
   dependencies:
     "@godaddy/terminus" "^4.9.0"
     "@parameter1/base-cms-apollo-ssr" "^2.45.0"
@@ -2477,10 +2477,10 @@
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-utils/-/base-cms-utils-2.22.2.tgz#3d310aee55e81b4775081f90f7bce6a87dfeaaec"
   integrity sha512-lRd87fymrkkcEXb9zu9hA2t5TMXEUAjOcLTisjZF+FHCj+4/xdSgTPk3xvxJaensX1LWDTbql1hFgQ9e6L4zAg==
 
-"@parameter1/base-cms-web-cli@^2.57.0":
-  version "2.57.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-web-cli/-/base-cms-web-cli-2.57.0.tgz#311df8c6d27799c61279b51a3dc611b2beb07350"
-  integrity sha512-gcSd0ERuCR/PVL1rieKaNEygxGXAPtKcs2wiPaQLc6WTwbQ8ZDi7ZbavY/VKenEmATL80YhRHETWuHiIE9apdg==
+"@parameter1/base-cms-web-cli@^2.62.0":
+  version "2.62.0"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-web-cli/-/base-cms-web-cli-2.62.0.tgz#81847d15992869a1ec81936decb7c0b89af46b49"
+  integrity sha512-KrZ/DAvr6bAgVlreRBDsNW2yLc7QDTiWdL3r/4wdRqSbZM+sojWiaNGZZB5b+XkJW/1+WCumt6SCJ5Fmk4IwIw==
   dependencies:
     "@babel/core" "^7.15.5"
     "@babel/plugin-transform-runtime" "^7.15.0"
@@ -2488,7 +2488,7 @@
     "@babel/runtime" "^7.15.4"
     "@parameter1/base-cms-cli-utils" "^2.8.4"
     "@parameter1/base-cms-express-apollo" "^2.45.0"
-    "@parameter1/base-cms-marko-web" "^2.57.0"
+    "@parameter1/base-cms-marko-web" "^2.62.0"
     autoprefixer "^10.3.7"
     babel-eslint "^10.1.0"
     babel-loader "^8.2.2"
