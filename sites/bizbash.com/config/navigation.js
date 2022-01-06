@@ -3,7 +3,7 @@ const topics = [
   { href: '/catering-design', label: 'Catering & Design' },
   { href: '/event-tech-virtual', label: 'Event Tech & Virtual' },
   { href: '/venues-destinations', label: 'Venues & Destinations' },
-  { href: '/bizbash-lists', label: 'BizBash Lists' },
+  { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
 ];
 
 const secondaryItems = [
@@ -93,14 +93,17 @@ module.exports = {
       },
     },
     {
-      when: ['/bizbash-lists'],
+      when: ['/meetings-trade-shows'],
       secondary: { items: secondaryItems },
       tertiary: { items: tertiaryItems },
       primary: {
         items: [
-          { href: '/bizbash-lists/top-100-events', label: 'Top 100 Events' },
-          { href: '/bizbash-lists/brands-event-pros', label: 'Brands & Event Pros' },
-          { href: '/bizbash-lists/meetings-conferences', label: 'Meetings & Conferences' },
+          { href: '/meetings-trade-shows/meetings', label: 'Meetings' },
+          { href: '/meetings-trade-shows/people', label: 'People' },
+          { href: '/meetings-trade-shows/places', label: 'Places' },
+          { href: '/meetings-trade-shows/strategy', label: 'Strategy' },
+          { href: '/meetings-trade-shows/trade-shows', label: 'Trade Shows' },
+          { href: '/meetings-trade-shows/trends', label: 'Trends' },
         ],
       },
     },
