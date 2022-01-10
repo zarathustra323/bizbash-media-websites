@@ -20,6 +20,9 @@ config
   ])
   .setAliasPlacements('event-tech-virtual', [
     { name: 'primary', id: '608c32cc70bc240001307d44' },
+  ])
+  .setAliasPlacements('meetings-trade-shows', [
+    { name: 'primary', id: '61dc51293337090001657404' },
   ]);
 
 module.exports = config;
