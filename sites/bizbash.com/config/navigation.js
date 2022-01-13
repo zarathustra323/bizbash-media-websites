@@ -14,12 +14,12 @@ const secondaryItems = [
   { href: '/page/our-events', label: 'Events' },
   // { href: '/page/awards', label: 'Awards' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
-  { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
+  { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
   { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['white'] },
 ];
 
 const footerItems = [
-  { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe', target: '_blank' },
+  { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
   { href: '/venue-directory', label: 'Find a Venue' },
   { href: '/supplier-directory', label: 'Find a Supplier' },
 ];
@@ -118,8 +118,8 @@ module.exports = {
       items: [
         { href: '/page/about-us', label: 'About Us' },
         { href: 'https://www.bizbashlive.com/enventu/home', label: 'Community Involvement', target: '_blank' },
-        { href: 'https://www.pages03.net/collinsonpublishing/BizBashBuzz/', label: 'Subscribe to BizBash Buzz Newsletter', target: '_blank' },
-        { href: 'https://bizbash.formstack.com/forms/magazinesubscribe2020', label: 'Subscribe to BizBash Magazine', target: '_blank' },
+        { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe to BizBash Buzz Newsletter', target: '_blank' },
+        { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to BizBash Magazine', target: '_blank' },
         { href: 'https://www.linkedin.com/groups/46028/', label: 'Join Our Event Pros Gather Group on LinkedIn', target: '_blank' },
         { href: 'https://www.facebook.com/groups/eventplannersgather', label: 'Join Our Event Pros Gather Group on Facebook', target: '_blank' },
         { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise With Us', target: '_blank' },
