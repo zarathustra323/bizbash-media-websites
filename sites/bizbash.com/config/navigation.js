@@ -139,6 +139,7 @@ module.exports = {
     {
       label: 'Other Resources',
       items: [
+        { href: '/page/get-featured', label: 'Get Featured' },
         { href: '/on-demand/gathergeeks', label: 'GatherGeeks Podcast' },
         { href: '/on-demand', label: 'On-Demand' },
         { href: '/page/our-events', label: 'Events' },
