@@ -12,7 +12,7 @@ const secondaryItems = [
   { href: '/on-demand/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
   { href: '/page/our-events', label: 'Events' },
-  // { href: '/page/awards', label: 'Awards' },
+  { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
   { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['white'] },
