@@ -33,7 +33,7 @@ fragment DirecotryPinnedContentListFragment on Content {
     isLogo
   }
   userRegistration {
-    isRequired
+    isCurrentlyRequired
   }
   ... on Addressable {
     address1

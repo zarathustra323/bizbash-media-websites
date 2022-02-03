@@ -80,7 +80,7 @@ $ const sectionsWithoutAds = [];
             <default-theme-page-contents|{ blockName }| class="col-lg-8 mb-3 mb-lg-0">
               <global-content-media-block content=content blockName=blockName />
               <default-theme-content-contact-details obj=content />
-              $ const requiresRegistration = get(content, "userRegistration.isRequired");
+              $ const requiresRegistration = get(content, "userRegistration.isCurrentlyRequired");
               $ const accessLevels = getAsArray(content, "userRegistration.accessLevels");
               <marko-web-identity-x-access|context|
                 enabled=requiresRegistration
