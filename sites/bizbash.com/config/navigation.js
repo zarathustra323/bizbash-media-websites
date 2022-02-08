@@ -131,6 +131,7 @@ module.exports = {
     {
       label: 'Find Inspiration',
       items: [
+        { href: '/bizbash-lists', label: 'BizBash Lists' },
         ...topics,
         { href: '/industry-buzz', label: 'Industry Buzz' },
         { href: '/hubilo', label: 'BizBash x Hubilo' },
