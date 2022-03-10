@@ -1,3 +1,4 @@
+const sectionListLayouts = require('./sectionListLayouts');
 const navigation = require('./navigation');
 const identityX = require('./identity-x');
 const nativeX = require('./native-x');
@@ -5,6 +6,7 @@ const gam = require('./gam');
 const search = require('./search');
 
 module.exports = {
+  sectionListLayouts,
   navigation,
   nativeX,
   identityX,
