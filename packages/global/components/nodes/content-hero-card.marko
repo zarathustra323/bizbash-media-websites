@@ -2,15 +2,13 @@ import { getAsArray, getAsObject, get } from "@parameter1/base-cms-object-path";
 
 $ const content = getAsObject(input, "node");
 $ const primaryImage = getAsObject(content, "primaryImage");
-$ const primarySection = getAsObject(content, "primarySection");
+$ const primarySection = getAsArray(content, "labels").includes("Sponsored") ? {
+  ...getAsObject(content, "primarySection"), name: "Sponsored"
+} : getAsObject(content, "primarySection");
 $ const displayImage = input.displayImage != null ? input.displayImage : true;
 $ const withTeaser = input.withTeaser != null ? input.withTeaser : true;
 
 $ const { linkAttrs } = input;
-
-$ if (getAsArray(content.labels).includes("Sponsored")) {
-  primarySection.name = "Sponsored";
-};
 
 <if(displayImage)>
   <marko-web-node
