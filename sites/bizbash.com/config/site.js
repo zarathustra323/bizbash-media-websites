@@ -10,7 +10,7 @@ module.exports = {
   identityX,
   gam,
   search,
-  company: 'Bizbash Media, Inc',
+  company: 'Connect Biz, LLC',
   publishedContent: {
     webinars: {
       title: 'Webinars',
