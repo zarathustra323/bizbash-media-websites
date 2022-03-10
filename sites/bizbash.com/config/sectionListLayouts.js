@@ -5,7 +5,7 @@ module.exports = {
     { alias: 'webinars', name: 'Webinars' },
     { alias: 'thought-leadership', name: 'Thought Leadership' },
     { alias: 'podcasts', name: 'Podcasts' },
-    { isAd: 'gpt-ad-rail1' },
+    { adId: 'gpt-ad-rail1' },
   ],
   'bizbash-lists': [
     { alias: 'top-100-events', name: 'Top 100 Events' },
