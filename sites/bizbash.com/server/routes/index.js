@@ -8,7 +8,7 @@ const search = require('./search');
 const subscribe = require('./subscribe');
 const websiteSections = require('./website-section');
 
-module.exports = (app) => {
+module.exports = (app, siteConfig) => {
   inquiryHandler(app);
 
   // Homepage
@@ -33,5 +33,5 @@ module.exports = (app) => {
   subscribe(app);
 
   // Website Sections
-  websiteSections(app);
+  websiteSections(app, siteConfig);
 };
