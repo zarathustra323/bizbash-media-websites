@@ -1,4 +1,5 @@
 const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
+const { getAsObject } = require('@parameter1/base-cms-object-path');
 const section = require('@bizbash-media/package-global/templates/website-section');
 const queryFragment = require('@bizbash-media/package-global/graphql/fragments/website-section-page');
 
@@ -12,7 +13,7 @@ const industryBuzzTemplate = require('../templates/website-section/industry-buzz
 const venuesDestinationsTemplate = require('../templates/website-section/venues-destinations');
 const sectionWithListsTemplate = require('../templates/website-section');
 
-module.exports = (app) => {
+module.exports = (app, siteConfig) => {
   app.get('/:alias(supplier-directory)', withWebsiteSection({
     template: supplierDirectory,
     queryFragment,
@@ -33,29 +34,9 @@ module.exports = (app) => {
     queryFragment,
   }));
 
-  app.get('/:alias(production-strategy)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
-
-  app.get('/:alias(catering-design)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
-
-  app.get('/:alias(event-tech-virtual)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
-
   app.get('/:alias(venues-destinations)', withWebsiteSection({
     template: venuesDestinationsTemplate,
     queryFragment: venueDestinationFragment,
-  }));
-
-  app.get('/:alias(bizbash-lists)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
   }));
 
   app.get('/:alias(bermuda)', withWebsiteSection({
@@ -68,20 +49,12 @@ module.exports = (app) => {
     queryFragment,
   }));
 
-  app.get('/:alias(hubilo)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
-
-  app.get('/:alias(on-demand)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
-
-  app.get('/:alias(meetings-trade-shows)', withWebsiteSection({
-    template: sectionWithListsTemplate,
-    queryFragment,
-  }));
+  Object.keys(getAsObject(siteConfig, 'sectionListLayouts')).forEach((alias) => {
+    app.get(`/:alias(${alias})`, withWebsiteSection({
+      template: sectionWithListsTemplate,
+      queryFragment,
+    }));
+  });
 
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
     template: section,
