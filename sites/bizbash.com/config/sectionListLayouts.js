@@ -48,9 +48,11 @@ module.exports = {
     { alias: 'event-management', name: 'Event Management' },
     { alias: 'event-production-fabrication', name: 'Event Production & Fabrication' },
     { alias: 'opinion-experts', name: 'Opinion & Experts' },
+    { adId: 'gpt-ad-rail1' },
     { alias: 'programming-entertainment', name: 'Programming & Entertainment' },
     { alias: 'registration-ticketing', name: 'Registration & Ticketing' },
     { alias: 'social-events', name: 'Social Events' },
     { alias: 'strategy', name: 'Strategy' },
+    { alias: 'sports-events', name: 'Sports Events' },
   ],
 };
