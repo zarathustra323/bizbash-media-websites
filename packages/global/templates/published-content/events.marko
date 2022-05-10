@@ -35,8 +35,13 @@ $ const bottomLeaderboard = {
 
     <marko-web-query|{ nodes }|
       name="all-published-content"
-      params={ contentTypes: ["Event"], limit: 18, queryFragment }
-    >
+      params={
+        contentTypes: ["Event"],
+        sortField: "startDate",
+        sortOrder: "asc",
+        limit: 18,
+        queryFragment
+      }>
       <global-content-card-deck-flow nodes=nodes with-teaser=true bottom-leaderboard=bottomLeaderboard title-modifiers=["bold"] />
     </marko-web-query>
   </@page>
@@ -54,7 +59,13 @@ $ const bottomLeaderboard = {
       }
       fragment-name="content-list"
       query-name="all-published-content"
-      query-params={ contentTypes: ["Event"], limit: 18, skip: 18 }
+      query-params={
+        contentTypes: ["Event"],
+        sortField: "startDate",
+        sortOrder: "asc",
+        limit: 18,
+        skip: 18
+      }
       page-input={ for: "published-content" }
     />
   </@below-page>
