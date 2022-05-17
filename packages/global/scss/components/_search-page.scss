@@ -8,8 +8,8 @@
 
 .marko-web-search-sort-by {
   @include media-breakpoint-down(lg) {
+    width: 50%;
     padding-top: 20px;
-    width: 50%
   }
 }
 
@@ -40,6 +40,8 @@
 .marko-web-search-filter-container {
   &__website-section-name {
     margin-bottom: 20px;
+    font-size: 1.75rem;
+    font-weight: 800;
   }
 
   &__title {
@@ -51,11 +53,6 @@
     &--open {
       display: block;
     }
-  }
-
-  &__website-section-name {
-    font-size: 1.75rem;
-    font-weight: 800;
   }
 
   &--sticky {
