@@ -2,6 +2,7 @@ const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
 const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
 const identityX = require('@parameter1/base-cms-marko-web-identity-x');
+const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 
 const document = require('./components/document');
 const components = require('./components');
@@ -12,6 +13,8 @@ const idxRouteTemplates = require('./templates/user');
 const buildNativeXConfig = require('./native-x/build-config');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
+  // Handle submissions on /__inquiry
+  loadInquiry(app);
   // Shared/global routes (all sites)
   sharedRoutes(app, siteConfig);
   // Load site routes.
