@@ -1,4 +1,3 @@
-const inquiryHandler = require('@bizbash-media/package-global/inquiry-handler');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');
@@ -9,8 +8,6 @@ const subscribe = require('./subscribe');
 const websiteSections = require('./website-section');
 
 module.exports = (app, siteConfig) => {
-  inquiryHandler(app);
-
   // Homepage
   home(app);
 

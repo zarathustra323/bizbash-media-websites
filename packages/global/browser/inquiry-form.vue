@@ -1,5 +1,5 @@
 <template>
-  <form v-if="incomplete" @submit.prevent="onSubmit">
+  <form v-if="incomplete" @submit.prevent="submit">
     <div class="form-group">
       <label for="inquiry-given-name" class="required-field">First Name</label>
       <input
@@ -133,16 +133,15 @@
       />
     </div>
 
+    <pre v-if="recaptcha.error" class="alert alert-danger text-danger">
+      A recaptcha error occurred: {{ recaptcha.error.message }}
+    </pre>
     <pre v-if="error" class="alert alert-danger text-danger">An error occurred: {{ error }}</pre>
-    <vue-recaptcha
-      ref="invisibleRecaptcha"
-      size="invisible"
-      :sitekey="sitekey"
-      :load-recaptcha-script="true"
-      @verify="onVerify"
-      @expired="onExpired"
-    />
-    <button type="submit" class="btn btn-block btn-lg btn-primary" :disabled="loading">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      :disabled="loading || recaptcha.loading || recaptcha.error"
+    >
       Submit
     </button>
   </form>
@@ -152,15 +151,15 @@
 </template>
 
 <script>
-import VueRecaptcha from 'vue-recaptcha';
+import recaptchaLoad from '@parameter1/base-cms-marko-web-recaptcha/browser/load';
+import recaptchaGetToken from '@parameter1/base-cms-marko-web-recaptcha/browser/get-token';
 import FormMixin from '@parameter1/base-cms-marko-web-inquiry/browser/form-mixin';
 
 export default {
-  components: { VueRecaptcha },
   inject: ['EventBus'],
   mixins: [FormMixin],
   props: {
-    sitekey: {
+    siteKey: {
       type: String,
       required: true,
     },
@@ -193,19 +192,29 @@ export default {
     eventDate: '',
     eventDescription: '',
     desiredAmenities: '',
+    recaptcha: { loading: false, error: null },
   }),
+
+  created() {
+    console.log('create: ', this.siteKey);
+    this.loadRecaptcha();
+  },
+
   methods: {
-    onSubmit() {
-      this.$refs.invisibleRecaptcha.execute();
+    async loadRecaptcha() {
+      try {
+        this.recaptcha.loading = true;
+        this.recaptcha.error = null;
+        await recaptchaLoad({ siteKey: this.siteKey });
+      } catch (e) {
+        this.recaptcha.error = e;
+      } finally {
+        this.recaptcha.loading = false;
+      }
     },
-    onVerify(response) {
-      this.submit(response);
-    },
-    onExpired() {
-      this.error = 'Timed out validating your submission.';
-      this.loading = false;
-    },
-    async submit(token) {
+    async submit() {
+      console.log('siteKey: ', this.siteKey);
+      const token = await recaptchaGetToken({ siteKey: this.siteKey, action: 'inquirySubmission' });
       const {
         givenName,
         familyName,

@@ -1,7 +1,7 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const content = getAsObject(input, 'content');
-$ const { RECAPTCHA_SITE_KEY } =  process.env;
+$ const { RECAPTCHA_V3_SITE_KEY } =  process.env;
 
 <div class="card">
   <div class="card-header">Request More Information</div>
@@ -12,7 +12,7 @@ $ const { RECAPTCHA_SITE_KEY } =  process.env;
         formClass: 'inquiry-form__form',
         contentId: content.id,
         contentType: content.type,
-        sitekey: RECAPTCHA_SITE_KEY
+        siteKey: RECAPTCHA_V3_SITE_KEY
       } />
   </div>
 </div>
