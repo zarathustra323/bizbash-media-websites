@@ -40,6 +40,7 @@ module.exports = {
     { provider: 'twitter', href: 'https://twitter.com/BizBash' },
     { provider: 'pinterest', href: 'https://www.pinterest.com/bizbash/' },
     { provider: 'youtube', href: 'https://www.youtube.com/c/BizBash' },
+    { provider: 'tiktok', href: 'https://www.tiktok.com/@bizbash' },
   ],
   gtm: {
     containerId: process.env.GTM_CONTAINER_ID || 'GTM-5TWCFJ',
