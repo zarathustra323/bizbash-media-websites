@@ -212,7 +212,6 @@ export default {
       }
     },
     async submit() {
-      console.log('siteKey: ', this.siteKey);
       const token = await recaptchaGetToken({ siteKey: this.siteKey, action: 'inquirySubmission' });
       const {
         givenName,
