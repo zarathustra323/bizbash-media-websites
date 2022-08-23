@@ -196,7 +196,6 @@ export default {
   }),
 
   created() {
-    console.log('create: ', this.siteKey);
     this.loadRecaptcha();
   },
 
