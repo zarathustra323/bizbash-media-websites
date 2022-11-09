@@ -22,6 +22,7 @@ const footerItems = [
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
   { href: '/venue-directory', label: 'Find a Venue' },
   { href: '/supplier-directory', label: 'Find a Supplier' },
+  { href: '/page/privacy-policy', label: 'Privacy Policy' },
 ];
 const tertiaryItems = [
   { href: '/search', label: 'Search', icon: 'search' },
