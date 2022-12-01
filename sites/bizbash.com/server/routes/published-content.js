@@ -1,10 +1,10 @@
-const events = require('@bizbash-media/package-global/templates/published-content/events');
-const supplierEvents = require('@bizbash-media/package-global/templates/published-content/supplier-events');
-const webinars = require('@bizbash-media/package-global/templates/published-content/webinars');
-const whitePapers = require('@bizbash-media/package-global/templates/published-content/white-papers');
-const videos = require('@bizbash-media/package-global/templates/published-content/videos');
-const podcasts = require('@bizbash-media/package-global/templates/published-content/podcasts');
-const documents = require('@bizbash-media/package-global/templates/published-content/documents');
+const events = require('@bizbash-media/package-shared/templates/published-content/events');
+const supplierEvents = require('@bizbash-media/package-shared/templates/published-content/supplier-events');
+const webinars = require('@bizbash-media/package-shared/templates/published-content/webinars');
+const whitePapers = require('@bizbash-media/package-shared/templates/published-content/white-papers');
+const videos = require('@bizbash-media/package-shared/templates/published-content/videos');
+const podcasts = require('@bizbash-media/package-shared/templates/published-content/podcasts');
+const documents = require('@bizbash-media/package-shared/templates/published-content/documents');
 
 module.exports = (app) => {
   app.get('/events', (_, res) => { res.marko(events); });
