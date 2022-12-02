@@ -1,7 +1,7 @@
-const startServer = require('@bizbash-media/package-global/start-server');
-const document = require('@bizbash-media/package-global/components/document');
-const components = require('@bizbash-media/package-global/components');
-const fragments = require('@bizbash-media/package-global/fragments');
+const startServer = require('@bizbash-media/package-shared/start-server');
+const document = require('@bizbash-media/package-shared/components/document');
+const components = require('@bizbash-media/package-shared/components');
+const fragments = require('@bizbash-media/package-shared/fragments');
 
 const routes = require('./server/routes');
 const siteConfig = require('./config/site');

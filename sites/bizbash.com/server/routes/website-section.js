@@ -1,7 +1,7 @@
 const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
 const { getAsObject } = require('@parameter1/base-cms-object-path');
-const section = require('@bizbash-media/package-global/templates/website-section');
-const queryFragment = require('@bizbash-media/package-global/graphql/fragments/website-section-page');
+const section = require('@bizbash-media/package-shared/templates/website-section');
+const queryFragment = require('@bizbash-media/package-shared/graphql/fragments/website-section-page');
 
 const venueDestinationFragment = require('../graphql/fragments/venue-destinations-page');
 const eventplannerschoiceTemplate = require('../templates/website-section/eventplannerschoice');
