@@ -1,6 +1,6 @@
 import Browser from '@parameter1/base-cms-marko-web/browser';
-import Shared from '@bizbash-media/package-global/browser';
+import Global from '@bizbash-media/package-shared/browser';
 
-Shared(Browser);
+Global(Browser);
 
 export default Browser;

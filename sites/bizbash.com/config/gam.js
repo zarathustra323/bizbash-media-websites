@@ -1,69 +1,38 @@
-const GAMConfiguration = require('@parameter1/base-cms-marko-web-gam/config');
+const configureGAM = require('@bizbash-media/package-global/config/gam');
 
-const config = new GAMConfiguration('21802476813');
+const config = configureGAM({ basePath: '' });
 
-config
-  .setTemplate('lb1', {
-    size: [[970, 250], [970, 90], [970, 66], [728, 90], [320, 50], [300, 50], [300, 100]],
-    sizeMapping: [
-      { viewport: [980, 0], size: [[970, 250], [970, 90], [970, 66], [728, 90]] },
-      { viewport: [750, 0], size: [728, 90] },
-      { viewport: [320, 0], size: [[300, 50], [320, 50], [300, 100]] },
-    ],
-  })
-  .setTemplate('lb2', {
-    size: [[970, 90], [728, 90], [300, 50]],
-    sizeMapping: [
-      { viewport: [980, 0], size: [[970, 90], [728, 90]] },
-      { viewport: [750, 0], size: [728, 90] },
-      { viewport: [320, 0], size: [300, 50] },
-    ],
-  })
-  .setTemplate('lb-sticky-bottom', {
-    size: [[970, 90], [728, 90]],
-    sizeMapping: [
-      { viewport: [980, 0], size: [[970, 90], [728, 90]] },
-      { viewport: [0, 0], size: [] },
-    ],
-  })
-  .setTemplate('rail', {
-    size: [[300, 250], [300, 600]],
-  })
-  .setTemplate('video', {
-    size: [[400, 300], [640, 480]],
-  });
+config.lazyLoad = {
+  enabled: true, // set to true to enable lazy loading
+  fetchMarginPercent: 100, // fetch ad when one viewport away
+  renderMarginPercent: 50, // render ad when half viewport away
+  mobileScaling: 2, // double these on mobile
+};
 
-config
-  .setAliasAdUnits('default', [
-    { name: 'lb1', templateName: 'lb1', path: 'default/lb1' },
-    { name: 'lb2', templateName: 'lb2', path: 'default/lb2' },
-    { name: 'lb-sticky-bottom', templateName: 'lb-sticky-bottom', path: 'default/lb1' },
-    { name: 'rail1', templateName: 'rail', path: 'default/rail1' },
-    { name: 'rail2', templateName: 'rail', path: 'default/rail2' },
-    { name: 'load-more', path: 'default/load-more' },
-    { name: 'reskin', path: 'default/reskin' },
-    { name: 'wa', path: 'default/wa' },
-    { name: 'vid', templateName: 'video', path: 'bb_vid' },
-  ]);
+config.setAliasAdUnits('default', [
+  { name: 'lb-sticky-bottom', templateName: 'LB-STICKY-BOTTOM', path: 'default/lb1' },
+  { name: 'leaderboard', templateName: 'LEADERBOARD', path: 'default/lb1' },
+  { name: 'rotation', templateName: 'ROTATION', path: 'rotation' },
+  { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: 'rotation' },
+  { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: 'rotation' },
+  { name: 'rail', templateName: 'RAIL', path: 'default/rail1' },
+  { name: 'rail1', templateName: 'RAIL', path: 'default/rail1' },
+  { name: 'rail2', templateName: 'RAIL', path: 'default/rail2' },
+  // Below based on enableRevealAd
+  // { name: 'reskin', path: 'reskin' },
+]);
 
-const aliases = [
-  'production-strategy',
-  'style-decor',
-  'catering',
-  'bizbash-lists',
-  'local-venues-destinations',
-  'gathergeeks',
-  'hubilo',
-];
+const aliases = [];
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
-  { name: 'lb1', templateName: 'lb1', path: `${alias}/lb1` },
-  { name: 'lb2', templateName: 'lb2', path: `${alias}/lb2` },
-  { name: 'lb-sticky-bottom', templateName: 'lb-sticky-bottom', path: `${alias}/lb1` },
-  { name: 'rail1', templateName: 'rail', path: `${alias}/rail1` },
-  { name: 'rail2', templateName: 'rail', path: `${alias}/rail2` },
-  { name: 'load-more', path: `${alias}/load-more` },
-  { name: 'reskin', path: `${alias}/reskin` },
+  { name: 'leaderboard', templateName: 'LEADERBOARD', path: `${alias}-leaderboard` },
+  { name: 'rotation', templateName: 'ROTATION', path: `${alias}-rotation` },
+  { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: `${alias}-rotation` },
+  { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: `${alias}-rotation` },
+  { name: 'rail', templateName: 'RAIL', path: `${alias}/rail1` },
+  { name: 'rail1', templateName: 'RAIL', path: `${alias}/rail1` },
+  { name: 'rail2', templateName: 'RAIL', path: `${alias}/rail2` },
 ]));
+
 
 module.exports = config;

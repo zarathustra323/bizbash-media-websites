@@ -1,8 +1,6 @@
-const configureNativeX = require('@bizbash-media/package-global/config/native-x');
+const NativeXConfiguration = require('@parameter1/base-cms-marko-web-native-x/config');
 
-const config = configureNativeX(
-  { uri: 'https://bizbash.native-x.parameter1.com' },
-);
+const config = new NativeXConfiguration('https://bizbash.native-x.parameter1.com');
 
 config
   .setAliasPlacements('default', [
