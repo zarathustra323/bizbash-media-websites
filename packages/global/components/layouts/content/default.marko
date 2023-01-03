@@ -200,6 +200,19 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
                   </for>
                 </if>
 
+                <if(type === "media-gallery")>
+                  $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
+                  <if(images.length)>
+                    <div class="page-contents__images">
+                      <for|image, index| of=images>
+                        <div id=`image-${image.id}`>
+                          <theme-primary-image-block block-name="gallery-image" obj=image />
+                        </div>
+                      </for>
+                    </div>
+                  </if>
+                </if>
+
                 <if(displayReadNext)>
                   <theme-read-next-block
                     content-id=id
