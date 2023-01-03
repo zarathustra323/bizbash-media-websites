@@ -15,7 +15,6 @@ const secondaryItems = [
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
-  { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['white'] },
 ];
 
 const footerItems = [
@@ -135,7 +134,6 @@ module.exports = {
         { href: '/bizbash-lists', label: 'BizBash Lists' },
         ...topics,
         { href: '/industry-buzz', label: 'Industry Buzz' },
-        { href: '/hubilo', label: 'BizBash x Hubilo' },
       ],
     },
     {
