@@ -1,0 +1,25 @@
+import { get } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+$ const { site, config } = out.global;
+
+$ const type = "profile";
+$ const title = `${config.siteName()} Profile`;
+$ const description = defaultValue(get(site, "config.completeYourProfileVerbiage"), `Complete your ${config.siteName()} Profile`);
+$ const buttonLabel = defaultValue(get(site, "config.profileSubmitButtonLabel"), "Submit");
+
+<marko-web-default-page-layout type=type title=title description=description>
+  <@head>
+    <marko-web-gtm-default-context|{ context }| type=type>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-default-context>
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section>
+        <h1 class="page-wrapper__title">${description}</h1>
+        <marko-web-identity-x-form-profile button-label=buttonLabel />
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</marko-web-default-page-layout>

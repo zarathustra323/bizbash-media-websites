@@ -1,118 +1,176 @@
+import { getAsObject } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
-import queryFragment from "@bizbash-media/package-shared/graphql/fragments/content-list";
-import latestIssueFragment from "@bizbash-media/package-shared/graphql/fragments/magazine-latest-issue";
+import { getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
-$ const { GAM, nativeX: nxConfig, site } = out.global;
-$ const { id, alias, name, pageNode } = data;
+import websiteSectionContentLoader from "@bizbash-media/package-global/loaders/website-section-content";
 
-<marko-web-website-section-page-layout id=id alias=alias name=name>
-  <@head>
-    <marko-web-gtm-website-section-context|{ context }| alias=alias>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-website-section-context>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      $ const adSlots = {
-        "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-        "gpt-ad-home-rail1": GAM.getAdUnit({ name: "rail1", aliases, size: [300, 600] }),
-        "gpt-ad-home-rail2": GAM.getAdUnit({ name: "rail2", aliases, size: [300, 600] }),
-      };
-       <marko-web-gam-slots slots=adSlots />
-    </marko-web-resolve-page>
-  </@head>
-  <@above-container>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-      <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
-    </marko-web-resolve-page>
-  </@above-container>
-  <@page>
-    <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 5, requiresImage: true, queryFragment }
-    >
-      <global-content-hero-flow nodes=nodes />
-    </marko-web-query>
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="production-strategy" />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="catering-design" />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="event-tech-virtual" />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-webinars-podcasts-block />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="venues-destinations" />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="meetings-trade-shows" />
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col my-block">
-        <global-section-cards-block alias="industry-buzz" display-image=false />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 mb-block">
-        <marko-web-gam-display-ad id="gpt-ad-home-rail1" modifiers=["in-card"] />
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ node: issue }|
-          name="magazine-latest-issue"
-          params={ publicationId: "5b2a4e6c0305572b008b45ae", queryFragment: latestIssueFragment, requiresImage: true  }
-        >
-          <global-magazine-latest-issue-flow issue-node=issue>
-            <@header>
-              <marko-web-magazine-issue-name tag=null obj=issue link=true>
-                In Print
-              </marko-web-magazine-issue-name>
-            </@header>
-          </global-magazine-latest-issue-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-gam-display-ad id="gpt-ad-home-rail2"  modifiers=["in-card"] />
-      </div>
-    </div>
+$ const { config, site } = out.global;
 
-  <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
-  </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-load-more
-        component-name="content-load-more-flow"
-        component-input={ aliases }
-        fragment-name="content-list"
-        query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 14, skip: 5, requiresImage: true }
-        max-pages=0
-        page-input={ for: "website-section", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page>
-  <@foot>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      <global-fixed-ad-bottom aliases=hierarchyAliases(section) />
-    </marko-web-resolve-page>
-  </@foot>
-</marko-web-website-section-page-layout>
+$ const loader = getAsObject(input, "loader");
+$ const { id, alias, name, pageNode } = input;
+$ const sections = getAsArray(input, "sections");
+$ const excludedSectionIds = [];
+$ const { GAM, apollo, i18n } = out.global;
+
+$ const rightRailHeader = defaultValue(input.rightRailHeader, "Latest News");
+
+$ const promise = websiteSectionContentLoader(apollo, {
+  sectionId: id,
+  featuredParams: { ...loader.featuredParams, limit: 5 },
+  standardParams: loader.standardParams,
+  withStandardQuery: false,
+});
+<marko-web-resolve|{ resolved: sectionContent }| promise=promise>
+  $ const { featured, standard, ids } = sectionContent;
+  <theme-website-section-page id=id alias=alias name=name>
+    <@head>
+      <marko-web-gtm-website-section-context|{ context }| alias=alias>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-website-section-context>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        <marko-web-p1-events-track-website-section node=section />
+      </marko-web-resolve-page>
+      <${input.head} />
+    </@head>
+    <if(GAM.enableRevealAd)>
+      <@above-container>
+        <marko-web-resolve-page|{ data: content }| node=pageNode>
+          $ const aliases = hierarchyAliases(content.primarySection);
+          <theme-reveal-ad-handler select-all-targets=true path=GAM.getAdUnit({ name: "reskin", aliases }).path id="reveal-ad" />
+          <!-- <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) /> -->
+        </marko-web-resolve-page>
+      </@above-container>
+    </if>
+    <@page>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        $ const aliases = hierarchyAliases(section);
+        <marko-web-page-wrapper>
+
+          <@section class=["mt-3", "mb-3"]>
+            <div class="row">
+              <div class="col-lg-8">
+                $ const heroNode = featured.nodes.slice(0, 1)[0];
+                $ const heroImageNode = {
+                  id: heroNode.id,
+                  type: heroNode.type,
+                  siteContext: heroNode.siteContext,
+                  primaryImage: heroNode.primaryImage,
+                };
+                $ const featuredCardNodes = featured.nodes.slice(1);
+                $ const cardNodes = featured.nodes.slice(1);
+                <marko-web-element block-name="top-story" name="row">
+                  <marko-web-element block-name="top-story" name="col" modifiers=["hero"]>
+                    <theme-content-node
+                      image-position="top"
+                      card=true
+                      flush=true
+                      image-only=true
+                      modifiers=["top-story-hero-image"]
+                      node=heroImageNode
+                    >
+                      <@image fluid=true width=685 ar="3:2" lazyload=false />
+                    </theme-content-node>
+                  </marko-web-element>
+                  <marko-web-element block-name="top-story" name="col" modifiers=["list"]>
+                    <theme-content-node
+                      full-height=true
+                      card=true
+                      display-image=false
+                      flush=true
+                      with-dates=false
+                      modifiers=["top-story-hero"]
+                      node=heroNode
+                    />
+                  </marko-web-element>
+                </marko-web-element>
+              </div>
+              <div class="col-lg-4 page-rail">
+                $ const featuredNodes = featured.nodes.slice(1, 5);
+                <theme-latest-content-list-block nodes=featuredNodes title="">
+                  <@native-x indexes=[2] name="default" aliases=aliases />
+                  <@node with-section=true with-dates=false />
+                </theme-latest-content-list-block>
+              </div>
+            </div>
+          </@section>
+
+          <@section|{ aliases }|>
+            <theme-gam-define-display-ad
+              name="leaderboard"
+              position="home_page"
+              aliases=aliases
+              modifiers=["inter-block"]
+            />
+          </@section>
+
+          <@section modifiers=["background-color"]>
+            <theme-section-card-list-block
+              alias="on-demand/gathergeeks"
+              description="A place where people passionate about the power of live experiences come together."
+              button-class="btn btn-primary"
+            />
+          </@section>
+
+          <@section>
+            <theme-section-forbes-block alias="production-strategy" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <!-- <@section modifiers=["background-color"]>
+            <theme-section-card-list-block
+              alias="white-papers"
+              description="The latest white papers & e-books from BizBash"
+              button-class="btn btn-primary"
+            />
+          </@section> -->
+
+          <@section>
+            <theme-section-forbes-block alias="catering-design" query-params={ excludeContentIds: ids } reverse=true />
+          </@section>
+
+          <@section modifiers=["background-color"]>
+            <theme-content-card-deck-block
+              alias="on-demand/webinars-virtual-events"
+              with-native-x=true
+              native-x={ name: "webinars", index: 0 }
+            >
+              <@node withSection=false />
+            </theme-content-card-deck-block>
+          </@section>
+
+          <@section>
+            <theme-section-forbes-block alias="event-tech-virtual" query-params={ excludeContentIds: ids } reverse=true />
+          </@section>
+
+          $ const publicationIds = site.get("magazine.publicationIds");
+          <if(publicationIds.length)>
+            <@section>
+              <theme-magazine-issues-block publication-id=publicationIds[0] />
+            </@section>
+          </if>
+
+          <@section>
+            <theme-section-forbes-block alias="venues-destinations" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <@section modifiers=["background-color"]>
+            <global-industry-buzz-block
+              alias="industry-buzz"
+              view-more="View More"
+            />
+          </@section>
+
+          <@section>
+            <theme-section-forbes-block alias="meetings-trade-shows" query-params={ excludeContentIds: ids } reverse=true />
+          </@section>
+
+        </marko-web-page-wrapper>
+      </marko-web-resolve-page>
+    </@page>
+    <@foot>
+      <marko-web-resolve-page|{ data: section }| node=pageNode>
+        <theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+      </marko-web-resolve-page>
+    </@foot>
+  </theme-website-section-page>
+</marko-web-resolve>

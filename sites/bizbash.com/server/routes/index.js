@@ -1,18 +1,13 @@
+const directory = require('@bizbash-media/package-global/routes/directory');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');
-const magazine = require('./magazine');
 const publishedContent = require('./published-content');
-const search = require('./search');
-const subscribe = require('./subscribe');
 const websiteSections = require('./website-section');
 
-module.exports = (app, siteConfig) => {
+module.exports = (app) => {
   // Homepage
   home(app);
-
-  // Magazine Pages
-  magazine(app);
 
   // Dynamic Pages
   dynamicPages(app);
@@ -20,15 +15,11 @@ module.exports = (app, siteConfig) => {
   // Content Pages
   content(app);
 
-  // Published Content Pages
+  // Directory Pages have to happen after content or they wont match
+  directory(app, 'resources/vendors');
+
   publishedContent(app);
 
-  // Search
-  search(app);
-
-  // Subscription Pages
-  subscribe(app);
-
   // Website Sections
-  websiteSections(app, siteConfig);
+  websiteSections(app);
 };

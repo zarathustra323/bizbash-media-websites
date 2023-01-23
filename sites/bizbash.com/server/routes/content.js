@@ -1,35 +1,27 @@
-const { withContent } = require('@parameter1/base-cms-marko-web/middleware');
-const queryFragment = require('@bizbash-media/package-shared/graphql/fragments/content-page');
-const companyQueryFragment = require('@bizbash-media/package-shared/graphql/fragments/content-company');
-const contactQueryFragment = require('@bizbash-media/package-shared/graphql/fragments/content-contact');
-const company = require('@bizbash-media/package-shared/templates/content/company');
-const content = require('@bizbash-media/package-shared/templates/content');
-const contact = require('@bizbash-media/package-shared/templates/content/contact');
-const venueSupplier = require('@bizbash-media/package-shared/templates/content/venue-supplier');
-const document = require('@bizbash-media/package-shared/templates/content/document');
+const withContent = require('@bizbash-media/package-global/middleware/with-content');
+const queryFragment = require('@bizbash-media/package-global/graphql/fragments/content-page');
+const contact = require('@bizbash-media/package-global/templates/content/contact');
+const company = require('../templates/content/company');
+const whitepaper = require('../templates/content/whitepaper');
+const content = require('../templates/content');
 
 module.exports = (app) => {
-  app.get('/*?company/:id(\\d{8})*', withContent({
-    template: company,
-    queryFragment: companyQueryFragment,
-  }));
   app.get('/*?contact/:id(\\d{8})*', withContent({
     template: contact,
-    queryFragment: contactQueryFragment,
-  }));
-  app.get('/*?venue/:id(\\d{8})*', withContent({
-    template: venueSupplier,
     queryFragment,
   }));
-  app.get('/*?supplier/:id(\\d{8})*', withContent({
-    template: venueSupplier,
+
+  app.get('/*?company/:id(\\d{8})*', withContent({
+    template: company,
     queryFragment,
   }));
-  app.get('/*?document/:id(\\d{8})*', withContent({
-    template: document,
+
+  app.get('/*?whitepaper/:id(\\d{8})*', withContent({
+    template: whitepaper,
     queryFragment,
   }));
-  app.get('/*?:id(\\d{8})*', withContent({
+
+  app.get('/*?/:id(\\d{8})/*|/:id(\\d{8})(/|$)', withContent({
     template: content,
     queryFragment,
   }));

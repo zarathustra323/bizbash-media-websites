@@ -1,36 +1,41 @@
-const sectionListLayouts = require('./sectionListLayouts');
-const navigation = require('./navigation');
+const gam = require('./gam');
 const identityX = require('./identity-x');
 const nativeX = require('./native-x');
-const gam = require('./gam');
+const navigation = require('./navigation');
+const newsletter = require('./newsletter');
 const search = require('./search');
 
 module.exports = {
-  sectionListLayouts,
-  navigation,
-  nativeX,
-  identityX,
+  // Module configs
   gam,
+  identityX,
+  nativeX,
+  navigation,
+  newsletter,
   search,
+  // Site configs
   company: 'Connect Biz, LLC',
-  publishedContent: {
-    webinars: {
-      title: 'Webinars',
-      description: '<p>BizBash is excited to bring our audience the latest knowledge and innovation from #eventprofs with our webinars and virtual showcases. Take a look at the latest trends in event tech, design, food and beverage, and more!</p><p>Looking to host a webinar with BizBash? Inquire <a href="https://www.bizbashlive.com/advertise" title="Advertise with Bizbash">here</a>.</p><p>Interested in sharing your insights with the BizBash virtual audience? Submit to speak <a href="https://www.bizbash.com/production-strategy/programming-entertainment/article/21109266/call-for-speakers-how-should-event-planners-kick-off-a-new-decade" title="Call for Speaking">here</a>.</p>',
-    },
+  p1events: {
+    tenant: 'bizbash',
+    enabled: true,
+    cookieDomain: process.env.NODE_ENV === 'production' ? 'bizbash.com' : '',
   },
   logos: {
     navbar: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=120 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress&dpr=2 2x',
       ],
+      width: '198',
+      height: '60',
     },
     footer: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-footer-tagline.png?h=90',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-footer-tagline.png?h=180 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress&dpr=2 2x',
       ],
+      width: '149',
+      height: '45',
     },
   },
   socialMediaLinks: [
@@ -42,20 +47,9 @@ module.exports = {
     { provider: 'youtube', href: 'https://www.youtube.com/c/BizBash' },
     { provider: 'tiktok', href: 'https://www.tiktok.com/@bizbash' },
   ],
+  podcastLinks: [],
   gtm: {
-    containerId: process.env.GTM_CONTAINER_ID || 'GTM-5TWCFJ',
-  },
-  wufoo: {
-    userName: 'NOT_SET',
-  },
-  magazines: {
-    description: 'We cover the event industry like no other including: planning, production, new openings, events and trends in marketing, design and style. BizBash also offers resources for event professionals like our venues and suppliers directory, trade shows, and magazines.',
-  },
-  contactUs: {
-    branding: {
-      bgColor: '#005ea0', // @todo Move to styling!
-      logo: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/site_logo.png?h=60',
-    },
+    containerId: 'GTM-5TWCFJ',
   },
   inquiry: {
     enabled: true,
@@ -75,5 +69,19 @@ module.exports = {
       'hello@weare4evr.com',
       'hello@weare4EVR.com',
     ],
+  },
+  setSearchSortFieldToScore: false,
+  publishedContent: {
+    webinars: {
+      title: 'Webinars',
+      description: '<p>BizBash is excited to bring our audience the latest knowledge and innovation from #eventprofs with our webinars and virtual showcases. Take a look at the latest trends in event tech, design, food and beverage, and more!</p><p>Looking to host a webinar with BizBash? Inquire <a href="https://www.bizbashlive.com/advertise" title="Advertise with Bizbash">here</a>.</p><p>Interested in sharing your insights with the BizBash virtual audience? Submit to speak <a href="https://www.bizbash.com/production-strategy/programming-entertainment/article/21109266/call-for-speakers-how-should-event-planners-kick-off-a-new-decade" title="Call for Speaking">here</a>.</p>',
+    },
+    whitepapers: {
+      title: 'Whitepapers & eBooks',
+      description: '',
+    },
+  },
+  magazine: {
+    publicationIds: ['5b2a4e6c0305572b008b45ae'],
   },
 };

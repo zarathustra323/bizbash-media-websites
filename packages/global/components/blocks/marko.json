@@ -1,0 +1,32 @@
+{
+  "taglib-imports": [
+    "./load-more/marko.json"
+  ],
+  "<global-newsletter-signup-banner-large-block>": {
+    "template": "./newsletter-signup-banner-large.marko"
+  },
+  "<global-content-meter-block>": {
+    "template": "./content-meter.marko"
+  },
+  "<global-most-popular-list-block>": {
+    "template": "./most-popular-list.marko"
+  },
+  "<global-native-x-announcement-block>": {
+    "template": "./native-x-announcement.marko"
+  },
+  "<global-industry-buzz-block>": {
+    "template": "./industry-buzz.marko"
+  },
+  "<global-venue-capacity>": {
+    "template": "./venue-capacity.marko",
+    "@spaces": "array"
+  },
+  "<global-inquiry-form>": {
+    "template": "./inquiry-form.marko",
+    "@content": "object"
+  },
+  "<global-image-slider>": {
+    "template": "./image-slider.marko",
+    "@images" : "array"
+  }
+}
