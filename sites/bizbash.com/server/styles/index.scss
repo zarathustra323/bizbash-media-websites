@@ -161,11 +161,11 @@ $theme-page-deck-color: #6b7280;
         padding-left: 0;
       }
       &__right {
-        .marko-web-icon svg {  /* stylelint-disable-line selector-max-combinators */
+        .marko-web-icon svg { /* stylelint-disable-line selector-max-combinators,selector-max-compound-selectors */
           fill: #f8fafc;
         }
         .btn,
-        #{ $self }__toggler { /* stylelint-disable-line selector-max-combinators */
+        #{ $self }__toggler { /* stylelint-disable-line selector-max-combinators,selector-max-compound-selectors */
           background-color: $primary;
         }
       }
