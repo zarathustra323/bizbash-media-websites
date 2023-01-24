@@ -1,0 +1,8 @@
+.page-contents {
+  .primary-image {
+    &__image-credit:before {
+      content: "";
+      display: none;
+    }
+  }
+}
