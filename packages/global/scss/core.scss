@@ -458,6 +458,9 @@ label {
     @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
       font-size: 36px;
     }
+  a {
+      color: #1f2937;
+    }
   }
   &__view-more {
     font-size: 18px;
