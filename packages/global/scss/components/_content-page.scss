@@ -1,8 +1,17 @@
 .page-contents {
   .primary-image {
-    &__image-credit:before {
-      content: "";
-      display: none;
+    $self: &;
+
+    &__image-caption {
+      @include theme-media-caption();
+    }
+
+    &__image-credit {
+      @include theme-media-credit();
+    }
+
+    > :last-child:not(#{ $self }__wrapper) {
+      border-bottom: 1px solid #ccc;
     }
   }
 }
