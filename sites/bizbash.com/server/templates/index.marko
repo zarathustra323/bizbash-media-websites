@@ -107,13 +107,14 @@ $ const promise = websiteSectionContentLoader(apollo, {
           <@section modifiers=["background-color"]>
             <theme-section-card-list-block
               alias="on-demand/gathergeeks"
+              link-header=true
               description="A place where people passionate about the power of live experiences come together."
               button-class="btn btn-primary"
             />
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="production-strategy" with-sponsored=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="production-strategy" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
           </@section>
 
           <!-- <@section modifiers=["background-color"]>
@@ -125,12 +126,13 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section> -->
 
           <@section>
-            <theme-section-forbes-block alias="catering-design" with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="catering-design" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
           <@section modifiers=["background-color"]>
             <theme-content-card-deck-block
               alias="on-demand/webinars-virtual-events"
+              link-header=true
               with-native-x=true
               native-x={ name: "webinars", index: 0 }
             >
@@ -139,29 +141,34 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="event-tech-virtual" with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="event-tech-virtual" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
           $ const publicationIds = site.get("magazine.publicationIds");
           <if(publicationIds.length)>
             <@section>
-              <theme-magazine-issues-block publication-id=publicationIds[0] />
+              <theme-magazine-issues-block
+                alias="magazine"
+                link-header=true
+                publication-id=publicationIds[0]
+              />
             </@section>
           </if>
 
           <@section>
-            <theme-section-forbes-block alias="venues-destinations" with-sponsored=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="venues-destinations" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
           </@section>
 
           <@section modifiers=["background-color"]>
             <global-industry-buzz-block
               alias="industry-buzz"
+              link-header=true
               view-more="View More"
             />
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="meetings-trade-shows" with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="meetings-trade-shows" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
         </marko-web-page-wrapper>
