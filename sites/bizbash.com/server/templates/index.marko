@@ -114,7 +114,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="production-strategy" link-header=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="production-strategy" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
           </@section>
 
           <!-- <@section modifiers=["background-color"]>
@@ -126,7 +126,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section> -->
 
           <@section>
-            <theme-section-forbes-block alias="catering-design" link-header=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="catering-design" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
           <@section modifiers=["background-color"]>
@@ -141,7 +141,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="event-tech-virtual" link-header=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="event-tech-virtual" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
           $ const publicationIds = site.get("magazine.publicationIds");
@@ -156,8 +156,8 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </if>
 
           <@section>
-            <theme-section-forbes-block alias="venues-destinations" link-header=true query-params={ excludeContentIds: ids } />
-           </@section>
+            <theme-section-forbes-block alias="venues-destinations" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
+          </@section>
 
           <@section modifiers=["background-color"]>
             <global-industry-buzz-block
@@ -168,7 +168,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="meetings-trade-shows" link-header=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="meetings-trade-shows" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
         </marko-web-page-wrapper>
