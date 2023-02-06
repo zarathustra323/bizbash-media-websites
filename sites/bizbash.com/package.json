@@ -26,7 +26,7 @@
     "@parameter1/base-cms-marko-web-native-x": "^3.20.0",
     "@parameter1/base-cms-marko-web-p1-events": "^3.20.0",
     "@parameter1/base-cms-marko-web-reveal-ad": "^3.0.0",
-    "@parameter1/base-cms-marko-web-theme-monorail": "^3.23.0",
+    "@parameter1/base-cms-marko-web-theme-monorail": "^3.23.1",
     "@parameter1/base-cms-marko-web-theme-monorail-magazine": "^3.23.0",
     "@parameter1/base-cms-object-path": "^3.0.0",
     "@parameter1/base-cms-utils": "^3.0.0",
