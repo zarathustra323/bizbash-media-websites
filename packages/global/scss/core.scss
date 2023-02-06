@@ -454,7 +454,7 @@ label {
 .section-card-list,
 .magazine-issues,
 .industry-buzz  {
-  &__header {
+  &__header, &__title {
     font-size: 48px;
     @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
       font-size: 36px;
