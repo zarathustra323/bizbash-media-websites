@@ -108,7 +108,9 @@ $ const promise = websiteSectionContentLoader(apollo, {
           <@section modifiers=["row-reverse"]>
             <theme-content-card-deck-block
               query-params={ limit: 3, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment }
+              query-name="all-published-content"
               title="White Papers & E-books"
+              link-header=true
             >
               <@node withSection=false />
               <@link href="/white-papers" />
