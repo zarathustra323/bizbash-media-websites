@@ -216,6 +216,7 @@ module.exports = {
       items: [
         ...topics,
         { href: '/industry-buzz', label: 'Industry Buzz' },
+        { href: '/bizbash-lists', label: 'BizBash Lists' },
       ],
     },
     midColumn: {
