@@ -211,6 +211,13 @@ $theme-page-deck-color: #6b7280;
     max-width: 1000px;
   }
   &__section {
+    &--row-reverse {
+      .content-card-deck {
+        .card-deck-flow {
+          flex-direction: row-reverse;
+        }
+      }
+    }
     &--background-color {
       .section-card-list,
       .content-card-deck {
