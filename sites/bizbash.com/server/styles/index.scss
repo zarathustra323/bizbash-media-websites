@@ -112,7 +112,7 @@ $theme-site-navbar-primary-font-weight: 600;
 
 $theme-page-deck-color: #6b7280;
 
-@import "../../node_modules/@bizbash-media/package-global/scss/core";
+@import "@bizbash-media/package-global/scss/core";
 
 .document-container {
   background-color: transparent;
