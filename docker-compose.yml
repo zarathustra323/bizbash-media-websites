@@ -65,12 +65,10 @@ services:
     <<: *site-cmd
     working_dir: /root/sites/bizbash.com
     environment:
-      <<: [*env, *env-tauron]
+      <<: *env
       PORT: 80
       EXPOSED_PORT: 12195
       LIVERELOAD_PORT: 35195
-      TENANT_KEY: bizbash_bzb
-      SITE_ID: 5b295afea1c1c62c008b4572
     ports:
       - "12195:80"
       - "35195:35195"
