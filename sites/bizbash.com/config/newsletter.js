@@ -1,4 +1,3 @@
-
 const defaults = {
   // disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Don’t Miss Out',
