@@ -14,6 +14,7 @@ const resources = [
   { href: '/white-papers', label: 'White Papers & E-Books' },
   { href: '/on-demand/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
+  { href: '/events', label: 'Events' },
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
