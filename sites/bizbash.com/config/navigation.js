@@ -77,14 +77,14 @@ const mobileMenu = {
 module.exports = {
   promos: [
     {
-      title: 'Events',
-      callToActionB: 'Events',
-      link: 'https://www.bizbash.com/events',
-    },
-    {
       title: 'Advertise',
       callToActionA: 'Advertise',
       link: 'https://www.bizbash.com/page/advertise-with-us',
+    },
+    {
+      title: 'Events',
+      callToActionB: 'Events',
+      link: 'https://www.bizbash.com/events',
     },
   ],
   user: {
