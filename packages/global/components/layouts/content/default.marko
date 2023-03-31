@@ -42,7 +42,7 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
           <theme-content-attribution obj=content elements=["authors"] />
         </else-if>
       </if>
-      <if(type === "event")>
+      <if(type === "event" || ["venue", "supplier"].includes(type))>
         <theme-page-dates|{ blockName }|>
           <marko-web-content-starts tag="span" block-name=blockName obj=content />
           <if(content.starts !== content.ends)>
