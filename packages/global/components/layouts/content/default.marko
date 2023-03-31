@@ -42,7 +42,7 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
           <theme-content-attribution obj=content elements=["authors"] />
         </else-if>
       </if>
-      <if(type === "event" || ["venue", "supplier"].includes(type))>
+      <if(type === "event")>
         <theme-page-dates|{ blockName }|>
           <marko-web-content-starts tag="span" block-name=blockName obj=content />
           <if(content.starts !== content.ends)>
@@ -50,7 +50,7 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
           </if>
         </theme-page-dates>
       </if>
-      <else-if(displayPublishedDate && authors.length !== 1)>
+      <else-if(displayPublishedDate && !["venue", "supplier"].includes(type) && authors.length !== 1)>
         <theme-page-dates|{ blockName }|>
           <theme-content-published-node block-name=blockName obj=content display-updated-date=false format="MMMM D, YYYY" />
         </theme-page-dates>
