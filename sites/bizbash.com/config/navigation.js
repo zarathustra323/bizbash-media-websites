@@ -16,13 +16,12 @@ const resources = [
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
   { href: '/events', label: 'Events' },
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
-  { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
 ];
 
 const utilities = [
   { href: 'https://www.bizbash.com/page/about-us', label: 'About Us' },
-  { href: 'https://www.bizbash.com/page/advertise-with-us', label: 'Advertise With Us' },
+  { href: 'https://www.bizbash.com/page/advertise-with-us', label: 'Advertise' },
   { href: 'https://www.bizbash.com/page/get-featured', label: 'Get Featured' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
@@ -78,8 +77,8 @@ const mobileMenu = {
 module.exports = {
   promos: [
     {
-      title: 'Advertise With Us',
-      callToActionA: 'Advertise With Us',
+      title: 'Advertise',
+      callToActionA: 'Advertise',
       link: 'https://www.bizbash.com/page/advertise-with-us',
     },
     {
