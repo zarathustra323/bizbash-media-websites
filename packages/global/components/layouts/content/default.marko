@@ -50,7 +50,7 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
           </if>
         </theme-page-dates>
       </if>
-      <else-if(displayPublishedDate && !["venue", "supplier"].includes(type) && authors.length !== 1)>
+      <else-if(displayPublishedDate && authors.length !== 1)>
         <theme-page-dates|{ blockName }|>
           <theme-content-published-node block-name=blockName obj=content display-updated-date=false format="MMMM D, YYYY" />
         </theme-page-dates>
