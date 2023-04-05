@@ -608,3 +608,7 @@ label {
 .marko-web-search-sort-by {
   visibility: hidden;
 }
+
+div[id*="div-gpt-ad"]:has(div[id*="/wa"]) {
+  height: 0;
+}
