@@ -21,9 +21,9 @@ const resources = [
 ];
 
 const utilities = [
-  { href: 'https://www.bizbash.com/page/about-us', label: 'About Us' },
-  { href: 'https://www.bizbash.com/page/advertise-with-us', label: 'Advertise' },
-  { href: 'https://www.bizbash.com/page/get-featured', label: 'Get Featured' },
+  { href: '/page/about-us', label: 'About Us' },
+  { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
+  { href: '/page/get-featured', label: 'Get Featured' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
 ];
@@ -80,7 +80,7 @@ module.exports = {
     {
       title: 'Advertise',
       callToActionA: 'Advertise',
-      link: 'https://www.bizbash.com/page/advertise-with-us',
+      link: '/page/build-your-brand-with-bizbash',
     },
     {
       title: 'Events',
