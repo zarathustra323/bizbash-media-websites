@@ -8,6 +8,8 @@ const topics = [
   { href: '/venues-destinations', label: 'Venues & Destinations' },
   { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
   { href: '/bizbash-sports', label: 'BizBash Sports' },
+  { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
+  { href: 'https://www.bizbash.com/events', label: 'Events' },
 ];
 
 const resources = [
@@ -76,18 +78,7 @@ const mobileMenu = {
 };
 
 module.exports = {
-  promos: [
-    {
-      title: 'Advertise',
-      callToActionA: 'Advertise',
-      link: '/page/build-your-brand-with-bizbash',
-    },
-    {
-      title: 'Events',
-      callToActionB: 'Events',
-      link: 'https://www.bizbash.com/events',
-    },
-  ],
+  promos: [],
   user: {
     items: [
       // {
