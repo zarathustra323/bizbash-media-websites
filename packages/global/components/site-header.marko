@@ -59,7 +59,8 @@ $ const headerColClass = promos ? `col-lg-${4 - promos.slice(1).length}` : "col-
         </for>
       </div>
     </if>
-    <div class=`${headerColClass} site-navbar__center`>
+    <div class="col-lg-4 site-navbar__left" />
+    <div class="col-lg-4 site-navbar__center">
       <theme-site-navbar-brand title=`${config.website("name")} Homepage`>
         <theme-site-navbar-logo
           alt=config.website("name")
@@ -68,7 +69,7 @@ $ const headerColClass = promos ? `col-lg-${4 - promos.slice(1).length}` : "col-
         />
       </theme-site-navbar-brand>
     </div>
-    <div class=`${headerColClass} site-navbar__right`>
+    <div class="col-lg-4 site-navbar__right">
       <marko-web-link href="/search">
         <button class="btn btn-lg" type="submit" aria-label="Search">
           <marko-web-icon name="search" modifiers=["dark"] />
