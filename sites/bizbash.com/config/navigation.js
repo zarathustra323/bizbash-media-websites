@@ -9,7 +9,7 @@ const topics = [
   { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
   { href: '/bizbash-sports', label: 'BizBash Sports' },
   { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
-  { href: 'https://www.bizbash.com/events', label: 'Events' },
+  { href: '/events', label: 'Events' },
 ];
 
 const resources = [
